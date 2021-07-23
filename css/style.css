@@ -1,0 +1,137 @@
+html,body{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size:16px;
+    line-height:28px;
+    font-weight:400;
+    letter-spacing:0.5px;
+    color: #ffffff;
+}
+
+/* Header Navigation */
+.section1{
+    position:relative;
+    background-color: #0E1726;
+}
+
+.section1::before{
+    content: '';
+    position:absolute;
+    top: -200px;
+    right: 0;
+    bottom: 0;
+    left: -200px;
+    background-image: url(../images/bggradient.png), url(../images/Line.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    opacity:0.6;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    line-height: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:active{
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:focus{
+    color: rgba(255, 255, 255, 1);
+}
+
+.navbar .navbar-nav .nav-item{
+    margin-left: 20px;
+}
+
+
+.container{
+    max-width: 1040px !important;
+}
+
+
+/* Section 1 BPAKM Style */
+.quote{
+    position: relative;
+}
+
+
+.bg-dark{
+    background-color:#0E1726 !important;
+}
+
+.aboutbpakm{
+    text-align:left;
+    font-weight: 600;
+    font-size:13px;
+    line-height:23px;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    padding-left: 22px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.titlepage{
+    text-align:left;
+    font-weight:600;
+    font-size: 110px;
+    line-height: 110px;
+    padding-top: 12px;
+}
+
+.aboutdesc{
+    padding-top: 12px;
+    text-align:left;
+    font-weight:400;
+    font-size:14px;
+    line-height:27px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media only screen and (max-width: 600px) {
+    .titlepage{
+        font-size: 85px;
+    }
+    .aboutdesc{
+        font-size: 12px;
+    }
+    .navbar{
+        z-index: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .quote::before{
+        content:'';
+        position:absolute;
+        top: -10px;
+        right: 0;
+        bottom: 0;
+        left: -606px;
+        background-image: url(../images/left_quote.png);
+        background-size: 58px;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    
+    .quote::after{
+        content:'';
+        position:absolute;
+        top: 200px;
+        right: -560px;
+        bottom: 0;
+        left: 0px;
+        background-image: url(../images/right_quote.png);
+        background-size: 58px;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+}
