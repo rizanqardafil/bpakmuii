@@ -218,19 +218,187 @@ a{
 }
 
 /* Section Tata cara peminjaman */
-.tatacarapeminjaman{
+.previewimage{
+    margin-top:90px;
+}
+.previewimage img{
     width:100%;
-    height:1300px;
-    overflow:hidden;
-    position: relative;
 }
 
-.tatacarapeminjaman .products-image{
-    width:100%;
-    height:100%;
-    background-position: top;
-    background-size: contain;
+/* section Artikel */
+.card-kegiatankami .card-body .card-date{
+    font-size:12px;
+    color: #1A1A1A;
+    opacity: 0.3;
+}
+
+.card-artikel .card-body .card-text{
+    font-size:14px;
+    line-height:26px;
+    color: #737B7D;
+}
+
+.author-section{
+    padding:1rem;
+}
+
+.author-section .c-details{
+    max-width: 115px;
+}
+
+.author-section .c-details h6{
+    font-weight: 600;
+    font-size: 12px;
+    line-height:18px;
+    color: #044BD9;
+}
+
+.author-section .lihatlebih{
+    font-size:11px;
+    display: flex;
+    align-items:center;
+    color:#044BD9;
+    font-weight:600;
+}
+
+.author-section .image img{
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+
+/* Section Footer */
+.footer-bg{
+    position:relative;
+    background-color: #0E1726;
+    z-index: 1;
+}
+
+.footer-bg::before{
+    content: '';
+    position:absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: -200px;
+    background-image: url(../images/bggradient.png), url(../images/Line.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: top center;
+    opacity:0.6;
+    z-index: -1;
+}
+.footer-section{
+    padding-top: 75px;
+}
+
+.footer-left{
+    margin-bottom: 30px;
+}
+
+.text-left{
+    text-align:left !important;
+}
+
+.footer-left .footer-logo{
+    margin-bottom: 24px;
+}
+
+.footer-left .footer-logo a{
+    display: inline-block;
+}
+
+.footer-left .footer-logo img{
+    height:45px !important;
+}
+
+.footer-left .footer-desc-bpa{
+    font-size:16px;
+    line-height:24px;
+    color: #ffffff;
+    opacity: 0.8;
+    font-weight:lighter !important;
+}
+
+.footer-left .footer-social{
+    padding-top: 25px;
+}
+
+.footer-left .footer-social a{
+    display: inline-block;
+    height:40px;
+    width:40px;
+    background:#ffffff;
+    color: #044BD9;
+    text-align: center;
+    line-height:40px;
+    border-radius: 50%;
+    margin-right: 7px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-left .footer-social a:hover{
+    background:#044BD9;
+    color:#fff;
+    transition:0.3s;
+}
+
+.footer-widget{
+    margin-bottom:30px;
+}
+
+.footer-widget h5{
+    color:#fff;
+    font-weight:600;
+    margin-bottom:26px;
+}
+
+.footer-widget ul{
+    padding: 0;
+    margin: 0;
+}
+
+.footer-widget ul li{
+    list-style: none;
+}
+
+.footer-widget ul li a{
+    line-height:36px;
+    font-size:16px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.footer-widget ul li a:hover{
+    line-height:36px;
+    font-size:16px;
+    color: #fff;
+    opacity: 1;
+}
+
+.copyright-reserved{
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding:15px 0px;
+    margin-top: 45px;
+}
+
+.copyright-reserved .copyright-text{
+    float: center;
+    font-size:16px;
+    color: #fff;
+    opacity: 0.6;
+}
+.copyright-reserved .copyright-text span{ 
+    float: center;
+    font-size:16px;
+    color: #044BD9;
 }
 
 /* Mobile Style */
