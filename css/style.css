@@ -9,7 +9,6 @@ html,body{
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
 }
 
 a{
@@ -136,6 +135,15 @@ a{
 
 .card-kegiatankami .card{
     margin-top:5.6rem;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+    border-radius: 1rem !important;
+}
+
+.card-kegiatankami .card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
 .card-body .card-title{
@@ -156,8 +164,8 @@ a{
     overflow: hidden;
     position: relative;
     z-index: 1;
-    border-top-right-radius: 0.25rem;
-    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
 }
 
 .card-kegiatankami .component-products .products-thumbnail .products-image{
@@ -203,6 +211,21 @@ a{
     position: relative;
     z-index: 1;
 }
+
+.component-products .products-thumbnail .zoom{
+    position: inherit;
+    overflow:hidden;
+    transition:all 0.3s;
+    -webkit-transition:all 0.3s;
+    -moz-transition: all 0.3s;
+}
+
+.component-products .products-thumbnail .zoom:hover{
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1); 
+}
+
 
 .component-products .products-thumbnail .products-image{
     width:100%;
