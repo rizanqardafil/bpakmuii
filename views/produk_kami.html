@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Beranda</title>
+    <!-- Poppins Font -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <!-- Bootstrap file -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body>
+
+    <div>
+
+        <!-- Header Code -->
+        <section class="section1" data-aos="fade-down" data-aos-duration="2000">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand">
+                        <img class="img-fluid" src="../images/logoBPAKMUII.png" alt="Logo BPA KM UII" width="150">
+                    </a>
+
+                    <!-- Hamburger button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navmenu">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link">Beranda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="produk_kami.html" class="nav-link active">Produk Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Investor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Galeri</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Artikel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Tentang Kami</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <!-- Search Section -->
+        <section class="section2">
+
+            <!-- Search Card Section -->
+            <form action="#" class="container mx-auto mb-5 pt-5" data-aos="fade-up" data-aos-duration="2000">
+                <div class="row d-flex searchbox-custom">
+                    <div class="col-md-3 d-flex align-items-end space" style="border-right: 1px solid #ddd;">
+                        <div class="d-flex align-items-center search-mobile">
+                            <span class="input-group-text" id="basic-addon1">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <input type="search" class="form-control" id="pencarianProduk" placheck="true"
+                                placeholder="Cari Produk...">
+                        </div>
+                    </div>
+                    <div class="col-md-3 space" style="border-right: 1px solid #ddd;">
+                        <label for="inputtanggalpeminjaman" class="form-label">Tanggal Peminjaman</label>
+                        <div class="tanggal">
+                            <input type="date" class="form-control" id="tanggalPeminjaman">
+                        </div>
+                    </div>
+                    <div class="col-md-3 space noborder-mobile">
+                        <label for="inputtanggalpengembalian" class="form-label">Tanggal Pengembalian</label>
+                        <input type="date" class="form-control" id="tanggalPengembalian">
+                    </div>
+                    <div class="col-md-3 d-flex align-item-stretch p-0">
+                        <button type="submit" class="btn btn-primary btn-block">Cari Produk</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- List of products -->
+            <section class="container pt-3" data-aos="fade-up" data-aos-duration="2000">
+                <!-- Bagian title & Description -->
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <h2 class="display-7 mb-0 pt-3 me-2 title">Produk Kami</h2>
+                    </div>
+                </div>
+
+                <!-- Product Card -->
+                <div class="row mt-5">
+                    <div class="col-12 col-md-4 col-lg-4 pr-2">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-available">Tersedia</span>
+                                <div class="products-image zoom"
+                                    style="background-image: url('../images/bangunan.jpeg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Gedung SCC UII</div>
+                            <div class="products-price">Rp 250.000 - Rp 3.000.000/ hari</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-notavailable">Tidak Tersedia</span>
+                                <div class="products-image zoom"
+                                    style="background-image: url('../images/soundspeaker.jpg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Sound Speaker</div>
+                            <div class="products-price">Rp 60.000/ hari</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-available">Tersedia</span>
+                                <div class="products-image zoom" style="background-image: url('../images/kursi.jpg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Kursi</div>
+                            <div class="products-price">Rp 60.000/ hari</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-available">Tersedia</span>
+                                <div class="products-image zoom" style="background-image: url('../images/kursi.jpg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Kursi</div>
+                            <div class="products-price">Rp 60.000/ hari</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-available">Tersedia</span>
+                                <div class="products-image zoom" style="background-image: url('../images/kursi.jpg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Kursi</div>
+                            <div class="products-price">Rp 60.000/ hari</div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <span class="notify-badges-notavailable">Tidak Tersedia</span>
+                                <div class="products-image zoom" style="background-image: url('../images/kursi.jpg');">
+                                </div>
+                            </div>
+                            <div class="products-text">Kursi</div>
+                            <div class="products-price">Rp 60.000/ hari</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pagination page -->
+                <nav aria-label="Page navigation product" class="mt-5 mb-5 pagination-custom">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Selanjutnya</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+        </section>
+
+        <!-- Footer Section -->
+        <div class="footer-bg">
+            <footer class="footer-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="footer-left text-left">
+                                <div class="footer-logo">
+                                    <a href="#">
+                                        <img src="../images/logoBPAKMUII.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="footer-desc-bpa">
+                                    BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang
+                                    yang
+                                    awal
+                                    mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun
+                                    2014.
+                                </div>
+                                <div class="footer-social">
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1">
+                            <div class="footer-widget text-left">
+                                <h5>Information</h5>
+                                <ul>
+                                    <li><a href="#">Beranda</a></li>
+                                    <li><a href="#">Produk Kami</a></li>
+                                    <li><a href="#">Investor</a></li>
+                                    <li><a href="#">Galeri</a></li>
+                                    <li><a href="#">Artikel</a></li>
+                                    <li><a href="#">Tentang Kami</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-widget text-left">
+                                <h5>Kontak Kami</h5>
+                                <ul>
+                                    <li><a href="#">Universitas Islam Indonesia,
+                                            Yogyakarta, Sleman, Kaliurang KM. 24</a></li>
+                                    <li><a href="#">Telepon : 0811-2656-867</a></li>
+                                    <li><a href="#">Email : bpa@uii.ac.id</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-reserved">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="copyright-text">Copyright &copy; 2021 Badan Pengelola Aset KM UII |
+                                    Development
+                                    with <span> &#9829; </span> by <span> GAS </span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var date = new Date();
+        var fromDate;
+        var toDate;
+        var tdate = date.getDate();
+        var month = date.getMonth() + 1;
+        if (date < 10) {
+            tdate = '0' + tdate;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+        var year = date.getUTCFullYear();
+        var minDate = year + "-" + month + "-" + tdate;
+        document.getElementById("tanggalPeminjaman").setAttribute('min', minDate);
+        document.getElementById("tanggalPengembalian").setAttribute('min', minDate);
+
+        $('#tanggalPeminjaman').on('change', function () {
+            fromDate = $(this).val();
+            $('#tanggalPengembalian').prop('min', function () {
+                return fromDate;
+            })
+        });
+
+        $('#tanggalPengembalian').on('change', function () {
+            toDate = $(this).val();
+            $('#tanggalPeminjaman').prop('max', function () {
+                return toDate;
+            })
+        });
+
+        console.log(year);
+    </script>
+</body>
+
+</html>
