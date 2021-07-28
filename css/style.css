@@ -647,6 +647,63 @@ a{
     font-weight: 300;
 }
 
+
+/* Style Halaman Investors */
+.struktur-organisasi span{
+    border-bottom: 2px solid #044BD9;
+}
+
+.description-strukturorganisasi{
+    font-size:17px;
+    font-weight:300;
+    line-height:32px;
+    color: #737B7D;
+    text-align:left;
+}
+
+.carousel-laporan{
+    padding-top: 60px;
+    padding-bottom: 130px;
+}
+
+.carousel-item{
+    height:400px;
+}
+
+.carousel-item img{
+    height:100%;
+    object-fit:cover;
+}
+
+.carousel-control-next-icon{
+    background-color: #1a1a1a;
+    opacity:0.6;
+    padding:18px;
+    background-size: 1.5rem;
+}
+
+.carousel-control-prev-icon{
+    background-color: #1a1a1a;
+    opacity:0.6;
+    padding:18px;
+    background-size: 1.5rem;
+}
+
+.carousel-laporan .products-text{
+    font-size: 22px;
+    color: #1A1A1A;
+    font-weight:600;
+    margin-top: 20px;
+}
+
+.carousel-laporan .btn{
+    width:100%;
+    border-radius: 0.5rem;
+    font-size: 13px;
+    padding: 12px 0 12px 0;
+    margin-top: 2rem;
+}
+
 /* Mobile Style */
 @media only screen and (max-width: 600px) {
     .titlepage{
@@ -681,6 +738,9 @@ a{
     }
     .detail-gallery .xzoom-gallery{
         margin-left: 0 !important;
+    }
+    .title{
+        line-height:3.375rem;
     }
 }
 
