@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Beranda</title>
+    <title>Halamn Produk Kami</title>
     <!-- Poppins Font -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
     <!-- Bootstrap file -->
@@ -266,43 +266,14 @@
 
     </div>
 
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
     <script>
         AOS.init();
-    </script>
-    <script>
-        var date = new Date();
-        var fromDate;
-        var toDate;
-        var tdate = date.getDate();
-        var month = date.getMonth() + 1;
-        if (date < 10) {
-            tdate = '0' + tdate;
-        }
-        if (month < 10) {
-            month = '0' + month;
-        }
-        var year = date.getUTCFullYear();
-        var minDate = year + "-" + month + "-" + tdate;
-        document.getElementById("tanggalPeminjaman").setAttribute('min', minDate);
-        document.getElementById("tanggalPengembalian").setAttribute('min', minDate);
-
-        $('#tanggalPeminjaman').on('change', function () {
-            fromDate = $(this).val();
-            $('#tanggalPengembalian').prop('min', function () {
-                return fromDate;
-            })
+        $(document).ready(function () {
+            date();
         });
-
-        $('#tanggalPengembalian').on('change', function () {
-            toDate = $(this).val();
-            $('#tanggalPeminjaman').prop('max', function () {
-                return toDate;
-            })
-        });
-
-        console.log(year);
     </script>
 </body>
 
