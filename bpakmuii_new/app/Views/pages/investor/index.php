@@ -42,6 +42,11 @@
                     Jawaban BPA KM UII
                 </h2>
             </div>
+            <div class="col-lg-4 col-md-4 d-flex align-items-center justify-content-end">
+                <a href="#">
+                    <p class="pt-3 description" style="color:#044BD9; font-weight: bold;">Lihat Semua Laporan &#8594;</p>
+                </a>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 carousel-laporan">

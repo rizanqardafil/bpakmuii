@@ -110,11 +110,6 @@
                     </a>
                 </div>
             </div>
-            <div class="row mt-5 mb-5">
-                <div class="col text-center">
-                    <button class="btn btn-primary">Lihat Semua Kegiatan</button>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -166,7 +161,7 @@
         </div>
         <div class="row mt-5 mb-5">
             <div class="col text-center">
-                <button class="btn btn-primary">Lihat Semua Produk</button>
+                <a href="/produk" class="btn btn-primary">Lihat Semua Produk</a>
             </div>
         </div>
     </section>

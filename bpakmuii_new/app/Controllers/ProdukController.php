@@ -15,6 +15,10 @@ class ProdukController extends BaseController
 
 	public function detail()
 	{
-		return view('pages/produk/detail');
+		$data = [
+			'titles' => 'Detail Produk | BPA KM UII'
+		];
+
+		return view('pages/produk/detail', $data);
 	}
 }
