@@ -24,13 +24,13 @@
                     <a href="/investor" class="nav-link <?= ($uri->getSegment(1) == 'investor') ? 'active' : '' ?> ">Investor</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Galeri</a>
+                    <a href="/galeri" class="nav-link <?= ($uri->getSegment(1) == 'galeri') ? 'active' : '' ?> ">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Artikel</a>
+                    <a href="/artikel" class="nav-link <?= ($uri->getSegment(1) == 'artikel') ? 'active' : '' ?> ">Artikel</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Tentang Kami</a>
+                    <a href="/tentang" class="nav-link <?= ($uri->getSegment(1) == 'tentang') ? 'active' : '' ?> ">Tentang Kami</a>
                 </li>
             </ul>
         </div>
