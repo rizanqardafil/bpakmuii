@@ -70,9 +70,9 @@
                                 <li><a href="/beranda">Beranda</a></li>
                                 <li><a href="/produk">Produk Kami</a></li>
                                 <li><a href="/investor">Investor</a></li>
-                                <li><a href="#">Galeri</a></li>
-                                <li><a href="#">Artikel</a></li>
-                                <li><a href="#">Tentang Kami</a></li>
+                                <li><a href="/galeri">Galeri</a></li>
+                                <li><a href="/artikel">Artikel</a></li>
+                                <li><a href="/tentang">Tentang Kami</a></li>
                             </ul>
                         </div>
                     </div>

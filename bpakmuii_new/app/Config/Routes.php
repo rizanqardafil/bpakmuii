@@ -36,6 +36,12 @@ $routes->get('/beranda', 'BerandaController::index');
 $routes->get('/produk', 'ProdukController::index');
 $routes->get('/produk/detail', 'ProdukController::detail');
 $routes->get('/investor', 'InvestorController::index');
+$routes->get('/galeri', 'GaleriController::index');
+$routes->get('/galeri/foto', 'GaleriController::foto');
+$routes->get('/galeri/video', 'GaleriController::video');
+$routes->get('/artikel', 'ArtikelController::index');
+$routes->get('/artikel/detail', 'ArtikelController::detail');
+$routes->get('/tentang', 'TentangController::index');
 
 // Admin Routes
 $routes->get('/admin/login', 'Admin\Auth::index');
