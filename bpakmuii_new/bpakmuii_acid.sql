@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 01, 2021 at 08:24 PM
--- Server version: 5.5.68-MariaDB
--- PHP Version: 7.4.16
+-- Generation Time: Aug 05, 2021 at 12:10 PM
+-- Server version: 8.0.26-0ubuntu0.20.04.2
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `config` (
-  `id_config` int(11) NOT NULL,
+  `id_config` int NOT NULL,
   `namaweb` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telepon` varchar(255) NOT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id_config`, `namaweb`, `email`, `telepon`, `logo`, `icon`, `keyword`, `metatext`) VALUES
-(1, 'Badan Pengelola Aset KM UII', 'bpa.km.uii@gmail.com', '-', 'BPA_Kuning-min_(2).png', 'BPA_Kuning_Fix_(2)1.png', 'industri, Gedung, Pernikahan, event ,sewa gedung, kaliurang, SCC UII,UII,universitas islam indonesia', '');
+(1, 'Badan Pengelola Aset KM UII', 'bpa.km.uii@gmail.com', '-', 'BPA_Kuning-min_(2).png', 'LogoBPATerbaru.jpg', 'industri, Gedung, Pernikahan, event ,sewa gedung, kaliurang, SCC UII,UII,universitas islam indonesia', '');
 
 -- --------------------------------------------------------
 
@@ -52,7 +53,7 @@ INSERT INTO `config` (`id_config`, `namaweb`, `email`, `telepon`, `logo`, `icon`
 --
 
 CREATE TABLE `galeri_foto` (
-  `id_galeri_foto` int(11) NOT NULL,
+  `id_galeri_foto` int NOT NULL,
   `slug_galeri_foto` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -74,10 +75,18 @@ INSERT INTO `galeri_foto` (`id_galeri_foto`, `slug_galeri_foto`, `judul`, `image
 --
 
 CREATE TABLE `galeri_kategori` (
-  `id_galeri_kategori` int(11) NOT NULL,
+  `id_galeri_kategori` int NOT NULL,
   `nama_kategori` varchar(255) NOT NULL,
   `slug_galeri_kategori` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galeri_kategori`
+--
+
+INSERT INTO `galeri_kategori` (`id_galeri_kategori`, `nama_kategori`, `slug_galeri_kategori`) VALUES
+(1, 'Orientasi', 'orientasi'),
+(2, 'SCC Hebat', 'scc-hebat');
 
 -- --------------------------------------------------------
 
@@ -86,7 +95,7 @@ CREATE TABLE `galeri_kategori` (
 --
 
 CREATE TABLE `galeri_video` (
-  `id_galeri_video` int(11) NOT NULL,
+  `id_galeri_video` int NOT NULL,
   `slug_galeri_video` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `link_video` varchar(255) NOT NULL
@@ -111,7 +120,7 @@ INSERT INTO `galeri_video` (`id_galeri_video`, `slug_galeri_video`, `judul`, `li
 --
 
 CREATE TABLE `industri_besar` (
-  `id_industri_besar` int(11) NOT NULL,
+  `id_industri_besar` int NOT NULL,
   `slug_industri_besar` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -198,7 +207,7 @@ INSERT INTO `industri_besar` (`id_industri_besar`, `slug_industri_besar`, `judul
 --
 
 CREATE TABLE `industri_kecil` (
-  `id_industri_kecil` int(11) NOT NULL,
+  `id_industri_kecil` int NOT NULL,
   `slug_industri_kecil` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -233,7 +242,7 @@ INSERT INTO `industri_kecil` (`id_industri_kecil`, `slug_industri_kecil`, `judul
 --
 
 CREATE TABLE `kegiatan` (
-  `id_kegiatan` int(11) NOT NULL,
+  `id_kegiatan` int NOT NULL,
   `slug_kegiatan` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `sub_judul` varchar(255) NOT NULL,
@@ -246,7 +255,8 @@ CREATE TABLE `kegiatan` (
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `slug_kegiatan`, `judul`, `sub_judul`, `image`) VALUES
 (27, 'yes-we-are-open', 'Yes, We Are Open !', 'BPA KM UII kembali membuka seluruh produknya seperti SCC dan SAC pada tahun 2021 ! Segera hubungi customer service untuk mendapatkan harga spesial dari setiap produk BPA KM UII !', 'Copy_of_Copy_of_Untitled.jpg'),
-(28, '28-bpa-km-uii-sukses-mengadakan-creativepreneurtalks-2020', 'BPA KM UII Sukses Mengadakan CreativePreneurTalks 2020 !', 'Sabtu ( 31/10/2020), tim magang BPA KM UII sukses mengadakan webinar CreativePreneurTalks 2020 dengan tema \" Digital Branding Dalam Eksistensi Ekonomi Kreatif \" ', 'Copy_of_Untitled1.jpg');
+(28, '28-bpa-km-uii-sukses-mengadakan-creativepreneurtalks-2020', 'BPA KM UII Sukses Mengadakan CreativePreneurTalks 2020 !', 'Sabtu ( 31/10/2020), tim magang BPA KM UII sukses mengadakan webinar CreativePreneurTalks 2020 dengan tema \" Digital Branding Dalam Eksistensi Ekonomi Kreatif \" ', 'Copy_of_Untitled1.jpg'),
+(29, 'naruto', 'Naruto', 'naruto', 'naruto.jpg');
 
 -- --------------------------------------------------------
 
@@ -255,7 +265,7 @@ INSERT INTO `kegiatan` (`id_kegiatan`, `slug_kegiatan`, `judul`, `sub_judul`, `i
 --
 
 CREATE TABLE `kontak` (
-  `id_kontak` int(11) NOT NULL,
+  `id_kontak` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
@@ -278,7 +288,7 @@ INSERT INTO `kontak` (`id_kontak`, `name`, `email`, `subject`, `message`, `date`
 --
 
 CREATE TABLE `organisasi` (
-  `id_organisasi` int(11) NOT NULL,
+  `id_organisasi` int NOT NULL,
   `slug_organisasi` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `jabatan` varchar(255) NOT NULL,
@@ -291,7 +301,7 @@ CREATE TABLE `organisasi` (
 --
 
 INSERT INTO `organisasi` (`id_organisasi`, `slug_organisasi`, `nama`, `jabatan`, `pesan`, `image`) VALUES
-(13, 'anggota-bpa', 'Anggota BPA', 'Seluruh anggota', 'Periode 2018', 'okimg_0062(4).jpg');
+(13, '13-anggota-bpa', 'Anggota BPA', 'Seluruh anggota', 'Periode 2018', 'okimg_0062(4).jpg');
 
 -- --------------------------------------------------------
 
@@ -300,7 +310,7 @@ INSERT INTO `organisasi` (`id_organisasi`, `slug_organisasi`, `nama`, `jabatan`,
 --
 
 CREATE TABLE `pesan_direktur` (
-  `id_pesan_direktur` int(11) NOT NULL,
+  `id_pesan_direktur` int NOT NULL,
   `slug_pesan_direktur` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL
@@ -320,7 +330,7 @@ INSERT INTO `pesan_direktur` (`id_pesan_direktur`, `slug_pesan_direktur`, `image
 --
 
 CREATE TABLE `sekilas_perusahaan` (
-  `id_sekilas_perusahaan` int(11) NOT NULL,
+  `id_sekilas_perusahaan` int NOT NULL,
   `slug_sekilas_perusahaan` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL
@@ -340,7 +350,7 @@ INSERT INTO `sekilas_perusahaan` (`id_sekilas_perusahaan`, `slug_sekilas_perusah
 --
 
 CREATE TABLE `slider` (
-  `id_slider` int(11) NOT NULL,
+  `id_slider` int NOT NULL,
   `slug_slider` varchar(255) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `sub_judul` varchar(255) NOT NULL,
@@ -398,7 +408,7 @@ INSERT INTO `t_notes` (`date`, `notes`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
+  `id_user` int NOT NULL,
   `slug_user` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -416,11 +426,36 @@ INSERT INTO `user` (`id_user`, `slug_user`, `username`, `password`, `email`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug_user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `name`, `slug_user`, `username`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Andri', '1-andri', 'andriwahyu', 'andri123@gmail.com', '$2y$10$dMktqSY3flAIveYqSAYu.OwE/NG.ceUyq/R7lpE7VjAM/JfsZnRhe', '2021-08-04 20:34:13', '2021-08-04 23:34:39'),
+(3, 'Syamilun', '3-syamilun', 'syamilan', 'syamil@gmail.com', '$2y$10$VRAZYVU42jWoYA5fk3gRsOdZM/xbHVa5ycItJrkkmL7pOp0h94WR.', '2021-08-04 23:53:51', '2021-08-04 23:53:51');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `visi_misi`
 --
 
 CREATE TABLE `visi_misi` (
-  `id_visi_misi` int(11) NOT NULL,
+  `id_visi_misi` int NOT NULL,
   `slug_visi_misi` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL
@@ -516,6 +551,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- Indexes for table `visi_misi`
 --
 ALTER TABLE `visi_misi`
@@ -529,85 +570,91 @@ ALTER TABLE `visi_misi`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `id_config` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_config` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `galeri_foto`
 --
 ALTER TABLE `galeri_foto`
-  MODIFY `id_galeri_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_galeri_foto` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `galeri_kategori`
 --
 ALTER TABLE `galeri_kategori`
-  MODIFY `id_galeri_kategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galeri_kategori` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `galeri_video`
 --
 ALTER TABLE `galeri_video`
-  MODIFY `id_galeri_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_galeri_video` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `industri_besar`
 --
 ALTER TABLE `industri_besar`
-  MODIFY `id_industri_besar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id_industri_besar` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `industri_kecil`
 --
 ALTER TABLE `industri_kecil`
-  MODIFY `id_industri_kecil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_industri_kecil` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_kegiatan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `kontak`
 --
 ALTER TABLE `kontak`
-  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kontak` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `organisasi`
 --
 ALTER TABLE `organisasi`
-  MODIFY `id_organisasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_organisasi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pesan_direktur`
 --
 ALTER TABLE `pesan_direktur`
-  MODIFY `id_pesan_direktur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pesan_direktur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sekilas_perusahaan`
 --
 ALTER TABLE `sekilas_perusahaan`
-  MODIFY `id_sekilas_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sekilas_perusahaan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id_slider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_slider` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `visi_misi`
 --
 ALTER TABLE `visi_misi`
-  MODIFY `id_visi_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_visi_misi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

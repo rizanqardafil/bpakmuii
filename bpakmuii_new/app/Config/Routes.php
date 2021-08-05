@@ -37,6 +37,20 @@ $routes->get('/produk', 'ProdukController::index');
 $routes->get('/produk/detail', 'ProdukController::detail');
 $routes->get('/investor', 'InvestorController::index');
 
+// Admin Routes
+$routes->get('/admin/login', 'Admin\Auth::index');
+$routes->post('/admin/auth', 'Admin\Auth::auth');
+$routes->get('/admin/logout', 'Admin\Auth::logout', ['filter' => 'auth']);
+$routes->get('/admin/dashboard', 'Admin\Auth::dashboard', ['filter' => 'auth']);
+$routes->get('/admin/config', 'Admin\Config::index', ['filter' => 'auth']);
+$routes->get('/admin/icon-config', 'Admin\Config::icon_config', ['filter' => 'auth']);
+$routes->get('/admin/logo-config', 'Admin\Config::logo_config', ['filter' => 'auth']);
+$routes->get('/admin/users', 'Admin\Users::index', ['filter' => 'auth']);
+$routes->get('/admin/users/(:segment)', 'Admin\Users::edit/$1', ['filter' => 'auth']);
+$routes->post('/admin/users/save', 'Admin\Auth::save', ['filter' => 'auth']);
+$routes->post('/admin/users/update/(:segment)', 'Admin\Auth::update/$1', ['filter' => 'auth']);
+$routes->post('/admin/users/delete', 'Admin\Auth::delete', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
