@@ -16,10 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <link href="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/admin/kalender/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/admin/kalender/css/colorbox.css" />
-    <script type="text/javascript" src="<?= base_url(); ?>/admin/kalender/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>/admin/kalender/js/jquery.colorbox-min.js"></script>
+    
 </head>
 
 <body>
@@ -49,7 +46,7 @@
 
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="<?= base_url(); ?>/admin/js/jquery-1.10.2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="<?= base_url(); ?>/admin/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
