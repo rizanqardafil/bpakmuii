@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
@@ -54,11 +55,14 @@
                                 2014.
                             </div>
                             <div class="footer-social">
-                                <a href="#">
-                                    <i class="fa fa-facebook"></i>
+                                <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/">
+                                    <i class="fa fa-linkedin"></i>
                                 </a>
-                                <a href="#">
+                                <a href="https://www.instagram.com/bpakmuii/?hl=en">
                                     <i class="fa fa-instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw">
+                                    <i class="fa fa-youtube"></i>
                                 </a>
                             </div>
                         </div>
@@ -107,6 +111,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="/js/bootstrap.js"></script>
 <script src="/css/xzoom/xzoom.min.js"></script>
 <script type="text/javascript" src="/js/style.js"></script>

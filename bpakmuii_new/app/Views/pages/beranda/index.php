@@ -50,7 +50,7 @@
         <div class="row card-kegiatankami">
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card" style="width: 18rem;">
-                    <a href="#" class="component-products d-block">
+                    <a href="../images/kegiatan1.png" title="Pendaftaran anggota baru" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
                             <div class="products-image"
                                 style="background-image: url('../images/kegiatan1.png');">
@@ -72,7 +72,7 @@
             </div>
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card" style="width: 18rem;">
-                    <a href="#" class="component-products d-block">
+                    <a href="../images/kegiatan2.png" title="CreativePreneurTalks 2020 !" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
                             <div class="products-image"
                                 style="background-image: url('../images/kegiatan2.png');">
@@ -90,7 +90,7 @@
             </div>
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card" style="width: 18rem;">
-                    <a href="#" class="component-products d-block">
+                    <a href="../images/kegiatan3.png" title="Pendaftaran Anggota Baru" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
                             <div class="products-image"
                                 style="background-image: url('../images/kegiatan3.png');">
@@ -414,5 +414,18 @@
 <?= $this->section('scripts'); ?>
 <script>
     AOS.init();
+    $('.image-popup').magnificPopup({
+        type: 'image',
+        image: {
+            markup: '<div class="mfp-figure">'+
+                    '<div class="mfp-close"></div>'+
+                    '<div class="mfp-another-title"></div>'+
+                    '<div class="mfp-img"></div>'+
+                    '<div class="mfp-bottom-bar">'+
+                        '<div class="mfp-title"></div>'+
+                    '</div>'+
+                '</div>'
+            }
+    });
 </script>
 <?= $this->endSection(); ?>

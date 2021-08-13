@@ -57,6 +57,37 @@ $routes->post('/admin/users/save', 'Admin\Auth::save', ['filter' => 'auth']);
 $routes->post('/admin/users/update/(:segment)', 'Admin\Auth::update/$1', ['filter' => 'auth']);
 $routes->post('/admin/users/delete', 'Admin\Auth::delete', ['filter' => 'auth']);
 
+// Admin Produk Kami Routes
+$routes->get('/admin/produk', 'Admin\Produk_Kami\Produk::index', ['filter' => 'auth']);
+$routes->get('/admin/produk/tambah', 'Admin\Produk_Kami\Produk::tambah', ['filter' => 'auth']);
+$routes->get('/admin/produk/edit', 'Admin\Produk_Kami\Produk::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/gambar', 'Admin\Produk_Kami\Gambar::index', ['filter' => 'auth']);
+$routes->get('/admin/gambar/tambah', 'Admin\Produk_Kami\Gambar::tambah', ['filter' => 'auth']);
+$routes->get('/admin/gambar/edit', 'Admin\Produk_Kami\Gambar::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/paket', 'Admin\Produk_Kami\Paket::index', ['filter' => 'auth']);
+$routes->get('/admin/paket/tambah', 'Admin\Produk_Kami\Paket::tambah', ['filter' => 'auth']);
+$routes->get('/admin/paket/edit', 'Admin\Produk_Kami\Paket::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/pesanan', 'Admin\Produk_Kami\Pesanan::index', ['filter' => 'auth']);
+$routes->get('/admin/pesanan/tambah', 'Admin\Produk_Kami\Pesanan::tambah', ['filter' => 'auth']);
+$routes->get('/admin/pesanan/edit', 'Admin\Produk_Kami\Pesanan::tambah', ['filter' => 'auth']);
+
+
+// Admin Investor routes
+$routes->get('/admin/organisasi', 'Admin\Investor\Organisasi::index', ['filter' => 'auth']);
+$routes->get('/admin/organisasi/tambah', 'Admin\Investor\Organisasi::tambah', ['filter' => 'auth']);
+$routes->get('/admin/organisasi/edit', 'Admin\Investor\Organisasi::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/laporan', 'Admin\Investor\Laporan::index', ['filter' => 'auth']);
+$routes->get('/admin/laporan/tambah', 'Admin\Investor\Laporan::tambah', ['filter' => 'auth']);
+$routes->get('/admin/laporan/edit', 'Admin\Investor\Laporan::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/gambar_laporan', 'Admin\Investor\Gambar::index', ['filter' => 'auth']);
+$routes->get('/admin/gambar_laporan/tambah', 'Admin\Investor\Gambar::tambah', ['filter' => 'auth']);
+$routes->get('/admin/gambar_laporan/edit', 'Admin\Investor\Gambar::edit', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

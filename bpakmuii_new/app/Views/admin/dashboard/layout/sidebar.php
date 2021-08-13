@@ -2,13 +2,29 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li><a href="<?= base_url('admin/dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-wrench"></i> Settings<span class="fa arrow"></span></a>
+            <li><a href="#"><i class="fa fa-wrench"></i>Settings<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="<?php echo base_url('admin/config') ?>">General Settings</a></li>
                     <li><a href="<?php echo base_url('admin/logo-config') ?>">Logo</a></li>
                     <li><a href="<?php echo base_url('admin/icon-config') ?>">Icon</a></li>
                 </ul>
             </li>
+            <li><a href="#"><i class="fa fa-wrench"></i>Produk Kami<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="<?php echo base_url('admin/produk') ?>">Produk</a></li>
+                    <li><a href="<?php echo base_url('admin/gambar') ?>">Gambar Produk</a></li>
+                    <li><a href="<?php echo base_url('admin/paket') ?>">Paket</a></li>
+                    <li><a href="<?php echo base_url('admin/pesanan') ?>">Pesanan</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-wrench"></i>Investor<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="<?php echo base_url('admin/organisasi') ?>">Organisasi</a></li>
+                    <li><a href="<?php echo base_url('admin/laporan') ?>">Laporan</a></li>
+                    <li><a href="<?php echo base_url('admin/gambar_laporan') ?>">Gambar Laporan</a></li>
+                </ul>
+            </li>
+
             <!-- <li><a href="#"><i class="fa fa-user"></i> Tentang Kami<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="">Sekilas Profil</a></li>

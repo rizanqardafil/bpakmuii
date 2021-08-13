@@ -374,6 +374,17 @@ font-size: 12px;
 line-height: 1.428571429;
 }
 
+
+/* Tambahan css Admin */
+
+.panel-heading h2{
+    line-height:40px;
+}
+
+.spacing{
+    margin-bottom:10px;
+}
+
 /*==============================================
     MEDIA QUERIES
     =============================================*/
