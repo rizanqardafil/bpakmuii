@@ -22,13 +22,18 @@ class InvestorModel extends Model
         return $result;
     }
 
-    public function getLaporan()
+    public function getLaporan($slug_laporan = '')
     {
         $builder = $this->db->table('laporan');
         $builder->select('laporan.id_laporan, laporan.nama_laporan, laporan.slug_laporan, 
         laporan.path_laporan, COUNT(gambar_laporan.nama_gambar) AS total_gambar');
         $builder->join('gambar_laporan', 'laporan.id_laporan = gambar_laporan.id_laporan', 'left');
+        $builder->orderBy('laporan.id_laporan', 'ASC');
         $builder->groupBy('laporan.id_laporan');
+
+        if ($slug_laporan) {
+            $builder->where('laporan.slug_laporan', $slug_laporan);
+        }
 
         $reports = $builder->get()->getResult();
         $report_images = $this->getGambarLaporan();

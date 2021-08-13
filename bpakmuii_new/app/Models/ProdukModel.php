@@ -14,13 +14,17 @@ class ProdukModel extends Model
     protected $status = "TERSEDIA";
 
 
-    public function getAllProduct($product_name = '', $slug_product = '')
+    public function getAllProduct($product_name = '', $slug_product = '', $order_by = '', $type_order = 'ASC')
     {
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, path_gambar_cover');
         $builder->selectMin('paket.harga', 'harga_terendah');
-        $builder->join('paket', 'produk.id_produk = paket.id_produk', 'right');
+        $builder->join('paket', 'produk.id_produk = paket.id_produk', 'left');
         $builder->groupBy('produk.id_produk');
+
+        if ($order_by) {
+            $builder->orderBy($order_by, $type_order);
+        }
 
         if ($product_name) {
             $builder->like('produk.nama_produk', $product_name);
@@ -116,8 +120,6 @@ class ProdukModel extends Model
 
     public function getDetailProduct($slug_product = '')
     {
-        $slug_product = 'gedung-scc';
-
         $product = $this->getAllProduct('', $slug_product);
         $packages = $this->getPackage($slug_product);
         $product_images = $this->getAllImage($slug_product);
