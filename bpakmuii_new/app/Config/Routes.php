@@ -88,6 +88,16 @@ $routes->get('/admin/gambar_laporan', 'Admin\Investor\Gambar::index', ['filter' 
 $routes->get('/admin/gambar_laporan/tambah', 'Admin\Investor\Gambar::tambah', ['filter' => 'auth']);
 $routes->get('/admin/gambar_laporan/edit', 'Admin\Investor\Gambar::edit', ['filter' => 'auth']);
 
+
+// Admin Tentang kami
+$routes->get('/admin/tentang-kami', 'Admin\Tentang\VisiMisi::index', ['filter' => 'auth']);
+$routes->get('/admin/tentang-kami/tambah', 'Admin\Tentang\VisiMisi::tambah', ['filter' => 'auth']);
+$routes->get('/admin/tentang-kami/edit', 'Admin\Tentang\VisiMisi::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/sejarah', 'Admin\Tentang\Sejarah::index', ['filter' => 'auth']);
+$routes->get('/admin/sejarah/tambah', 'Admin\Tentang\Sejarah::tambah', ['filter' => 'auth']);
+$routes->get('/admin/sejarah/edit', 'Admin\Tentang\Sejarah::edit', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

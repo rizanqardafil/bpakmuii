@@ -24,6 +24,12 @@
                     <li><a href="<?php echo base_url('admin/gambar_laporan') ?>">Gambar Laporan</a></li>
                 </ul>
             </li>
+            <li><a href="#"><i class="fa fa-wrench"></i>Tentang Kami<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="<?php echo base_url('admin/tentang-kami') ?>">Visi-Misi</a></li>
+                    <li><a href="<?php echo base_url('admin/sejarah') ?>">Sejarah</a></li>
+                </ul>
+            </li>
 
             <!-- <li><a href="#"><i class="fa fa-user"></i> Tentang Kami<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
