@@ -59,6 +59,7 @@
         </script>
 
     <form action="<?php echo base_url() ?>" method="post" enctype="multipart/form-data">
+        <?= csrf_field(); ?>
         <div class="col-md-12">
             <div class="form-group input-group-lg">
                 <label>Keterangan Visi</label>

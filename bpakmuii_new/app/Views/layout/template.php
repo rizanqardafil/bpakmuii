@@ -43,7 +43,7 @@
                     <div class="col-lg-5">
                         <div class="footer-left text-left">
                             <div class="footer-logo">
-                                <a href="/beranda">
+                                <a href="<?= base_url('/beranda'); ?>">
                                     <img src="../images/logoBPAKMUII.png" alt="">
                                 </a>
                             </div>
@@ -71,12 +71,12 @@
                         <div class="footer-widget text-left">
                             <h5>Information</h5>
                             <ul>
-                                <li><a href="/beranda">Beranda</a></li>
-                                <li><a href="/produk">Produk Kami</a></li>
-                                <li><a href="/investor">Investor</a></li>
-                                <li><a href="/galeri">Galeri</a></li>
-                                <li><a href="/artikel">Artikel</a></li>
-                                <li><a href="/tentang">Tentang Kami</a></li>
+                                <li><a href="<?= base_url('/beranda'); ?>">Beranda</a></li>
+                                <li><a href="<?= base_url('/produk'); ?>">Produk Kami</a></li>
+                                <li><a href="<?= base_url('/investor'); ?>">Investor</a></li>
+                                <li><a href="<?= base_url('/galeri'); ?>">Galeri</a></li>
+                                <li><a href="<?= base_url('/artikel'); ?>">Artikel</a></li>
+                                <li><a href="<?= base_url('/tentang'); ?>">Tentang Kami</a></li>
                             </ul>
                         </div>
                     </div>
