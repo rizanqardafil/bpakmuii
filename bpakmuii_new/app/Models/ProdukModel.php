@@ -4,6 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\ConfigModel;
+use NumberFormatter;
 
 class ProdukModel extends Model
 {
@@ -14,8 +15,10 @@ class ProdukModel extends Model
     protected $status = "TERSEDIA";
 
 
-    public function getAllProduct($product_name = '', $slug_product = '', $order_by = '', $type_order = 'ASC')
+    public function getAllProduct($product_name = '', $slug_product = '', $order_by = '', $type_order = 'ASC', $limit = 0, $offset = 0)
     {
+        $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
+
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, path_gambar_cover');
         $builder->selectMin('paket.harga', 'harga_terendah');
@@ -34,10 +37,15 @@ class ProdukModel extends Model
             $builder->where('produk.slug_produk', $slug_product);
         }
 
-        $results = $builder->get()->getResult();
+        $results = $builder->get($limit, $offset)->getResult();
 
         foreach ($results as $result) {
             $result->status = $this->status;
+
+            $currency = $formatter->formatCurrency($result->harga_terendah, 'IDR');
+            $currency = substr($currency, 0, strrpos($currency, ','));
+
+            $result->harga_terendah = $currency;
         }
 
         return $results;
@@ -70,11 +78,11 @@ class ProdukModel extends Model
         return $id_produk;
     }
 
-    public function searchProduct($product_name = '', $rent_date = null, $return_date = null)
+    public function searchProduct($product_name = '', $rent_date = null, $return_date = null, $limit = 0, $offset = 0)
     {
         $id_produk_rent = $this->getPeminjaman($rent_date, $return_date);
 
-        $products = $this->getAllProduct($product_name);
+        $products = $this->getAllProduct($product_name, '', '', 'ASC', $limit, $offset);
 
         foreach ($products as $product) {
             $product->status = $this->status;
