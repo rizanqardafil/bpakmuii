@@ -28,6 +28,7 @@ class BaseController extends Controller
 	 * @var IncomingRequest|CLIRequest
 	 */
 	protected $request;
+	protected $error_message;
 
 	/**
 	 * An array of helpers to be loaded automatically upon
@@ -49,6 +50,20 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
+
+		$this->error_message = [
+			'required'  => 'Tidak boleh kosong',
+			'is_unique'    => '{value} sudah tercatat',
+			'min_length'    => 'Minimal berisi {param} karakter',
+			'max_length'	=> 'Maksimal berisi {param} karakter',
+			'uploaded'	=> 'Harus melakukan upload',
+			'max_size'	=> 'File terlalu besar. Maksimal 1 MB',
+			'mime_in'	=> 'Jenis file tidak tepat. File harus berupa {param}',
+			'ext_in'	=>	'Ekstensi file tidak tepat. File harus berekstensi {param}',
+			'is_image'	=>	'File harus berupa gambar'
+		];
+
+		session();
 
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.

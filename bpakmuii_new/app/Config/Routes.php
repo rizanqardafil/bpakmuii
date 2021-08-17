@@ -60,6 +60,7 @@ $routes->post('/admin/users/delete', 'Admin\Auth::delete', ['filter' => 'auth'])
 // Admin Produk Kami Routes
 $routes->get('/admin/produk', 'Admin\Produk_Kami\Produk::index', ['filter' => 'auth']);
 $routes->get('/admin/produk/tambah', 'Admin\Produk_Kami\Produk::tambah', ['filter' => 'auth']);
+$routes->post('/admin/produk/save', 'Admin\Produk_Kami\Produk::save', ['filter' => 'auth']);
 $routes->get('/admin/produk/edit', 'Admin\Produk_Kami\Produk::edit', ['filter' => 'auth']);
 
 $routes->get('/admin/gambar', 'Admin\Produk_Kami\Gambar::index', ['filter' => 'auth']);

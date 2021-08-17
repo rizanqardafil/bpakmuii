@@ -61,7 +61,7 @@
             <?php endforeach; ?>
         </div>
 
-        <?= $pager->makeLinks($current_page, 6, $total, 'custom_pagination') ?>
+        <?= $pager->makeLinks($current_page, 6, $total, 'user_pagination') ?>
 
     </section>
 
