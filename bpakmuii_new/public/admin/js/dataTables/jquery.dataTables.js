@@ -9304,7 +9304,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [ 3, 10, 25, 50, 100 ],
 
 
 		/**
@@ -10603,7 +10603,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ page",
 
 
 			/**
@@ -10813,7 +10813,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Cari:",
 
 
 			/**
