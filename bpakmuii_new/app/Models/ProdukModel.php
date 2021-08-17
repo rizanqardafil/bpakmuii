@@ -20,7 +20,7 @@ class ProdukModel extends Model
         $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
 
         $builder = $this->db->table($this->table);
-        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, path_gambar_cover');
+        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, path_gambar_cover, path_nama_gambar');
         $builder->selectMin('paket.harga', 'harga_terendah');
         $builder->join('paket', 'produk.id_produk = paket.id_produk', 'left');
         $builder->groupBy('produk.id_produk');

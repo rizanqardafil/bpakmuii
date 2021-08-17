@@ -48,10 +48,13 @@ class ProdukController extends BaseController
 		return view('pages/produk/index', $data);
 	}
 
-	public function detail()
+	public function detail($slug_produk)
 	{
+		$product = $this->product_model->getDetailProduct($slug_produk);
+
 		$data = [
-			'titles' => 'Detail Produk | BPA KM UII'
+			'titles' => 'Detail Produk | BPA KM UII',
+			'product'	=> $product
 		];
 
 		return view('pages/produk/detail', $data);

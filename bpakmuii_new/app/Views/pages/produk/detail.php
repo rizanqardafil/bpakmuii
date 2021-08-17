@@ -19,7 +19,7 @@
                                     Detail
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    Gedung SCC UII
+                                    <?= $product['product'][0]->nama_produk; ?>
                                 </li>
                             </ol>
                         </nav>
@@ -28,52 +28,27 @@
             </div>
         </section>
 
-
         <section class="detail-gallery aos-init aos-animate">
-
             <!-- Image Section -->
             <div class="container" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="product-thumbnail">
-                            <span class="notify-badges-available">Tersedia</span>
-                            <img src="../images/bangunan.jpeg" class="xzoom" id="xzoom-default"
-                                xoriginal="../images/bangunan.jpeg">
+                            <span class="notify-badges-available">TERSEDIA</span>
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" class="xzoom" id="xzoom-default" xoriginal="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
                         </div>
                     </div>
                     <div class="col-lg-2">
                         <div class="row">
-                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                <a href="../images/bangunan.jpeg">
-                                    <div class="product-preview xzoom-gallery"
-                                        xpreview="../images/bangunan.jpeg">
-                                        <img src="../images/bangunan.jpeg" alt="Gambar Produk">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                <a href="../images/kursi.jpg">
-                                    <div class="product-preview xzoom-gallery" xpreview="../images/kursi.jpg">
-                                        <img src="../images/kursi.jpg" alt="Gambar Produk">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                <a href="../images/soundspeaker.jpg">
-                                    <div class="product-preview xzoom-gallery"
-                                        xpreview="../images/soundspeaker.jpg">
-                                        <img src="../images/soundspeaker.jpg" alt="Gambar Produk">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                <a href="../images/bangunan.jpeg">
-                                    <div class="product-preview xzoom-gallery"
-                                        xpreview="../images/bangunan.jpeg">
-                                        <img src="../images/bangunan.jpeg" alt="Gambar Produk">
-                                    </div>
-                                </a>
-                            </div>
+                            <?php foreach ($product['images'] as $image) : ?>
+                                <div class="col-3 col-lg-12 mt-2 mt-lg-0">
+                                    <a href="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
+                                        <div class="product-preview xzoom-gallery" xpreview="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
+                                            <img src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>" alt="Gambar Produk">
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -83,11 +58,11 @@
             <div class="container description-product" data-aos="fade-up" data-aos-duration="2000">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="products-text">Gedung SCC UII</div>
-                        <div class="products-price">Rp 250.000 - Rp 3.000.000/ hari</div>
+                        <div class="products-text"><?= $product['product'][0]->nama_produk; ?></div>
+                        <div class="products-price">Mulai dari <?= $product['product'][0]->harga_terendah; ?>/hari</div>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center mt-4 mt-lg-0">
-                        <a href="#" class="btn btn-kontakwa d-flex align-items-center">
+                        <a href="https://api.whatsapp.com/send?phone=<?= $product['phone']; ?>" class="btn btn-kontakwa d-flex align-items-center" target="_blank">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                             Kontak Untuk Peminjaman
                         </a>
@@ -96,17 +71,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="text-description-product">
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
-                            officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
-                            amet.
-                            <br>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                            Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                            nostrud amet
-                            <br>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                            sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat
-                            sunt nostrud amet
+                            <?= $product['product'][0]->detail_produk; ?>
                         </div>
                     </div>
                 </div>
@@ -121,7 +86,7 @@
 <?= $this->section('scripts'); ?>
 <script>
     AOS.init();
-    $(document).ready(function () {
+    $(document).ready(function() {
         xzoom();
     });
 </script>

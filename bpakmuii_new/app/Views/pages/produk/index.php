@@ -48,7 +48,7 @@
         <div class="row mt-5">
             <?php foreach ($products as $product) : ?>
                 <div class="col-12 col-md-4 col-lg-4 pr-2">
-                    <a href="/produk/detail" class="component-products d-block">
+                    <a href="<?= base_url('/produk/detail/' . $product->slug_produk); ?>" class="component-products d-block">
                         <div class="products-thumbnail">
                             <span class="notify-badges-<?= ($product->status === 'TERSEDIA') ? 'available' : 'notavailable' ?>"><?= $product->status; ?></span>
                             <div class="products-image zoom" style="background-image: url('<?= base_url() ?>/uploaded/images/<?= $product->path_gambar_cover ?>');">

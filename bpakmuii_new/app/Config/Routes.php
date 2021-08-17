@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'BerandaController::index');
 $routes->get('/beranda', 'BerandaController::index');
 $routes->get('/produk', 'ProdukController::index');
-$routes->get('/produk/detail', 'ProdukController::detail');
+$routes->get('/produk/detail/(:any)', 'ProdukController::detail/$1');
 $routes->get('/investor', 'InvestorController::index');
 $routes->get('/galeri', 'GaleriController::index');
 $routes->get('/galeri/foto', 'GaleriController::foto');
