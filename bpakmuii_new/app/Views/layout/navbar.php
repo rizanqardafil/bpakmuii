@@ -18,19 +18,19 @@
                     <a href="<?= base_url('/beranda'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'beranda') ? 'active' : '' ?> ">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/produk" class="nav-link <?= ($uri->getSegment(1) == 'produk') ? 'active' : '' ?> ">Produk Kami</a>
+                    <a href="<?= base_url('/produk'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'produk') ? 'active' : '' ?> ">Produk Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/investor" class="nav-link <?= ($uri->getSegment(1) == 'investor') ? 'active' : '' ?> ">Investor</a>
+                    <a href="<?= base_url('/investor'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'investor') ? 'active' : '' ?> ">Investor</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/galeri" class="nav-link <?= ($uri->getSegment(1) == 'galeri') ? 'active' : '' ?> ">Galeri</a>
+                    <a href="<?= base_url('/galeri'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'galeri') ? 'active' : '' ?> ">Galeri</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/artikel" class="nav-link <?= ($uri->getSegment(1) == 'artikel') ? 'active' : '' ?> ">Artikel</a>
+                    <a href="<?= base_url('/artikel'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'artikel') ? 'active' : '' ?> ">Artikel</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tentang" class="nav-link <?= ($uri->getSegment(1) == 'tentang') ? 'active' : '' ?> ">Tentang Kami</a>
+                    <a href="<?= base_url('/tentang'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'tentang') ? 'active' : '' ?> ">Tentang Kami</a>
                 </li>
             </ul>
         </div>

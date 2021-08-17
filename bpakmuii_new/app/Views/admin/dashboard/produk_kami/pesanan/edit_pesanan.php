@@ -65,6 +65,7 @@
         $date = date('Y-m-d H:i:s');
     ?>
     <form action="<?php echo base_url() ?>" method="post" enctype="multipart/form-data">
+        <?= csrf_field(); ?>
         <div class="col-md-12">
             <div class="form-group input-group-lg">
                 <label>Tanggal Pinjam</label>

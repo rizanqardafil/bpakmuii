@@ -13,7 +13,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="/produk">Produk Kami</a>
+                                    <a href="<?= base_url('/produk'); ?>">Produk Kami</a>
                                 </li>
                                 <li class="breadcrumb-item">
                                     Detail

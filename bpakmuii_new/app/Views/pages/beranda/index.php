@@ -161,7 +161,7 @@
         </div>
         <div class="row mt-5 mb-5">
             <div class="col text-center">
-                <a href="/produk" class="btn btn-primary">Lihat Semua Produk</a>
+                <a href="<?= base_url('/produk'); ?>" class="btn btn-primary">Lihat Semua Produk</a>
             </div>
         </div>
     </section>
@@ -402,7 +402,7 @@
             <!-- button lihat semua artikel -->
             <div class="row mt-5 mb-5">
                 <div class="col text-center">
-                    <button class="btn btn-primary">Lihat Semua Artikel</button>
+                    <a href="<?= base_url('/artikel'); ?>" class="btn btn-primary">Lihat Semua Artikel</a>
                 </div>
             </div>
         </div>
