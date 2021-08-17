@@ -9,13 +9,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <?php 
-            $uri = service('uri');
+        <?php
+        $uri = service('uri');
         ?>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/beranda" class="nav-link <?= ($uri->getSegment(1) == 'beranda') ? 'active' : '' ?> ">Beranda</a>
+                    <a href="<?= base_url('/beranda'); ?>" class="nav-link <?= ($uri->getSegment(1) == 'beranda') ? 'active' : '' ?> ">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a href="/produk" class="nav-link <?= ($uri->getSegment(1) == 'produk') ? 'active' : '' ?> ">Produk Kami</a>
