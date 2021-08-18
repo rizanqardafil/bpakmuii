@@ -16,7 +16,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <link href="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-    
+
 </head>
 
 <body>
@@ -46,6 +46,19 @@
 
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
+    <script type="text/javascript">
+        function previewImage() {
+            const sampul = document.querySelector('#file');
+            const imgPreview = document.querySelector('.img-preview');
+
+            const fileSampul = new FileReader();
+            fileSampul.readAsDataURL(sampul.files[0]);
+
+            fileSampul.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="<?= base_url(); ?>/admin/js/bootstrap.min.js"></script>

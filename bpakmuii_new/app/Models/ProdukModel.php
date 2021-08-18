@@ -11,7 +11,7 @@ class ProdukModel extends Model
     protected $table = 'produk';
     protected $primaryKey = "id_produk";
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'path_gambar_cover'];
+    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'path_gambar_cover', 'path_nama_gambar'];
     protected $status = "TERSEDIA";
 
 

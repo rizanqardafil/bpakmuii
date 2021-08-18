@@ -61,7 +61,9 @@ $routes->post('/admin/users/delete', 'Admin\Auth::delete', ['filter' => 'auth'])
 $routes->get('/admin/produk', 'Admin\Produk_Kami\Produk::index', ['filter' => 'auth']);
 $routes->get('/admin/produk/tambah', 'Admin\Produk_Kami\Produk::tambah', ['filter' => 'auth']);
 $routes->post('/admin/produk/save', 'Admin\Produk_Kami\Produk::save', ['filter' => 'auth']);
-$routes->get('/admin/produk/edit', 'Admin\Produk_Kami\Produk::edit', ['filter' => 'auth']);
+$routes->post('/admin/produk/update', 'Admin\Produk_Kami\Produk::update', ['filter' => 'auth']);
+$routes->delete('/admin/produk/delete/(:num)', 'Admin\Produk_Kami\Produk::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/produk/edit/(:any)', 'Admin\Produk_Kami\Produk::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/gambar', 'Admin\Produk_Kami\Gambar::index', ['filter' => 'auth']);
 $routes->get('/admin/gambar/tambah', 'Admin\Produk_Kami\Gambar::tambah', ['filter' => 'auth']);

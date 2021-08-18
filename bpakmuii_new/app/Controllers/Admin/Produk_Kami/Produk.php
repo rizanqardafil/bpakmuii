@@ -22,7 +22,7 @@ class Produk extends BaseController
 
         $pager = service('pager');
 
-        $prducts = $this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC', $per_page, $offset);
+        $prducts = $this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC');
         $total = sizeof($this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC'));
 
         $data = [
@@ -69,15 +69,116 @@ class Produk extends BaseController
         $nama_produk = $this->request->getPost('nama_produk');
         $slug_produk = url_title($nama_produk, '-', true);
         $detail_produk = $this->request->getPost('detail_produk');
-    }
 
-    public function edit()
-    {
+        $files = $this->request->getFile('path_gambar_cover');
+        $path_gambar_cover = $files->getRandomName();
+        $path_nama_gambar = $files->getName();
+
+        $files->move('uploaded/images/', $path_gambar_cover);
 
         $data = [
-            'title' => 'Edit Produk - ',
+            'nama_produk'     => $nama_produk,
+            'slug_produk' => $slug_produk,
+            'detail_produk'    => $detail_produk,
+            'path_gambar_cover' => $path_gambar_cover,
+            'path_nama_gambar' => $path_nama_gambar
+        ];
+
+        $this->produk_model->save($data);
+
+        session()->setFlashdata('success', 'Berhasil Menambahkan Produk');
+
+        return redirect()->to(base_url('admin/produk'));
+    }
+
+    public function update()
+    {
+        $slug_produk = $this->request->getPost('slug_produk');
+        $nama_produk = $this->request->getPost('nama_produk');
+        $product = $this->produk_model->getAllProduct('', $slug_produk);
+
+        $nama_produk_rules = 'required|min_length[3]|max_length[255]';
+
+        ($nama_produk !== $product[0]->nama_produk) ? $nama_produk_rules .= '|is_unique[produk.nama_produk]' :  '';
+
+        $rules = [
+            'nama_produk'   =>  [
+                'rules' =>  $nama_produk_rules,
+                'errors'    =>  $this->error_message
+            ],
+            'detail_produk' =>  [
+                'rules' =>  'required|min_length[10]',
+                'errors'    =>  $this->error_message
+            ],
+            'path_gambar_cover' =>  [
+                'rules' =>  'max_size[path_gambar_cover,1024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
+                'errors'    => $this->error_message
+            ]
+        ];
+
+        if (!$this->validate($rules)) return redirect()->to(base_url('/admin/produk/edit/' . $slug_produk))->withInput();
+
+        $nama_produk = $this->request->getPost('nama_produk');
+        $slug_produk = url_title($nama_produk, '-', true);
+        $detail_produk = $this->request->getPost('detail_produk');
+
+        $files = $this->request->getFile('path_gambar_cover');
+        $path_gambar_cover_old = $this->request->getPost('path_gambar_cover');
+        $path_gambar_cover = $product[0]->path_gambar_cover;
+        $path_nama_gambar = $product[0]->path_nama_gambar;
+
+        if ($files->getError() !== 4) {
+            $path_gambar_cover = $files->getRandomName();
+            $path_nama_gambar = $files->getName();
+
+            $files->move('uploaded/images', $path_gambar_cover);
+
+            ($path_gambar_cover_old !== 'default.png') ? unlink('uploaded/images/' . $path_gambar_cover_old) : '';
+        }
+
+        $slug_produk = url_title($nama_produk, '-', true);
+
+        $data = [
+            'nama_produk'     => $nama_produk,
+            'slug_produk' => $slug_produk,
+            'detail_produk'    => $detail_produk,
+            'path_gambar_cover' => $path_gambar_cover,
+            'path_nama_gambar' => $path_nama_gambar
+        ];
+
+        $this->produk_model->update($product[0]->id_produk, $data);
+
+        session()->setFlashdata('success', 'Berhasil Mengubah Produk');
+
+        return redirect()->to(base_url('admin/produk'));
+    }
+
+    public function edit($slug_produk)
+    {
+        $product = $this->produk_model->getAllProduct('', $slug_produk);
+
+        if (!$product) throw new \CodeIgniter\Exceptions\PageNotFoundException("Produk $slug_produk tidak ditemukan");
+
+        $data = [
+            'title' => "Edit Produk - " . $product[0]->nama_produk,
+            'product'   => $product,
+            'validation'    => \Config\Services::validation()
         ];
 
         return view('admin/dashboard/produk_kami/produk/edit_produk', $data);
+    }
+
+    public function delete($id)
+    {
+        $product = $this->produk_model->find($id);
+
+        if ($product['path_gambar_cover'] !== 'default.png') {
+            unlink('uploaded/images/' . $product['path_gambar_cover']);
+        }
+
+        $this->produk_model->delete($id);
+        session()->setFlashdata('success', 'Berhasil Menghapus Produk');
+
+        return redirect()->to(base_url('admin/produk'));
     }
 }
