@@ -44,7 +44,7 @@
             }
         </style>
 
-        <form action="<?php echo base_url() ?>/admin/produk/update" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('/admin/produk/update') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">
                 <div class="form-group input-group-lg">

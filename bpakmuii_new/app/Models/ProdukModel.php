@@ -114,7 +114,7 @@ class ProdukModel extends Model
     {
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, produk.slug_produk, gambar_produk.id_gambar, 
-                        gambar_produk.nama_gambar, gambar_produk.slug_gambar, gambar_produk.path_gambar');
+                        gambar_produk.nama_gambar, gambar_produk.slug_gambar, gambar_produk.path_gambar, gambar_produk.path_nama_gambar');
         $builder->join('gambar_produk', 'produk.id_produk = gambar_produk.id_produk', 'right');
 
         if ($slug_product) {

@@ -3,6 +3,7 @@
 namespace App\Models\Admin;
 
 use CodeIgniter\Model;
+use NumberFormatter;
 
 class PaketModel extends Model
 {
@@ -13,17 +14,29 @@ class PaketModel extends Model
 
     public function getAllPackage($slug_package = '')
     {
+        $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
+
+        $builder = $this->db->table('paket');
+        $builder->select('paket.id_paket, paket.nama_paket, paket.slug_paket, paket.harga, produk.id_produk, produk.nama_produk');
+        $builder->join('produk', 'paket.id_produk = produk.id_produk', 'left');
+        $builder->orderBy('paket.created_at', 'DESC');
+
         if ($slug_package) {
-            $package = $this->where('slug_paket', $slug_package)
-                ->orderBy('created_at', 'DESC')
-                ->first();
+            $builder->where('paket.slug_paket', $slug_package);
+            $package = $builder->get()->getResult();
 
             return $package;
         }
 
-        $package = $this->orderBy('created_at', 'DESC')
-            ->findAll();
+        $packages = $builder->get()->getResult();
 
-        return $package;
+        foreach ($packages as $package) {
+            $currency = $formatter->formatCurrency($package->harga, 'IDR');
+            $currency = substr($currency, 0, strrpos($currency, ','));
+            $package->harga = $currency;
+        }
+
+
+        return $packages;
     }
 }

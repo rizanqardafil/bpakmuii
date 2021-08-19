@@ -67,15 +67,24 @@ $routes->get('/admin/produk/edit/(:any)', 'Admin\Produk_Kami\Produk::edit/$1', [
 
 $routes->get('/admin/gambar', 'Admin\Produk_Kami\Gambar::index', ['filter' => 'auth']);
 $routes->get('/admin/gambar/tambah', 'Admin\Produk_Kami\Gambar::tambah', ['filter' => 'auth']);
-$routes->get('/admin/gambar/edit', 'Admin\Produk_Kami\Gambar::edit', ['filter' => 'auth']);
+$routes->get('/admin/gambar/edit/(:any)', 'Admin\Produk_Kami\Gambar::edit/$1', ['filter' => 'auth']);
+$routes->post('/admin/gambar/update', 'Admin\Produk_Kami\Gambar::update', ['filter' => 'auth']);
+$routes->delete('/admin/gambar/delete/(:num)', 'Admin\Produk_Kami\Gambar::delete/$1', ['filter' => 'auth']);
+$routes->post('/admin/gambar/save', 'Admin\Produk_Kami\Gambar::save', ['filter' => 'auth']);
 
 $routes->get('/admin/paket', 'Admin\Produk_Kami\Paket::index', ['filter' => 'auth']);
 $routes->get('/admin/paket/tambah', 'Admin\Produk_Kami\Paket::tambah', ['filter' => 'auth']);
-$routes->get('/admin/paket/edit', 'Admin\Produk_Kami\Paket::edit', ['filter' => 'auth']);
+$routes->post('/admin/paket/save', 'Admin\Produk_Kami\Paket::save', ['filter' => 'auth']);
+$routes->post('/admin/paket/update', 'Admin\Produk_Kami\Paket::update', ['filter' => 'auth']);
+$routes->delete('/admin/paket/delete/(:num)', 'Admin\Produk_Kami\Paket::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/paket/edit/(:any)', 'Admin\Produk_Kami\Paket::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/pesanan', 'Admin\Produk_Kami\Pesanan::index', ['filter' => 'auth']);
 $routes->get('/admin/pesanan/tambah', 'Admin\Produk_Kami\Pesanan::tambah', ['filter' => 'auth']);
-$routes->get('/admin/pesanan/edit', 'Admin\Produk_Kami\Pesanan::tambah', ['filter' => 'auth']);
+$routes->post('/admin/pesanan/save', 'Admin\Produk_Kami\Pesanan::save', ['filter' => 'auth']);
+$routes->post('/admin/pesanan/update', 'Admin\Produk_Kami\Pesanan::update', ['filter' => 'auth']);
+$routes->delete('/admin/pesanan/delete/(:num)', 'Admin\Produk_Kami\Pesanan::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/pesanan/edit/(:num)', 'Admin\Produk_Kami\Pesanan::edit/$1', ['filter' => 'auth']);
 
 
 // Admin Investor routes

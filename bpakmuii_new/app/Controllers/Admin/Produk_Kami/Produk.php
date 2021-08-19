@@ -71,7 +71,8 @@ class Produk extends BaseController
         $detail_produk = $this->request->getPost('detail_produk');
 
         $files = $this->request->getFile('path_gambar_cover');
-        $path_gambar_cover = $files->getRandomName();
+        $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
+        $path_gambar_cover = $image_name . '_' . $files->getRandomName();
         $path_nama_gambar = $files->getName();
 
         $files->move('uploaded/images/', $path_gambar_cover);
@@ -128,12 +129,13 @@ class Produk extends BaseController
         $path_nama_gambar = $product[0]->path_nama_gambar;
 
         if ($files->getError() !== 4) {
-            $path_gambar_cover = $files->getRandomName();
+            $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
+            $path_gambar_cover = $image_name . '_' . $files->getRandomName();
             $path_nama_gambar = $files->getName();
 
-            $files->move('uploaded/images', $path_gambar_cover);
+            $files->move('uploaded/images/', $path_gambar_cover);
 
-            ($path_gambar_cover_old !== 'default.png') ? unlink('uploaded/images/' . $path_gambar_cover_old) : '';
+            (is_file('uploaded/images/' . $path_gambar_cover_old) && $path_gambar_cover_old !== 'default.png') ? unlink('uploaded/images/' . $path_gambar_cover_old) : '';
         }
 
         $slug_produk = url_title($nama_produk, '-', true);
@@ -172,11 +174,19 @@ class Produk extends BaseController
     {
         $product = $this->produk_model->find($id);
 
-        if ($product['path_gambar_cover'] !== 'default.png') {
+        try {
+            $this->produk_model->delete($id);
+        } catch (\Exception $e) {
+            $message = 'Data berkaitan dengan <b>' . $product['nama_produk'] . '</b> harus dihapus terlebih dahulu. Cek di admin <b>Paket</b>, <b>Gambar Produk</b>, atau <b>Pesanan</b>';
+            session()->setFlashdata('message', $message);
+
+            return redirect()->to(base_url('admin/produk'));
+        }
+
+        if (is_file('uploaded/images/' . $product['path_gambar_cover']) && $product['path_gambar_cover'] !== 'default.png') {
             unlink('uploaded/images/' . $product['path_gambar_cover']);
         }
 
-        $this->produk_model->delete($id);
         session()->setFlashdata('success', 'Berhasil Menghapus Produk');
 
         return redirect()->to(base_url('admin/produk'));
