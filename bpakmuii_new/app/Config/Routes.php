@@ -89,8 +89,6 @@ $routes->get('/admin/pesanan/edit/(:num)', 'Admin\Produk_Kami\Pesanan::edit/$1',
 
 // Admin Investor routes
 $routes->get('/admin/organisasi', 'Admin\Investor\Organisasi::index', ['filter' => 'auth']);
-$routes->get('/admin/organisasi/tambah', 'Admin\Investor\Organisasi::tambah', ['filter' => 'auth']);
-$routes->get('/admin/organisasi/edit', 'Admin\Investor\Organisasi::edit', ['filter' => 'auth']);
 
 $routes->get('/admin/laporan', 'Admin\Investor\Laporan::index', ['filter' => 'auth']);
 $routes->get('/admin/laporan/tambah', 'Admin\Investor\Laporan::tambah', ['filter' => 'auth']);
@@ -103,12 +101,10 @@ $routes->get('/admin/gambar_laporan/edit', 'Admin\Investor\Gambar::edit', ['filt
 
 // Admin Tentang kami
 $routes->get('/admin/tentang-kami', 'Admin\Tentang\VisiMisi::index', ['filter' => 'auth']);
-$routes->get('/admin/tentang-kami/tambah', 'Admin\Tentang\VisiMisi::tambah', ['filter' => 'auth']);
-$routes->get('/admin/tentang-kami/edit', 'Admin\Tentang\VisiMisi::edit', ['filter' => 'auth']);
+
 
 $routes->get('/admin/sejarah', 'Admin\Tentang\Sejarah::index', ['filter' => 'auth']);
-$routes->get('/admin/sejarah/tambah', 'Admin\Tentang\Sejarah::tambah', ['filter' => 'auth']);
-$routes->get('/admin/sejarah/edit', 'Admin\Tentang\Sejarah::edit', ['filter' => 'auth']);
+
 
 /*
  * --------------------------------------------------------------------

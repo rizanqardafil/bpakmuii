@@ -7,82 +7,83 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
-        <a href="<?php echo base_url('/admin/tentang-kami/tambah')?>" class="btn btn-primary spacing"><i class="fa fa-plus"></i> Tambah Produk</a>
-        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th width="150px">Gambar Visi</th>
-                <th width="150px">Gambar Misi</th>
-                <th>Keterangan Visi</th>
-                <th>Keterangan Misi</th>
-                <th width="150px">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="odd gradeX">
-                <td>
-                    <!-- Isi dengan Nomor Visi Misi -->
-                </td>
-                <td>
-                    <!-- Isi dengan Gambar Visi -->
-                <img src="" width="150px">
-                </td>
-                <td>
-                    <!-- Isi dengan Gambar Misi -->
-                <img src="" width="150px">
-                </td>
-                <td>
-                    <!-- Isi dengan Keterangan Visi -->
-                </td>
-                <td>
-                    <!-- Isi dengan Keterangan Misi -->
-                </td>
-                <td class="center">
-                <a href="<?php echo base_url('/admin/tentang-kami/edit');?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-            <!-- View Biz -->
-            <!--  Modals-->
-                <button class="btn btn-success" data-toggle="modal" data-target="#View"><i class="fa fa-eye"></i></button>
+        <div class="table-responsive">
+                <script src="<?= base_url(); ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
+                <script type="text/javascript">
+                    tinymce.init({
+                        file_browser_callback: function(field, url, type, win) {
+                            tinyMCE.activeEditor.windowManager.open({
+                                file: '<?= base_url(); ?>/admin/kcfinder/browse.php?opener=tinymce4&field=' + field + '&type=' + type,
+                                title: 'KCFinder',
+                                width: 700,
+                                height: 500,
+                                inline: true,
+                                close_previous: false
+                            }, {
+                                window: win,
+                                input: field
+                            });
+                            return false;
+                        },
+                        selector: "#about",
+                        height: 250,
+                        plugins: [
+                            "advlist autolink lists link image charmap print preview anchor",
+                            "searchreplace visualblocks code fullscreen",
+                            "insertdatetime media table contextmenu paste"
+                        ],
+                        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                    });
+                </script>
 
-                <div class="modal fade" id="View" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">View Photo</h4>
+                <form action="<?php echo base_url() ?>" method="post">
+                    <?= csrf_field(); ?>
+
+                    <input type="hidden" name="id_config" value="">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Keterangan Visi</label>
+                            <textarea name="keteranganVisi" rows="6" class="form-control" placeholder="Isi keterangan singkat mengenai visi BPA KM UII..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Gambar Visi</label>
+                            <input type="file" name="gambarVisi" class="form-control" id="file" onchange="previewImage()">
+                            <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
+                            <div class="alert alert-warning">
+                                <i>
+                                    <strong>Image Size</strong> : 1140px X 400px<br>
+                                </i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Keterangan Misi</label>
+                            <textarea name="keteranganMisi" rows="6" class="form-control" placeholder="Isi keterangan singkat mengenai misi BPA KM UII..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Upload Gambar Misi</label>
+                            <input type="file" name="gambarMisi" class="form-control" id="file" onchange="previewImage()">
+                            <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
+                            <div class="alert alert-warning">
+                                <i>
+                                    <strong>Image Size</strong> : 1140px X 400px<br>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered table-hover">
-                <tr>
-                <img src="" width="200px">
-                    <td>Caption</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                    <a href="<?php echo base_url('/admin/tentang-kami/edit') ?>" class="btn btn-primary">Edit</a>
-                    <a href="<?php echo base_url() ?>" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')" >Delete</a>
-                </tr>
-                </table>
-                </div>
-                <div class="clearfix"></div>
+                        <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                        <input type="reset" name="reset" value="Reset" class="btn btn-default">
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                </div>
-                </div>
-                <!-- End Modals-->
-                <a href="<?php echo base_url();?>" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></a>
+                </form>
 
-                </td>
-            </tr>
-        </tbody>
-        </table>
+
+            </div>
     </div>
 </div>
 

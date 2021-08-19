@@ -44,7 +44,7 @@
                         <div class="footer-left text-left">
                             <div class="footer-logo">
                                 <a href="<?= base_url('/beranda'); ?>">
-                                    <img src="../images/logoBPAKMUII.png" alt="">
+                                    <img src="<?= base_url(); ?>/images/logoBPAKMUII.png" alt="">
                                 </a>
                             </div>
                             <div class="footer-desc-bpa">

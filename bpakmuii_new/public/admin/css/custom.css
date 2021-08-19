@@ -385,6 +385,13 @@ line-height: 1.428571429;
     margin-bottom:10px;
 }
 
+.img-thumbnail{
+    margin: 20px 0;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
 /*==============================================
     MEDIA QUERIES
     =============================================*/
