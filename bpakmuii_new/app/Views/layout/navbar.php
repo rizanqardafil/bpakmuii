@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container" data-aos="fade-down" data-aos-duration="2000">
         <a href="/beranda" class="navbar-brand">
-            <img class="img-fluid" src="../images/logoBPAKMUII.png" alt="Logo BPA KM UII" width="150">
+            <img class="img-fluid" src="<?= base_url(); ?>/images/logoBPAKMUII.png" alt="Logo BPA KM UII" width="150">
         </a>
 
         <!-- Hamburger button -->
