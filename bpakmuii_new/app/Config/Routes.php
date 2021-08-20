@@ -36,6 +36,7 @@ $routes->get('/beranda', 'BerandaController::index');
 $routes->get('/produk', 'ProdukController::index');
 $routes->get('/produk/detail/(:any)', 'ProdukController::detail/$1');
 $routes->get('/investor', 'InvestorController::index');
+$routes->post('/investor/download', 'InvestorController::download');
 $routes->get('/galeri', 'GaleriController::index');
 $routes->get('/galeri/foto', 'GaleriController::foto');
 $routes->get('/galeri/video', 'GaleriController::video');
@@ -94,7 +95,10 @@ $routes->get('/admin/organisasi/edit', 'Admin\Investor\Organisasi::edit', ['filt
 
 $routes->get('/admin/laporan', 'Admin\Investor\Laporan::index', ['filter' => 'auth']);
 $routes->get('/admin/laporan/tambah', 'Admin\Investor\Laporan::tambah', ['filter' => 'auth']);
-$routes->get('/admin/laporan/edit', 'Admin\Investor\Laporan::edit', ['filter' => 'auth']);
+$routes->post('/admin/laporan/save', 'Admin\Investor\Laporan::save', ['filter' => 'auth']);
+$routes->post('/admin/laporan/update', 'Admin\Investor\Laporan::update', ['filter' => 'auth']);
+$routes->delete('/admin/laporan/delete/(:num)', 'Admin\Investor\Laporan::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/laporan/edit/(:any)', 'Admin\Investor\Laporan::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/gambar_laporan', 'Admin\Investor\Gambar::index', ['filter' => 'auth']);
 $routes->get('/admin/gambar_laporan/tambah', 'Admin\Investor\Gambar::tambah', ['filter' => 'auth']);
