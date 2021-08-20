@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Section Artikel -->
-<section class="sectionap">
+<section class="section2">
 <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
     <!-- Bagian Terbaru / Feature -->
     <div class="row" >

@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Section Bagian Galeri -->
-<section class="sectionap">
+<section class="section2">
     <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- Bagian title Foto & Button Lihat semua -->
         <div class="row d-flex align-items-center">
@@ -11,7 +11,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="btnlihatsemua">
-                    <a href="/galeri/foto">
+                    <a href="<?= base_url('/galeri/foto'); ?>">
                         <img src="../images/TombolLihatSemua.svg">
                     </a>
                 </div>
@@ -117,7 +117,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="btnlihatsemua">
-                    <a href="/galeri/video">
+                    <a href="<?= base_url('/galeri/video'); ?>">
                         <img src="../images/TombolLihatSemua.svg">
                     </a>
                 </div>

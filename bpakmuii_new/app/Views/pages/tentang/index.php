@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Section Tentang Kami -->
-<section class="sectionap">
+<section class="section2">
 <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- Bagian Filosofi BPA KM UII -->
         <div class="row" >

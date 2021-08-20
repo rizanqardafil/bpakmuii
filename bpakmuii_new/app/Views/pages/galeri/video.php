@@ -2,8 +2,28 @@
 
 <?= $this->section('content'); ?>
 <!-- Section Bagian Video -->
-<section class="sectionap">
+<section class="section2">
     <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+        <!-- breadcrumbs section -->
+        <section class="detail-breadcrumbs" data-aos="fade-up" data-aos-duration="2000">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="<?= base_url('/galeri'); ?>">Galeri</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Galeri Video
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Bagian title & Description -->
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 col-md-6">

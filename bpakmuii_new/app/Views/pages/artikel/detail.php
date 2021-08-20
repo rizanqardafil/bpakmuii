@@ -4,6 +4,29 @@
 <!-- Section Artikel -->
 <section class="sectionap">
 <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <!-- breadcrumbs section -->
+        <section class="detail-breadcrumbs" data-aos="fade-up" data-aos-duration="2000">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="<?= base_url('/artikel'); ?>">Artikel</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    Detail
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    7 Skills Untuk Pemula dalam Trading
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     <!-- Bagian Terbaru / Feature -->
     <div class="row" >
         <div class="col-lg-12 col-md-6">
@@ -58,7 +81,7 @@
             <div class="linenextartikel"></div>
             <div class="row">
                 <div class="btnbackartikel">
-                    <a href="">
+                    <a href="<?= base_url('/artikel'); ?>">
                         <img src="../images/TombolKembali.svg">
                     </a>
                 </div>
