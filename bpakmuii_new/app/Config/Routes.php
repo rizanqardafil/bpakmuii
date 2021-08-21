@@ -90,6 +90,7 @@ $routes->get('/admin/pesanan/edit/(:num)', 'Admin\Produk_Kami\Pesanan::edit/$1',
 
 // Admin Investor routes
 $routes->get('/admin/organisasi', 'Admin\Investor\Organisasi::index', ['filter' => 'auth']);
+$routes->post('/admin/organisasi/save', 'Admin\Investor\Organisasi::save', ['filter' => 'auth']);
 
 $routes->get('/admin/laporan', 'Admin\Investor\Laporan::index', ['filter' => 'auth']);
 $routes->get('/admin/laporan/tambah', 'Admin\Investor\Laporan::tambah', ['filter' => 'auth']);
@@ -100,15 +101,18 @@ $routes->get('/admin/laporan/edit/(:any)', 'Admin\Investor\Laporan::edit/$1', ['
 
 $routes->get('/admin/gambar_laporan', 'Admin\Investor\Gambar::index', ['filter' => 'auth']);
 $routes->get('/admin/gambar_laporan/tambah', 'Admin\Investor\Gambar::tambah', ['filter' => 'auth']);
-$routes->get('/admin/gambar_laporan/edit', 'Admin\Investor\Gambar::edit', ['filter' => 'auth']);
+$routes->post('/admin/gambar_laporan/save', 'Admin\Investor\Gambar::save', ['filter' => 'auth']);
+$routes->post('/admin/gambar_laporan/update', 'Admin\Investor\Gambar::update', ['filter' => 'auth']);
+$routes->delete('/admin/gambar_laporan/delete/(:num)', 'Admin\Investor\Gambar::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/gambar_laporan/edit/(:any)', 'Admin\Investor\Gambar::edit/$1', ['filter' => 'auth']);
 
 
 // Admin Tentang kami
 $routes->get('/admin/tentang-kami', 'Admin\Tentang\VisiMisi::index', ['filter' => 'auth']);
-
+$routes->post('/admin/tentang-kami/save', 'Admin\Tentang\VisiMisi::save', ['filter' => 'auth']);
 
 $routes->get('/admin/sejarah', 'Admin\Tentang\Sejarah::index', ['filter' => 'auth']);
-
+$routes->post('/admin/sejarah/save', 'Admin\Tentang\Sejarah::save', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------
