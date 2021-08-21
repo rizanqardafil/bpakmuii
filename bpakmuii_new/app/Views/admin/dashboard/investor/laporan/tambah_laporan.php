@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group">
                     <label>Upload Laporan Pertanggung Jawaban</label>
-                    <input type="file" name="path_laporan" class="form-control <?= ($validation->hasError('path_laporan')) ? 'is-invalid' : '' ?>" id="path_laporan" onchange="previewImage()">
+                    <input type="file" name="path_laporan" class="form-control <?= ($validation->hasError('path_laporan')) ? 'is-invalid' : '' ?>" id="path_laporan" onchange="previewDocs()">
                     <div class="invalid-feedback">
                         <?= $validation->getError('path_laporan'); ?>
                     </div>
