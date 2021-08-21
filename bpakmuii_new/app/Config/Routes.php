@@ -114,6 +114,28 @@ $routes->post('/admin/tentang-kami/save', 'Admin\Tentang\VisiMisi::save', ['filt
 $routes->get('/admin/sejarah', 'Admin\Tentang\Sejarah::index', ['filter' => 'auth']);
 $routes->post('/admin/sejarah/save', 'Admin\Tentang\Sejarah::save', ['filter' => 'auth']);
 
+// Admin Galeri routes
+$routes->get('/admin/foto', 'Admin\Galeri\Foto::index', ['filter' => 'auth']);
+$routes->get('/admin/foto/tambah', 'Admin\Galeri\Foto::tambah', ['filter' => 'auth']);
+$routes->get('/admin/foto/edit', 'Admin\Galeri\Foto::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/album', 'Admin\Galeri\Album::index', ['filter' => 'auth']);
+$routes->get('/admin/album/tambah', 'Admin\Galeri\Album::tambah', ['filter' => 'auth']);
+$routes->get('/admin/album/edit', 'Admin\Galeri\Album::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/video', 'Admin\Galeri\Video::index', ['filter' => 'auth']);
+$routes->get('/admin/video/tambah', 'Admin\Galeri\Video::tambah', ['filter' => 'auth']);
+$routes->get('/admin/video/edit', 'Admin\Galeri\Video::edit', ['filter' => 'auth']);
+
+// Admin Artikel routes
+$routes->get('/admin/artikel', 'Admin\Artikel\Artikel::index', ['filter' => 'auth']);
+$routes->get('/admin/artikel/tambah', 'Admin\Artikel\Artikel::tambah', ['filter' => 'auth']);
+$routes->get('/admin/artikel/edit', 'Admin\Artikel\Artikel::edit', ['filter' => 'auth']);
+
+$routes->get('/admin/penulis', 'Admin\Artikel\Penulis::index', ['filter' => 'auth']);
+$routes->get('/admin/penulis/tambah', 'Admin\Artikel\Penulis::tambah', ['filter' => 'auth']);
+$routes->get('/admin/penulis/edit', 'Admin\Artikel\Penulis::edit', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
