@@ -16,17 +16,12 @@
             </div>
             <!-- image section struktur organisasi BPA KM UII -->
             <div class="previewimage">
-                <img src="../images/tatacarapeminjamanlowsize.png" alt="Struktur Organisasi BPA KM UII">
+                <img src="<?= base_url(); ?>/uploaded/images/<?= $org[0]->image; ?>" alt="Struktur Organisasi BPA KM UII">
             </div>
             <!-- Description Section -->
             <div class="col-lg-12">
                 <div class="description-strukturorganisasi pt-5">
-                    Struktur Organisasi BPA KM UII terdiri dari sekumpulan mahasiswa yang mana, bertugas untuk
-                    memimpin dan menjalankan organisasi, bertanggung jawab penuh atas keseluruhan organisasi,
-                    serta
-                    mengambil keputusan tertinggi mengenai kebijakan dan tata kelola organisasi selama satu
-                    periode
-                    tersebut.
+                    <?= $org[0]->keterangan; ?>
                 </div>
             </div>
         </div>
@@ -43,124 +38,45 @@
                 </h2>
             </div>
             <div class="col-lg-4 col-md-4 d-flex align-items-center justify-content-end">
-                <a href="#">
+                <a href="<?= $config[0]['link_drive_laporan']; ?>" target="_blank">
                     <p class="pt-3 description" style="color:#044BD9; font-weight: bold;">Lihat Semua Laporan &#8594;</p>
                 </a>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 carousel-laporan">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <span class="notify-badges-available">Tersedia</span>
-                        <div class="carousel-item active">
-                            <img src="../images/bangunan.jpeg" class="d-block w-100" alt="...">
+            <?php foreach ($reports as $report) : ?>
+                <div class="col-lg-3 col-md-3 carousel-laporan">
+                    <div id="carouselExampleControls<?= $report->slug_laporan; ?>" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <span class="notify-badges-<?= ($report->path_laporan) ? 'available' : 'notavailable'; ?>"><?= ($report->path_laporan) ? 'Tersedia' : 'Tidak Tersedia'; ?></span>
+                            <?php $i = 0; ?>
+                            <?php foreach ($report->gambar_path as $image) : ?>
+                                <div class="carousel-item <?= ($i) ? '' : 'active'; ?>">
+                                    <img src="<?= base_url(); ?>/uploaded/images/<?= $image ?>" class="d-block w-100" alt="<?= $report->nama_gambar[$i++]; ?>">
+                                </div>
+                            <?php endforeach; ?>
+                            <?php if (!$report->gambar_path) : ?>
+                                <div class="carousel-item active">
+                                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="d-block w-100" alt="Gambar Default">
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="carousel-item">
-                            <img src="../images/kursi.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/soundspeaker.jpg" class="d-block w-100" alt="...">
-                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div class="products-text"><?= $report->nama_laporan; ?></div>
+                    <form action="<?= base_url('/investor/download'); ?>" method="post">
+                        <input type="hidden" name="path_laporan" value="<?= $report->path_laporan; ?>">
+                        <button class="btn btn-<?= ($report->path_laporan) ? 'primary' : 'secondary'; ?>" <?= ($report->path_laporan) ? '' : 'disabled'; ?>>Download Laporan</button>
+                    </form>
                 </div>
-                <div class="products-text">Laporan Triwulan 1 Tahun 2021</div>
-                <a href="#" class="btn btn-primary">Download Laporan</a>
-            </div>
-            <div class="col-lg-3 col-md-3 carousel-laporan">
-                <div id="carouselExampleControls2" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <span class="notify-badges-available">Tersedia</span>
-                        <div class="carousel-item active">
-                            <img src="../images/bangunan.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/kursi.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/soundspeaker.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControls2" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <div class="products-text">Laporan Triwulan 2 Tahun 2021</div>
-                <a href="#" class="btn btn-primary">Download Laporan</a>
-            </div>
-            <div class="col-lg-3 col-md-3 carousel-laporan">
-                <div id="carouselExampleControls3" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <span class="notify-badges-available">Tersedia</span>
-                        <div class="carousel-item active">
-                            <img src="../images/bangunan.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/kursi.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/soundspeaker.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControls3" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <div class="products-text">Laporan Triwulan 3 Tahun 2021</div>
-                <a href="#" class="btn btn-primary">Download Laporan</a>
-            </div>
-            <div class="col-lg-3 col-md-3 carousel-laporan">
-                <div id="carouselExampleControls4" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <span class="notify-badges-notavailable">Sedang dalam progress</span>
-                        <div class="carousel-item active">
-                            <img src="../images/bangunan.jpeg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/kursi.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../images/soundspeaker.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleControls4" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                <div class="products-text">Laporan Triwulan 4 Tahun 2021</div>
-                <a href="#" class="btn btn-primary disabled">Download Laporan</a>
-            </div>
+            <?php endforeach; ?>
         </div>
     </section>
 

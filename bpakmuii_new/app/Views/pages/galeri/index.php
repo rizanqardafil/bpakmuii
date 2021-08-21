@@ -12,7 +12,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/foto'); ?>">
-                        <img src="../images/TombolLihatSemua.svg">
+                        <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
                     </a>
                 </div>
             </div>
@@ -20,26 +20,27 @@
 
         <!-- Bagian Card Galeri-->
         <div class="row" data-aos="zoom-in-up" data-aos-duration="2000">
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+            <?php foreach ($images as $image) : ?>
+                <div class="col-sm-4 d-flex align-items-stretch">
+                    <div class="card-galeri">
+                        <a href="#" class="component-galeri d-block">
+                            <div class="galeri-thumbnail">
+                                <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Pendaftaran Anggota Baru</h5>
-                        </div>
-                    </a>
+                            <div class="card-bodygaleri">
+                                <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
+            <?php endforeach; ?>
+
+            <!-- <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -52,8 +53,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -61,14 +61,13 @@
                         </div>
                     </a>
                 </div>
-            </div>             
+            </div>
 
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -81,8 +80,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -95,8 +93,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -104,7 +101,7 @@
                         </div>
                     </a>
                 </div>
-            </div>           
+            </div> -->
         </div>
     </section>
 
@@ -118,7 +115,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/video'); ?>">
-                        <img src="../images/TombolLihatSemua.svg">
+                        <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
                     </a>
                 </div>
             </div>
@@ -127,18 +124,30 @@
         <!-- <iframe width="1424" height="620" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
             frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen></iframe> -->
-            
+
         <!-- Bagian Card Video -->
         <div class="row">
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
+            <?php foreach ($videos as $video) : ?>
+                <div class="col-12 col-md-4 col-lg-4 pr-2">
+                    <a href="#" class="d-block">
+                        <div class="video-thumbnail">
+                            <div class="products-video">
+                                <iframe width="300px" height="200px" src="https://www.youtube.com/embed/<?= $video->path_video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="row-titlevideo">
+                        <div class="text-titlevideo"><?= $video->nama_video; ?></div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <!-- <div class="col-12 col-md-4 col-lg-4 pr-2">
                 <a href="#" class="d-block">
                     <div class="video-thumbnail">
                         <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
+                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
                         </div>
-                    </div>                        
+                    </div>
                 </a>
                 <div class="row-titlevideo">
                     <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
@@ -148,25 +157,9 @@
                 <a href="#" class="d-block">
                     <div class="video-thumbnail">
                         <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
+                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
                         </div>
-                    </div>                        
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
-                        </div>
-                    </div>                        
+                    </div>
                 </a>
                 <div class="row-titlevideo">
                     <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
@@ -177,11 +170,9 @@
                 <a href="#" class="d-block">
                     <div class="video-thumbnail">
                         <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
+                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
                         </div>
-                    </div>                        
+                    </div>
                 </a>
                 <div class="row-titlevideo">
                     <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
@@ -191,11 +182,9 @@
                 <a href="#" class="d-block">
                     <div class="video-thumbnail">
                         <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
+                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
                         </div>
-                    </div>                        
+                    </div>
                 </a>
                 <div class="row-titlevideo">
                     <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
@@ -205,17 +194,15 @@
                 <a href="#" class="d-block">
                     <div class="video-thumbnail">
                         <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen> </iframe>
+                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
                         </div>
-                    </div>                        
+                    </div>
                 </a>
                 <div class="row-titlevideo">
                     <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
                 </div>
-            </div>    
-        </div>         
+            </div> -->
+        </div>
     </section>
 </section>
 <?= $this->endSection(); ?>
@@ -223,7 +210,7 @@
 <?= $this->section('scripts'); ?>
 <script>
     AOS.init();
-    $(document).ready(function () {
+    $(document).ready(function() {
         date();
     });
 </script>

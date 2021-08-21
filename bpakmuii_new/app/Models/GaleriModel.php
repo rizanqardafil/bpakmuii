@@ -11,19 +11,15 @@ class GaleriModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['nama_foto', 'slug_galeri_foto', 'path_foto', 'id_album'];
 
-    public function getAlbum($limit = 0)
+    public function getAlbum($album_name = '', $limit = 0, $offset = 0)
     {
         $builder = $this->db->table('album');
         $builder->select('id_album, nama_album, slug_album, path_cover');
         $builder->orderBy('album.created_at', 'DESC');
 
-        if (!$limit) {
-            $result = $builder->get()->getResult();
+        if (!$album_name) $builder->like('album.nama_album', $album_name);
 
-            return $result;
-        }
-
-        $result = $builder->get($limit)->getResult();
+        $result = $builder->get($limit, $offset)->getResult();
 
         return $result;
     }
@@ -46,17 +42,15 @@ class GaleriModel extends Model
         return $results;
     }
 
-    public function getVideo($limit = 0)
+    public function getVideo($video_name = '', $limit = 0, $offset = 0)
     {
         $builder = $this->db->table('galeri_video');
         $builder->select('id_galeri_video, nama_video, slug_galeri_video, path_video');
         $builder->orderBy('created_at', 'DESC');
 
-        $results = $builder->get(null, 0, false)->getResult();
+        if (!$video_name) $builder->like('galeri_video.nama_video', $video_name);
 
-        if ($limit) {
-            $results = $builder->get($limit)->getResult();
-        }
+        $results = $builder->get($limit, $offset)->getResult();
 
         foreach ($results as $result) {
             $result->path_video = $this->getUniqueCode($result->path_video);

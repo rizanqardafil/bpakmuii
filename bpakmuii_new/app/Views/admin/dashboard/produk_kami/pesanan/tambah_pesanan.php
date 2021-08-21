@@ -63,7 +63,7 @@
 
         $date = date('Y-m-d H:i:s');
         ?>
-        <form action="<?php echo base_url() ?>/admin/pesanan/save" method="post">
+        <form action="<?php echo base_url('/admin/pesanan/save') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="col-md-12">
                 <div class="form-group input-group-lg">

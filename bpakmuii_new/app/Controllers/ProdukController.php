@@ -7,10 +7,12 @@ use App\Models\ProdukModel;
 class ProdukController extends BaseController
 {
 	protected $product_model;
+
 	public function __construct()
 	{
 		$this->product_model = new ProdukModel();
 	}
+
 	public function index()
 	{
 		$current_page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
@@ -42,7 +44,8 @@ class ProdukController extends BaseController
 			'pager'	=> $pager,
 			'total'	=> $total_products,
 			'current_page'	=> $current_page,
-			'search_input'	=> $search_input
+			'search_input'	=> $search_input,
+			'config'	=> $this->config->getConfig()
 		];
 
 		return view('pages/produk/index', $data);
@@ -54,7 +57,8 @@ class ProdukController extends BaseController
 
 		$data = [
 			'titles' => 'Detail Produk | BPA KM UII',
-			'product'	=> $product
+			'product'	=> $product,
+			'config'	=> $this->config->getConfig()
 		];
 
 		return view('pages/produk/detail', $data);

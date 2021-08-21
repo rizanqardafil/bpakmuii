@@ -6,6 +6,10 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <?php endif; ?>
+
         <div class="table-responsive">
             <style>
                 #imagePreview {
@@ -36,41 +40,23 @@
                 });
             </script>
 
-
-            <?php
-            // $site = $this->mConfig->list_config();
-            // // Session
-            // if ($this->session->flashdata('sukses')) {
-            //     echo '<div class="alert alert-success">';
-            //     echo $this->session->flashdata('sukses');
-            //     echo '</div>';
-            // }
-
-            // // File upload error
-            // if (isset($error)) {
-            //     echo '<div class="alert alert-success">';
-            //     echo $error;
-            //     echo '</div>';
-            // }
-
-            // // Error
-            // echo validation_errors('<div class="alert alert-success">', '</div>');
-            ?>
-
-            <form action="<?php echo base_url('admin/setting/icon') ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id_config" value="">
+            <form action="<?php echo base_url('/admin/icon-config/save-icon') ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="icon" class="form-control" value="<?= $config[0]['icon']; ?>">
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Upload New Icon</label>
-                        <input type="file" name="icon" class="form-control" id="file">
+                        <label>Unggah Ikon Baru</label>
+                        <input type="file" name="icon" class="form-control <?= ($validation->hasError('icon')) ? 'is-invalid' : '' ?>" id="file">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('icon'); ?>
+                        </div>
                         <div id="imagePreview"></div>
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <label>Your Icon:</label><br>
-                    <img src="" style="max-width:200px; height:auto;">
+                    <label>Ikon saat ini:</label><br>
+                    <img src="<?= base_url(); ?>/uploaded/images/<?= $config[0]['icon']; ?>" style="max-width:200px; height:auto;">
                 </div>
 
                 <div class="col-md-12">

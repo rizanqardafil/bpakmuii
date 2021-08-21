@@ -14,7 +14,7 @@ class ArtikelModel extends Model
         'path_gambar', 'id_penulis'
     ];
 
-    public function getAllArtikel($slug_artikel = '')
+    public function getAllArtikel($judul_artikel = '', $slug_artikel = '', $limit = 0, $offset = 0)
     {
         $builder = $this->db->table($this->table);
         $builder->select('artikel.id_artikel, artikel.judul_artikel, 
@@ -27,7 +27,11 @@ class ArtikelModel extends Model
             $builder->where('artikel.slug_artikel', $slug_artikel);
         }
 
-        $results = $builder->get()->getResult();
+        if ($judul_artikel) {
+            $builder->like('artikel.judul_artikel', $judul_artikel);
+        }
+
+        $results = $builder->get($limit, $offset)->getResult();
 
         setlocale(LC_TIME, 'id_ID.utf8');
 

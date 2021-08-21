@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\ConfigModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -29,6 +30,7 @@ class BaseController extends Controller
 	 */
 	protected $request;
 	protected $error_message;
+	protected $config;
 
 	/**
 	 * An array of helpers to be loaded automatically upon
@@ -50,17 +52,20 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
+		$this->config = new ConfigModel();
 
 		$this->error_message = [
 			'required'  => 'Tidak boleh kosong',
 			'is_unique'    => '{value} sudah tercatat',
 			'min_length'    => 'Minimal berisi {param} karakter',
 			'max_length'	=> 'Maksimal berisi {param} karakter',
-			'uploaded'	=> 'Harus melakukan upload',
 			'max_size'	=> 'File terlalu besar. Maksimal 1 MB',
+			'uploaded'	=> 'Harus melakukan upload',
 			'mime_in'	=> 'Jenis file tidak tepat. File harus berupa {param}',
 			'ext_in'	=>	'Ekstensi file tidak tepat. File harus berekstensi {param}',
-			'is_image'	=>	'File harus berupa gambar'
+			'is_image'	=>	'File harus berupa gambar',
+			'valid_email'	=> 'Bukan merupakan format email',
+			'numeric'	=> 'Hanya menerima angka'
 		];
 
 		session();

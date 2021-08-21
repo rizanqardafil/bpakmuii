@@ -27,7 +27,7 @@ class TentangModel extends Model
         $builder = $this->db->table('visi_misi');
         $builder->orderBy('id_visi_misi', 'ASC');
 
-        $result = $builder->get(1)->getResult();
+        $result = $builder->get(1)->getResultArray();
 
         return $result;
     }

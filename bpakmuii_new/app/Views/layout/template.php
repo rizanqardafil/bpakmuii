@@ -23,100 +23,109 @@
 
 <body>
 
-<div>
+    <div>
 
-    <!-- Header Code -->
-    <section class="section1">
-            
-        <?= $this->include('layout/navbar'); ?>       
+        <!-- Header Code -->
+        <section class="section1">
 
-        <?= $this->renderSection('content_header'); ?>
-    </section>
+            <?= $this->include('layout/navbar'); ?>
 
-    <?= $this->renderSection('content'); ?>
+            <?= $this->renderSection('content_header'); ?>
+        </section>
 
-    <!-- Footer Section -->
-    <div class="footer-bg">
-        <footer class="footer-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="footer-left text-left">
-                            <div class="footer-logo">
-                                <a href="<?= base_url('/beranda'); ?>">
-                                    <img src="<?= base_url(); ?>/images/logoBPAKMUII.png" alt="">
-                                </a>
-                            </div>
-                            <div class="footer-desc-bpa">
-                                BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang
-                                yang
-                                awal
-                                mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun
-                                2014.
-                            </div>
-                            <div class="footer-social">
-                                <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/bpakmuii/?hl=en">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="footer-widget text-left">
-                            <h5>Information</h5>
-                            <ul>
-                                <li><a href="<?= base_url('/beranda'); ?>">Beranda</a></li>
-                                <li><a href="<?= base_url('/produk'); ?>">Produk Kami</a></li>
-                                <li><a href="<?= base_url('/investor'); ?>">Investor</a></li>
-                                <li><a href="<?= base_url('/galeri'); ?>">Galeri</a></li>
-                                <li><a href="<?= base_url('/artikel'); ?>">Artikel</a></li>
-                                <li><a href="<?= base_url('/tentang'); ?>">Tentang Kami</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="footer-widget text-left">
-                            <h5>Kontak Kami</h5>
-                            <ul>
-                                <li><a href="#">Universitas Islam Indonesia,
-                                        Yogyakarta, Sleman, Kaliurang KM. 24</a></li>
-                                <li><a href="#">Telepon : 0811-2656-867</a></li>
-                                <li><a href="#">Email : bpa@uii.ac.id</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright-reserved">
+        <?= $this->renderSection('content'); ?>
+
+        <!-- Footer Section -->
+        <div class="footer-bg">
+            <footer class="footer-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="copyright-text">Copyright &copy; 2021 Badan Pengelola Aset KM UII |
-                                Development
-                                with <span> &#9829; </span> by <span> GAS </span> </div>
+                        <div class="col-lg-5">
+                            <div class="footer-left text-left">
+                                <div class="footer-logo">
+                                    <a href="<?= base_url('/beranda'); ?>">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $config[0]['logo']; ?>" alt="">
+                                    </a>
+                                </div>
+                                <div class="footer-desc-bpa">
+                                    BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang
+                                    yang
+                                    awal
+                                    mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun
+                                    2014.
+                                </div>
+                                <div class="footer-social">
+                                    <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bpakmuii/?hl=en">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1">
+                            <div class="footer-widget text-left">
+                                <h5>Information</h5>
+                                <ul>
+                                    <li><a href="<?= base_url('/beranda'); ?>">Beranda</a></li>
+                                    <li><a href="<?= base_url('/produk'); ?>">Produk Kami</a></li>
+                                    <li><a href="<?= base_url('/investor'); ?>">Investor</a></li>
+                                    <li><a href="<?= base_url('/galeri'); ?>">Galeri</a></li>
+                                    <li><a href="<?= base_url('/artikel'); ?>">Artikel</a></li>
+                                    <li><a href="<?= base_url('/tentang'); ?>">Tentang Kami</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php
+                        $phone_number = $config[0]['telepon'];
+                        $ina_id = '62';
+
+                        if ($phone_number[0] === '0') {
+                            $phone_number = ltrim($phone_number, '0');
+                            $phone_number = $ina_id . $phone_number;
+                        }
+                        ?>
+                        <div class="col-lg-3">
+                            <div class="footer-widget text-left">
+                                <h5>Kontak Kami</h5>
+                                <ul>
+                                    <li><a href="#">Universitas Islam Indonesia,
+                                            Yogyakarta, Sleman, Kaliurang KM. 24</a></li>
+                                    <li><a href="#"><?= 'Telepon: +' . $phone_number; ?></a></li>
+                                    <li><a href="#"><?= 'Email: ' . $config[0]['email']; ?></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+                <div class="copyright-reserved">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="copyright-text">Copyright &copy; 2021 Badan Pengelola Aset KM UII |
+                                    Development
+                                    with <span> &#9829; </span> by <span> GAS </span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
 
     </div>
 
-</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script src="/css/xzoom/xzoom.min.js"></script>
+    <script type="text/javascript" src="/js/style.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.js"></script>
-<script src="/css/xzoom/xzoom.min.js"></script>
-<script type="text/javascript" src="/js/style.js"></script>
-
-<?= $this->renderSection('scripts'); ?>
+    <?= $this->renderSection('scripts'); ?>
 
 </body>
 

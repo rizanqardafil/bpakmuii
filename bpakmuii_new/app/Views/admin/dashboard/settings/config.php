@@ -6,6 +6,10 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <?php endif; ?>
+
         <div class="table-responsive">
             <script src="<?= base_url(); ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
             <script type="text/javascript">
@@ -35,49 +39,50 @@
                 });
             </script>
 
-            <?php
-            // Session
-            // if ($this->session->flashdata('sukses')) {
-            //     echo '<div class="alert alert-success">';
-            //     echo $this->session->flashdata('sukses');
-            //     echo '</div>';
-            // }
-            // Error
-            // echo validation_errors('<div class="alert alert-success">', '</div>');
-            ?>
-
-            <form action="<?php echo base_url('admin/setting/config') ?>" method="post">
-
-                <input type="hidden" name="id_config" value="">
-
+            <form action="<?php echo base_url('admin/config/save-config') ?>" method="post">
                 <div class="col-md-6">
-                    <h3>General Settings</h3>
+                    <h3>Pengaturan Umum</h3>
                     <hr>
                     <div class="form-group">
-                        <label>Website Name</label>
-                        <input type="text" name="namaweb" placeholder="Nama Website" value="" required class="form-control">
+                        <label>Nama Website</label>
+                        <input type="text" name="namaweb" placeholder="Nama Website" value="<?= (old('namaweb')) ?? $config[0]['namaweb']; ?>" required class="form-control <?= ($validation->hasError('namaweb')) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('namaweb'); ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="email" placeholder="Email" value="" required class="form-control">
+                        <input type="text" name="email" placeholder="Email" value="<?= (old('email')) ?? $config[0]['email']; ?>" required class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('email'); ?>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" name="telepon" placeholder="Nomor Telepon" value="" required class="form-control">
+                        <label>Nomor Telepon (whatsapp)</label>
+                        <input type="text" name="telepon" placeholder="Format nomor telepon: 08xxxxxx" value="<?= (old('telepon')) ?? $config[0]['telepon']; ?>" required class="form-control <?= ($validation->hasError('telepon')) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('telepon'); ?>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <h3>Modul SEO (Search Engine Optimization)</h3>
+                    <h3>Modul SEO (<i>Search Engine Optimization</i>)</h3>
                     <hr>
                     <div class="form-group">
-                        <label>keyword (Google search keyword)</label>
-                        <textarea name="keyword" rows="3" class="form-control" placeholder="Kata kunci / keyword"></textarea>
+                        <label>keyword (<i>Google search keyword</i>)</label>
+                        <textarea name="keyword" rows="3" class="form-control <?= ($validation->hasError('keyword')) ? 'is-invalid' : '' ?>" placeholder="Kata kunci / keyword"><?= (old('keyword')) ?? $config[0]['keyword']; ?></textarea>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('keyword'); ?>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Metatext (Ex : Description)</label>
-                        <textarea name="metatext" rows="5" class="form-control" placeholder="Kode metatext"></textarea>
+                        <label>Metatext (Ex : Deskripsi)</label>
+                        <textarea name="metatext" rows="5" class="form-control <?= ($validation->hasError('metatext')) ? 'is-invalid' : '' ?>" placeholder="Kode metatext"><?= (old('metatext')) ?: $config[0]['metatext']; ?></textarea>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('metatext'); ?>
+                        </div>
                     </div>
 
                 </div>

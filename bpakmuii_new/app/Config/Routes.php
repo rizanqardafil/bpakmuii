@@ -41,17 +41,24 @@ $routes->get('/galeri', 'GaleriController::index');
 $routes->get('/galeri/foto', 'GaleriController::foto');
 $routes->get('/galeri/video', 'GaleriController::video');
 $routes->get('/artikel', 'ArtikelController::index');
-$routes->get('/artikel/detail', 'ArtikelController::detail');
+$routes->get('/artikel/detail/(:any)', 'ArtikelController::detail/$1');
 $routes->get('/tentang', 'TentangController::index');
 
-// Admin Routes
+// Routes Auth
 $routes->get('/admin/login', 'Admin\Auth::index');
 $routes->post('/admin/auth', 'Admin\Auth::auth');
 $routes->get('/admin/logout', 'Admin\Auth::logout', ['filter' => 'auth']);
 $routes->get('/admin/dashboard', 'Admin\Auth::dashboard', ['filter' => 'auth']);
+
+// Routes CRUD Config
 $routes->get('/admin/config', 'Admin\Config::index', ['filter' => 'auth']);
-$routes->get('/admin/icon-config', 'Admin\Config::icon_config', ['filter' => 'auth']);
+$routes->post('/admin/config/save-config', 'Admin\Config::save_config', ['filter' => 'auth']);
 $routes->get('/admin/logo-config', 'Admin\Config::logo_config', ['filter' => 'auth']);
+$routes->post('/admin/logo-config/save-logo', 'Admin\Config::save_logo', ['filter' => 'auth']);
+$routes->get('/admin/icon-config', 'Admin\Config::icon_config', ['filter' => 'auth']);
+$routes->post('/admin/icon-config/save-icon', 'Admin\Config::save_icon', ['filter' => 'auth']);
+
+// Routes CRUD Admin
 $routes->get('/admin/users', 'Admin\Users::index', ['filter' => 'auth']);
 $routes->get('/admin/users/(:segment)', 'Admin\Users::edit/$1', ['filter' => 'auth']);
 $routes->post('/admin/users/save', 'Admin\Auth::save', ['filter' => 'auth']);

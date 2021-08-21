@@ -58,6 +58,21 @@
                 imgPreview.src = e.target.result;
             }
         }
+
+        function previewDocs() {
+            const sampul = document.querySelector('#file');
+            const sampulLabel = document.querySelector('.document-label');
+            const imgPreview = document.querySelector('.img-preview');
+
+            sampulLabel.textContent = sampul.files[0].name;
+
+            const fileSampul = new FileReader();
+            fileSampul.readAsDataURL(sampul.files[0]);
+
+            fileSampul.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->

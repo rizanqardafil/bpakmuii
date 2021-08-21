@@ -9,7 +9,7 @@ class InvestorModel extends Model
     protected $table = 'laporan';
     protected $primaryKey = "id_laporan";
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_laporan', 'slug_laporan', 'path_laporan'];
+    protected $allowedFields = ['nama_laporan', 'slug_laporan', 'path_laporan', 'path_nama_laporan'];
 
     public function getOrganisasi()
     {
@@ -22,13 +22,13 @@ class InvestorModel extends Model
         return $result;
     }
 
-    public function getLaporan($slug_laporan = '')
+    public function getLaporan($slug_laporan = '', $order_by = 'laporan.id_laporan', $order_type = 'ASC')
     {
         $builder = $this->db->table('laporan');
-        $builder->select('laporan.id_laporan, laporan.nama_laporan, laporan.slug_laporan, 
+        $builder->select('laporan.id_laporan, laporan.nama_laporan, laporan.slug_laporan, laporan.path_nama_laporan,
         laporan.path_laporan, COUNT(gambar_laporan.nama_gambar) AS total_gambar');
         $builder->join('gambar_laporan', 'laporan.id_laporan = gambar_laporan.id_laporan', 'left');
-        $builder->orderBy('laporan.id_laporan', 'ASC');
+        $builder->orderBy($order_by, $order_type);
         $builder->groupBy('laporan.id_laporan');
 
         if ($slug_laporan) {

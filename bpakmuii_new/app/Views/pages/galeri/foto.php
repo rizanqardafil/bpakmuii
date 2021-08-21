@@ -33,26 +33,26 @@
 
         <!-- Bagian Card Galeri-->
         <div class="row" data-aos="zoom-in-up" data-aos-duration="2000">
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+            <?php foreach ($images as $image) : ?>
+                <div class="col-sm-4 d-flex align-items-stretch">
+                    <div class="card-galeri">
+                        <a href="#" class="component-galeri d-block">
+                            <div class="galeri-thumbnail">
+                                <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Pendaftaran Anggota Baru</h5>
-                        </div>
-                    </a>
+                            <div class="card-bodygaleri">
+                                <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
+            <?php endforeach; ?>
+            <!-- <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -65,8 +65,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -74,14 +73,13 @@
                         </div>
                     </a>
                 </div>
-            </div>             
+            </div>
 
             <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -94,8 +92,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan3.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -108,8 +105,7 @@
                 <div class="card-galeri">
                     <a href="#" class="component-galeri d-block">
                         <div class="galeri-thumbnail">
-                            <div class="products-galeri"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-bodygaleri">
@@ -117,24 +113,11 @@
                         </div>
                     </a>
                 </div>
-            </div>           
+            </div> -->
         </div>
 
-        <nav aria-label="Page navigation product" class="mt-5 mb-5 pagination-custom">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Sebelumnya</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Selanjutnya</a>
-                    </li>
-                </ul>
-            </nav>
+
+        <?= $pager->makeLinks($current_page, $per_page, $total_image, 'user_pagination') ?>
 
     </section>
 </section>
@@ -143,7 +126,7 @@
 <?= $this->section('scripts'); ?>
 <script>
     AOS.init();
-    $(document).ready(function () {
+    $(document).ready(function() {
         date();
     });
 </script>

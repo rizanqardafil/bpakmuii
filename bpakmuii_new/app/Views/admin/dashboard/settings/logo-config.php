@@ -6,6 +6,10 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <?php endif; ?>
+
         <div class="table-responsive">
             <style>
                 #imagePreview {
@@ -36,40 +40,22 @@
                 });
             </script>
 
-
-            <?php
-            // $site = $this->mConfig->list_config();
-            // // Session
-            // if ($this->session->flashdata('sukses')) {
-            //     echo '<div class="alert alert-success">';
-            //     echo $this->session->flashdata('sukses');
-            //     echo '</div>';
-            // }
-
-            // // File upload error
-            // if (isset($error)) {
-            //     echo '<div class="alert alert-success">';
-            //     echo $error;
-            //     echo '</div>';
-            // }
-
-            // // Error
-            // echo validation_errors('<div class="alert alert-success">', '</div>');
-            ?>
-
-            <form action="<?php echo base_url('admin/setting/logo') ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id_config" value="">
+            <form action="<?php echo base_url('/admin/logo-config/save-logo') ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="logo" class="form-control" value="<?= $config[0]['logo']; ?>">
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Upload New Logo</label>
-                        <input type="file" name="logo" class="form-control" id="file">
+                        <label>Unggah Logo Baru</label>
+                        <input type="file" name="logo" class="form-control <?= ($validation->hasError('logo')) ? 'is-invalid' : '' ?>" id="file">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('logo'); ?>
+                        </div>
                         <div id="imagePreview"></div>
                     </div>
                 </div>
 
-                <label>Your Logo:</label><br>
-                <img src="" width="200px">
+                <label>Logo saat ini:</label><br>
+                <img src="<?= base_url(); ?>/uploaded/images/<?= $config[0]['logo']; ?>" width="200px">
         </div>
 
         <div class="col-md-12">

@@ -2,11 +2,11 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li><a href="<?= base_url('admin/dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-wrench"></i>Settings<span class="fa arrow"></span></a>
+            <li><a href="#"><i class="fa fa-wrench"></i>Pengaturan<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="<?php echo base_url('admin/config') ?>">General Settings</a></li>
+                    <li><a href="<?php echo base_url('admin/config') ?>">Pengaturan Umum</a></li>
                     <li><a href="<?php echo base_url('admin/logo-config') ?>">Logo</a></li>
-                    <li><a href="<?php echo base_url('admin/icon-config') ?>">Icon</a></li>
+                    <li><a href="<?php echo base_url('admin/icon-config') ?>">Ikon</a></li>
                 </ul>
             </li>
             <li><a href="#"><i class="fa fa-wrench"></i>Produk Kami<span class="fa arrow"></span></a>
