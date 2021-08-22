@@ -43,19 +43,6 @@
                 object-fit: cover;
             }
         </style>
-        <script type="text/javascript">
-            function previewImage() {
-                const sampul = document.querySelector('#file');
-                const imgPreview = document.querySelector('.img-preview');
-
-                const fileSampul = new FileReader();
-                fileSampul.readAsDataURL(sampul.files[0]);
-
-                fileSampul.onload = function(e) {
-                    imgPreview.src = e.target.result;
-                }
-            }
-        </script>
 
         <form action="<?php echo base_url('/admin/album/save') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
@@ -68,9 +55,9 @@
                     </div>
                 </div>
                 <div class="form-group"><br>
-                    <input type="submit" name="submit" value="Create" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
                     <input type="reset" name="reset" value="Reset" class="btn btn-default">
-                    <a href="<?php echo base_url('admin/album') ?>" class="btn btn-primary">Cancel</a>
+                    <a href="<?php echo base_url('admin/album') ?>" class="btn btn-primary">Kembali</a>
                 </div>
             </div>
     </div>

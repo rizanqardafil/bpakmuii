@@ -64,6 +64,13 @@
                             <?= $validation->getError('telepon'); ?>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Link Google Drive Untuk Laporan Pertanggung Jawaban</label>
+                        <input type="text" name="linkDrive" placeholder="Format link google drive https://drive.google.com/file/" value="" required class="form-control <?= ($validation->hasError('linkDrive')) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('linkDrive'); ?>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -89,7 +96,6 @@
 
                 <div class="col-md-12">
                     <input type="submit" name="submit" value="Save" class="btn btn-primary">
-                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
                 </div>
 
             </form>

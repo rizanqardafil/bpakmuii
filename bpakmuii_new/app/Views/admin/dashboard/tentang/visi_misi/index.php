@@ -80,11 +80,11 @@
                     </div>
                     <div class="form-group">
                         <label>Upload Gambar Misi</label>
-                        <input type="file" name="path_gambar_misi" class="form-control <?= ($validation->hasError('path_gambar_misi')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                        <input type="file" name="path_gambar_misi" class="form-control <?= ($validation->hasError('path_gambar_misi')) ? 'is-invalid' : '' ?>" id="file2" onchange="previewImage2()">
                         <div class="invalid-feedback">
                             <?= $validation->getError('path_gambar_misi'); ?>
                         </div>
-                        <img src="<?= base_url(); ?>/uploaded/images/<?= ($visi_misi[0]['path_gambar_misi']) ?: 'default.png'; ?>" class="img-thumbnail img-preview">
+                        <img src="<?= base_url(); ?>/uploaded/images/<?= ($visi_misi[0]['path_gambar_misi']) ?: 'default.png'; ?>" class="img-thumbnail img-preview2">
                         <div class="alert alert-warning">
                             <i>
                                 <strong>Image Size</strong> : 1140px X 400px<br>
@@ -95,7 +95,6 @@
 
                 <div class="col-md-12">
                     <input type="submit" name="submit" value="Save" class="btn btn-primary">
-                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
                 </div>
 
             </form>

@@ -82,10 +82,10 @@
                             <td><?php echo $user['username'] ?></td>
                             <td><?php echo $user['email'] ?></td>
                             <td class="center">
-                                <a href="<?php echo base_url('/admin/users/' . $user['slug_user']) ?>" class="btn btn-primary"><i class="fa fa-pencil"></i> Edit</a>
+                                <a href="<?php echo base_url('/admin/users/' . $user['slug_user']) ?>" class="btn btn-primary"><i class="fa fa-pencil"></i> Ubah</a>
                                 <form action="<?php echo base_url('/admin/users/delete') ?>" method="POST" style="display: inline-block;">
                                     <input type="hidden" value="<?= $user['id_user']; ?>" name="id_user">
-                                    <button type="submit" class="btn btn-danger" onClick="return confirm('Yakin ingin menghapus admin ini?')"><i class="fa fa-trash"></i> Delete</button>
+                                    <button type="submit" class="btn btn-danger" onClick="return confirm('Yakin ingin menghapus admin ini?')"><i class="fa fa-trash"></i> Hapus</button>
                                 </form>
                             </td>
                         </tr>

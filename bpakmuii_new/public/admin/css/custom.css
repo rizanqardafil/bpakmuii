@@ -283,7 +283,8 @@ p {
   border-bottom: 1px solid rgba(107, 108, 109, 0.19);
 }
 .sidebar-collapse .nav > li > a:hover,
-.sidebar-collapse .nav > li > a:focus {
+.sidebar-collapse .nav > li > a:focus,
+.sidebar-collapse .nav > li > .active{
   background: #f0ad4e;
   outline: 0;
 }

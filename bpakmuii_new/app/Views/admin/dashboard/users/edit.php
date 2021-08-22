@@ -35,8 +35,8 @@
                     <input type="password" name="repeat_password" class="form-control" placeholder="Ulangi Password">
                 </div>
                 <div class="form-group input-group">
-                    <input type="submit" name="submit" value="Update" class="btn btn-primary btn-md">
-                    <a href="<?php echo base_url('/admin/users/') ?>" class="btn btn-primary"> Cancel</a>
+                    <input type="submit" name="submit" value="Ubah" class="btn btn-primary btn-md">
+                    <a href="<?php echo base_url('/admin/users/') ?>" class="btn btn-primary"> Kembali</a>
                 </div>
             </form>
 

@@ -59,6 +59,18 @@
             }
         }
 
+        function previewImage2() {
+            const sampul = document.querySelector('#file2');
+            const imgPreview = document.querySelector('.img-preview2');
+
+            const fileSampul2 = new FileReader();
+            fileSampul2.readAsDataURL(sampul.files[0]);
+
+            fileSampul2.onload = function(e) {
+                imgPreview.src = e.target.result;
+            }
+        }
+
         function previewDocs() {
             const sampul = document.querySelector('#file');
             const sampulLabel = document.querySelector('.document-label');

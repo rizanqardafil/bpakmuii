@@ -43,19 +43,6 @@
                 object-fit: cover;
             }
         </style>
-        <script type="text/javascript">
-            function previewImage() {
-                const sampul = document.querySelector('#file');
-                const imgPreview = document.querySelector('.img-preview');
-
-                const fileSampul = new FileReader();
-                fileSampul.readAsDataURL(sampul.files[0]);
-
-                fileSampul.onload = function(e) {
-                    imgPreview.src = e.target.result;
-                }
-            }
-        </script>
 
         <form action="<?php echo base_url('admin/penulis/save') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>

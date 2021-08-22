@@ -19,7 +19,7 @@
                     <th width="150px">Gambar Laporan</th>
                     <th>Nama Gambar</th>
                     <th>Laporan Untuk Gambar</th>
-                    <th width="150px">Aksi</th>
+                    <th width="80px">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                             <?= $index++; ?>
                         </td>
                         <td>
-                            <img src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>" width="150px">
+                            <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>" width="150px">
                         </td>
                         <td>
                             <?= $image->nama_gambar; ?>
@@ -40,43 +40,6 @@
                         </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/gambar_laporan/edit/' . $image->slug_gambar); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                            <!-- View Biz -->
-                            <!--  Modals-->
-                            <button class="btn btn-success" data-toggle="modal" data-target="#View<?= $image->slug_gambar ?>"><i class="fa fa-eye"></i></button>
-
-                            <div class="modal fade" id="View<?= $image->slug_gambar ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">View Photo</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="col-md-12">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered table-hover">
-                                                    <tr>
-                                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>" width="200px">
-                                                        <td>Nama Gambar</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><?= $image->path_nama_gambar; ?></td>
-                                                        <td>
-                                                            <a href="<?php echo base_url('/admin/gambar_laporan/edit') ?>" class="btn btn-primary">Edit</a>
-                                                            <a href="<?php echo base_url() ?>" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')">Delete</a>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Modals-->
                             <form action="<?= base_url('/admin/gambar_laporan/delete/' . $image->id_gambar); ?>" method="post" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>

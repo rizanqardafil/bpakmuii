@@ -21,9 +21,9 @@
                 <tr>
                     <th>No</th>
                     <th width="150px">Cover Produk</th>
-                    <th>Nama Produk</th>
+                    <th width="150px">Nama Produk</th>
                     <th>Detail Produk</th>
-                    <th width="150px">Aksi</th>
+                    <th width="80px">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                         </td>
                         <td>
                             <!-- Isi dengan Cover Produk -->
-                            <img src="<?= base_url(); ?>/uploaded/images/<?= $product->path_gambar_cover; ?>" width="150px">
+                            <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $product->path_gambar_cover; ?>" width="150px">
                         </td>
                         <td>
                             <!-- Isi dengan Nama Produk -->
@@ -47,46 +47,6 @@
                         </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/produk/edit/' . $product->slug_produk); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                            <!-- View Biz -->
-                            <!--  Modals-->
-                            <button class="btn btn-success" data-toggle="modal" data-target="#View<?= $product->slug_produk; ?>"><i class="fa fa-eye"></i></button>
-
-                            <div class="modal fade" id="View<?= $product->slug_produk; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">View Photo</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="col-md-12">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered table-hover">
-                                                    <tr>
-                                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $product->path_gambar_cover; ?>" width="200px">
-                                                        <td>Nama Gambar</td>
-                                                        <td>Aksi</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><?= $product->path_nama_gambar; ?></td>
-                                                        <td>
-                                                            <a href="<?php echo base_url('/admin/produk/edit/' . $product->slug_produk) ?>" class="btn btn-primary">Edit</a>
-                                                            <form action="<?= base_url('/admin/produk/delete/' . $product->id_produk); ?>" method="post" style="display: inline-block;">
-                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')">Delete</button>
-                                                            </form>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Modals-->
                             <form action="<?= base_url('/admin/produk/delete/' . $product->id_produk); ?>" method="post" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
