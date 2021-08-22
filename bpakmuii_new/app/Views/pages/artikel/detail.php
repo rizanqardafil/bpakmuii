@@ -36,6 +36,9 @@
                             <div class="contentfeatureartikel">
                                 <div class="textdatefeature"><?= $article[0]->tanggal_terbit; ?></div>
                                 <div class="titleartikeldetail"><?= $article[0]->judul_artikel; ?></div>
+                                <div class="deskripsisingkat">
+                                    
+                                </div>
                                 <div class="d-flex author-section">
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="image">

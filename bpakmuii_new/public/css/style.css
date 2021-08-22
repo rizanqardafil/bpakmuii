@@ -841,6 +841,7 @@ a{
 }
 
 .titlelist{
+    display: flex;
     font-size: 28px;
     font-weight: 500;
     line-height: 34px;
@@ -924,26 +925,29 @@ a{
 }
 
 .row-titlevideo{
+    display: flex;
     margin-top: 12px;
     width: 100%;
     height: 80px;
     text-align: center;
     padding: 10px;
-    background: #4f5353;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
 }
 
 .text-titlevideo{
     font-size: 15px;
-    /* text-align: center; */
-    margin-bottom: 0px;
-    color: #ffffff;
+    font-weight: 300;
+    margin: auto;
+    color: #1a1a1a;
 }
 
 /* Gozy Ganteng - Bagian card galeri */
 
 .card-galeri{
     margin-top: 5rem;
-    width: max-content;
+    width: 100%;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     cursor: pointer;
@@ -958,13 +962,15 @@ a{
 .card-bodygaleri .card-titlegaleri{
     text-align: center;
     color: #1A1A1A;
-    font-weight:600;
+    font-weight:300;
     line-height:2.25rem;
 }
 
 .card-bodygaleri{
     flex: 1 1 auto;
     padding: 1rem 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
 }
 
 .card-galeri .component-galeri .galeri-thumbnail{

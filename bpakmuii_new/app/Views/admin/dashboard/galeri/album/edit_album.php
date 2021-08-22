@@ -44,19 +44,27 @@
             }
         </style>
 
-        <form action="<?php echo base_url('/admin/album/update') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('/admin/album/save') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
-            <div class="form-group input-group-lg">
-                <input type="hidden" name="slug_album" class="form-control" value="<?= $album['slug_album']; ?>">
-                <input type="hidden" name="path_cover" class="form-control" value="<?= $album['path_cover']; ?>">
-            </div>
-
             <div class="col-md-12">
                 <div class="form-group input-group-lg">
                     <label>Nama Album</label>
-                    <input type="text" name="nama_album" class="form-control <?= ($validation->hasError('nama_album')) ? 'is-invalid' : '' ?>" value="<?= (old('nama_album')) ?: $album['nama_album']; ?>" required placeholder="Nama Album">
+                    <input type="text" name="nama_album" class="form-control <?= ($validation->hasError('nama_album')) ? 'is-invalid' : '' ?>" value="<?= old('nama_album'); ?>" required placeholder="Nama Album">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_album'); ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Upload Cover Album</label>
+                    <input type="file" name="path_cover" class="form-control <?= ($validation->hasError('path_cover')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('path_cover'); ?>
+                    </div>
+                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
+                    <div class="alert alert-warning">
+                        <i>
+                            <strong>Image Size</strong> : 1140px X 400px<br>
+                        </i>
                     </div>
                 </div>
                 <div class="form-group"><br>

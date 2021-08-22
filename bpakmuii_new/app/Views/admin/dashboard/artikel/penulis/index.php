@@ -10,6 +10,7 @@
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
+        
         <?php if (session()->getFlashdata('message')) : ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
         <?php endif; ?>
@@ -21,7 +22,7 @@
                     <th width="50px">No</th>
                     <th>Nama Penulis</th>
                     <th>Profil Penulis</th>
-                    <th width="150px">Aksi</th>
+                    <th width="80px">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,47 +37,10 @@
                         </td>
                         <td>
                             <!-- Isi dengan Gambar Struktur Organisasi -->
-                            <img src="<?= base_url(); ?>/uploaded/images/<?= $writer['path_gambar']; ?>" width="150px">
+                            <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $writer['path_gambar']; ?>" width="150px">
                         </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/penulis/edit/' . $writer['slug_penulis']); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                            <!-- View Biz -->
-                            <!--  Modals-->
-                            <button class="btn btn-success" data-toggle="modal" data-target="#View"><i class="fa fa-eye"></i></button>
-
-                            <div class="modal fade" id="View" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">View Photo</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="col-md-12">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered table-hover">
-                                                    <tr>
-                                                        <img src="" width="200px">
-                                                        <td>Caption</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>
-                                                            <a href="<?php echo base_url('/admin/penulis/edit') ?>" class="btn btn-primary">Edit</a>
-                                                            <a href="<?php echo base_url() ?>" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')">Delete</a>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Modals-->
                             <form action="<?= base_url('/admin/penulis/delete/' . $writer['id_penulis']); ?>" method="post" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>

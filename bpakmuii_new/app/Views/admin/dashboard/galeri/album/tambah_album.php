@@ -54,6 +54,19 @@
                         <?= $validation->getError('nama_album'); ?>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Upload Cover Album</label>
+                    <input type="file" name="path_cover" class="form-control <?= ($validation->hasError('path_cover')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('path_cover'); ?>
+                    </div>
+                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
+                    <div class="alert alert-warning">
+                        <i>
+                            <strong>Image Size</strong> : 1140px X 400px<br>
+                        </i>
+                    </div>
+                </div>
                 <div class="form-group"><br>
                     <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
                     <input type="reset" name="reset" value="Reset" class="btn btn-default">

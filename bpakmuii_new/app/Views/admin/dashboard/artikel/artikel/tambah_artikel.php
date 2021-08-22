@@ -49,7 +49,9 @@
             <div class="col-md-12">
                 <div class="form-group input-group-lg">
                     <label>Pilihan Penulis</label>
-                    <input type="text" name="id_penulis" class="form-control" value="" required placeholder="Pilihan Penulis">
+                    <select name="id_penulis" class="form-control">
+                        
+                    </select>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Judul Artikel</label>
