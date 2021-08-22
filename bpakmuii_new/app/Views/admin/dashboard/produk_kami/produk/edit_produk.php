@@ -35,15 +35,6 @@
             });
         </script>
 
-        <style>
-            .img-thumbnail {
-                margin: 20px 0;
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-
         <form action="<?php echo base_url('/admin/produk/update') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">
@@ -79,9 +70,8 @@
                     </div>
                 </div>
                 <div class="form-group"><br>
-                    <input type="submit" name="submit" value="Create" class="btn btn-primary">
-                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
-                    <a href="<?php echo base_url('admin/produk/') ?>" class="btn btn-primary">Cancel</a>
+                    <input type="submit" name="submit" value="Ubah" class="btn btn-primary">
+                    <a href="<?php echo base_url('admin/produk/') ?>" class="btn btn-primary">Kembali</a>
                 </div>
             </div>
     </div>

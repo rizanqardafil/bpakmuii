@@ -80,7 +80,6 @@
 
                 <div class="col-md-12">
                     <input type="submit" name="submit" value="Save" class="btn btn-primary">
-                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
                 </div>
 
             </form>
