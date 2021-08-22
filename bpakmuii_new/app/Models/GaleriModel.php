@@ -24,17 +24,21 @@ class GaleriModel extends Model
         return $result;
     }
 
-    public function getImage($slug_album = '')
+    public function getImage($slug_album = '', $slug_galeri_foto = '')
     {
         $builder = $this->db->table($this->table);
         $builder->select('galeri_foto.id_galeri_foto, 
         galeri_foto.nama_foto, galeri_foto.slug_galeri_foto, galeri_foto.path_foto,
-        album.nama_album, album.slug_album');
+        album.nama_album, album.slug_album, album.id_album');
         $builder->join('album', 'album.id_album = galeri_foto.id_album', 'left');
         $builder->orderBy('galeri_foto.created_at', 'DESC');
 
         if ($slug_album) {
             $builder->where('album.slug_album', $slug_album);
+        }
+
+        if ($slug_galeri_foto) {
+            $builder->where('galeri_foto.slug_galeri_foto', $slug_galeri_foto);
         }
 
         $results = $builder->get()->getResult();

@@ -124,11 +124,17 @@ $routes->post('/admin/sejarah/save', 'Admin\Tentang\Sejarah::save', ['filter' =>
 // Admin Galeri routes
 $routes->get('/admin/foto', 'Admin\Galeri\Foto::index', ['filter' => 'auth']);
 $routes->get('/admin/foto/tambah', 'Admin\Galeri\Foto::tambah', ['filter' => 'auth']);
-$routes->get('/admin/foto/edit', 'Admin\Galeri\Foto::edit', ['filter' => 'auth']);
+$routes->post('/admin/foto/save', 'Admin\Galeri\Foto::save', ['filter' => 'auth']);
+$routes->post('/admin/foto/update', 'Admin\Galeri\Foto::update', ['filter' => 'auth']);
+$routes->delete('/admin/foto/delete/(:num)', 'Admin\Galeri\Foto::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/foto/edit/(:any)', 'Admin\Galeri\Foto::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/album', 'Admin\Galeri\Album::index', ['filter' => 'auth']);
 $routes->get('/admin/album/tambah', 'Admin\Galeri\Album::tambah', ['filter' => 'auth']);
-$routes->get('/admin/album/edit', 'Admin\Galeri\Album::edit', ['filter' => 'auth']);
+$routes->post('/admin/album/save', 'Admin\Galeri\Album::save', ['filter' => 'auth']);
+$routes->post('/admin/album/update', 'Admin\Galeri\Album::update', ['filter' => 'auth']);
+$routes->delete('/admin/album/delete/(:num)', 'Admin\Galeri\Album::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/album/edit/(:any)', 'Admin\Galeri\Album::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/video', 'Admin\Galeri\Video::index', ['filter' => 'auth']);
 $routes->get('/admin/video/tambah', 'Admin\Galeri\Video::tambah', ['filter' => 'auth']);

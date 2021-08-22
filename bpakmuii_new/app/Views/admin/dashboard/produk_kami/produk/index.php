@@ -43,7 +43,7 @@
                         </td>
                         <td>
                             <!-- Isi dengan Detail Produk -->
-                            <?= $product->detail_produk; ?>
+                            <?= substr($product->detail_produk, 0, 150) . '...'; ?>
                         </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/produk/edit/' . $product->slug_produk); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
