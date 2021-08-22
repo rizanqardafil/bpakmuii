@@ -67,14 +67,14 @@ class GaleriModel extends Model
     {
         $url_link = trim($url_link);
         $unique_token = '';
-        $link_length = strlen($url_link);
+        // $link_length = strlen($url_link);
         $slash_position = strrpos($url_link, '/');
-        $equal_position = strrpos($url_link, '=');
+        $equal_position = stripos($url_link, '=');
 
-        $unique_token = substr($url_link, $slash_position + 1, $link_length - 1);
+        $unique_token = substr($url_link, $slash_position + 1, 11);
 
         if ($equal_position) {
-            $unique_token = substr($url_link, $equal_position + 1, $link_length - 1);
+            $unique_token = substr($url_link, $equal_position + 1, 11);
         }
 
         return $unique_token;

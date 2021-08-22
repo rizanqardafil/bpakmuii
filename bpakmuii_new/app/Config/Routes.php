@@ -138,16 +138,25 @@ $routes->get('/admin/album/edit/(:any)', 'Admin\Galeri\Album::edit/$1', ['filter
 
 $routes->get('/admin/video', 'Admin\Galeri\Video::index', ['filter' => 'auth']);
 $routes->get('/admin/video/tambah', 'Admin\Galeri\Video::tambah', ['filter' => 'auth']);
-$routes->get('/admin/video/edit', 'Admin\Galeri\Video::edit', ['filter' => 'auth']);
+$routes->post('/admin/video/save', 'Admin\Galeri\Video::save', ['filter' => 'auth']);
+$routes->post('/admin/video/update', 'Admin\Galeri\Video::update', ['filter' => 'auth']);
+$routes->delete('/admin/video/delete/(:num)', 'Admin\Galeri\Video::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/video/edit/(:any)', 'Admin\Galeri\Video::edit/$1', ['filter' => 'auth']);
 
 // Admin Artikel routes
 $routes->get('/admin/artikel', 'Admin\Artikel\Artikel::index', ['filter' => 'auth']);
 $routes->get('/admin/artikel/tambah', 'Admin\Artikel\Artikel::tambah', ['filter' => 'auth']);
-$routes->get('/admin/artikel/edit', 'Admin\Artikel\Artikel::edit', ['filter' => 'auth']);
+$routes->post('/admin/artikel/save', 'Admin\Artikel\Artikel::save', ['filter' => 'auth']);
+$routes->post('/admin/artikel/update', 'Admin\Artikel\Artikel::update', ['filter' => 'auth']);
+$routes->delete('/admin/artikel/delete/(:num)', 'Admin\Artikel\Artikel::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/artikel/edit/(:any)', 'Admin\Artikel\Artikel::edit/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/penulis', 'Admin\Artikel\Penulis::index', ['filter' => 'auth']);
 $routes->get('/admin/penulis/tambah', 'Admin\Artikel\Penulis::tambah', ['filter' => 'auth']);
-$routes->get('/admin/penulis/edit', 'Admin\Artikel\Penulis::edit', ['filter' => 'auth']);
+$routes->post('/admin/penulis/save', 'Admin\Artikel\Penulis::save', ['filter' => 'auth']);
+$routes->post('/admin/penulis/update', 'Admin\Artikel\Penulis::update', ['filter' => 'auth']);
+$routes->delete('/admin/penulis/delete/(:num)', 'Admin\Artikel\Penulis::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/penulis/edit/(:any)', 'Admin\Artikel\Penulis::edit/$1', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------

@@ -3,13 +3,22 @@
 namespace App\Controllers\Admin\Artikel;
 
 use App\Controllers\BaseController;
+use App\Models\ArtikelModel;
 
 class Artikel extends BaseController
 {
+    protected $artikel_model;
+
+    public function __construct()
+    {
+        $this->artikel_model = new ArtikelModel();
+    }
+
     public function index()
     {
         $data = [
-            'title' =>  'Management Artikel - Badan Pengelola Aset KM UII'
+            'title' =>  'Management Artikel - Badan Pengelola Aset KM UII',
+            'articles'  => $this->artikel_model->getAllArtikel(),
         ];
 
         return view('admin/dashboard/artikel/artikel/index', $data);
