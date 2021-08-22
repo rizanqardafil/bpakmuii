@@ -7,7 +7,6 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
-<<<<<<< HEAD
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
@@ -70,33 +69,6 @@
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
-=======
-        <a href="<?php echo base_url('/admin/penulis/tambah')?>" class="btn btn-primary spacing"><i class="fa fa-plus"></i> Tambah Penulis </a>
-        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-        <thead>
-            <tr>
-                <th width="50px">No</th>
-                <th>Nama Penulis</th>
-                <th>Profil Penulis</th>
-                <th width="80px">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="odd gradeX">
-                <td>
-                    <!-- Isi dengan Nomor Struktur -->
-                </td>
-                <td>
-                    <!-- Isi dengan Nomor Struktur -->
-                </td>
-                <td>
-                    <!-- Isi dengan Gambar Struktur Organisasi -->
-                <img class="img-thumbnail" src="" width="150px">
-                </td>
-                <td class="center">
-                <a href="<?php echo base_url('/admin/penulis/edit');?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                <a href="<?php echo base_url();?>" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></a>
->>>>>>> b4b6161f59d239decd6ff3c1f0ef4819035342a4
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
