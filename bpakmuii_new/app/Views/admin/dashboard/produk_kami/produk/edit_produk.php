@@ -52,7 +52,7 @@
                 <div class="form-group input-group-lg">
                     <label>Detail Produk</label>
                     <textarea name="detail_produk" id="detail_produk" class="form-control <?= ($validation->hasError('detail_produk')) ? 'is-invalid' : '' ?>" required>
-                        <?= (old('detail_produk')) ?? $product[0]->detail_produk; ?>
+                        <?= (old('detail_produk')) ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('detail_produk'); ?>

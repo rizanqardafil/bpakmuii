@@ -21,7 +21,7 @@
                 <tr>
                     <th width="50px">No</th>
                     <th>Nama Penulis</th>
-                    <th>Profil Penulis</th>
+                    <th width="150px">Profil Penulis</th>
                     <th width="80px">Aksi</th>
                 </tr>
             </thead>

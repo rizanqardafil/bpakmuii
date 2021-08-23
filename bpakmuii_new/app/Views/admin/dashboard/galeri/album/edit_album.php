@@ -35,15 +35,6 @@
             });
         </script>
 
-        <style>
-            .img-thumbnail {
-                margin: 20px 0;
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-
         <form action="<?php echo base_url('/admin/album/update') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">

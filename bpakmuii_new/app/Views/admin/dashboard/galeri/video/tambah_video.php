@@ -35,15 +35,6 @@
             });
         </script>
 
-        <style>
-            .img-thumbnail {
-                margin: 20px 0;
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-
         <form action="<?php echo base_url('/admin/video/save') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="col-md-12">

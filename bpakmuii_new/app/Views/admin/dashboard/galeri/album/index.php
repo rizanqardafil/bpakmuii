@@ -20,8 +20,8 @@
             <thead>
                 <tr>
                     <th width="50px">No</th>
-                    <th>Album</th>
-                    <th>Cover Album</th>
+                    <th>Nama Album</th>
+                    <th width="150px">Cover Album</th>
                     <th width="80px">Aksi</th>
                 </tr>
             </thead>

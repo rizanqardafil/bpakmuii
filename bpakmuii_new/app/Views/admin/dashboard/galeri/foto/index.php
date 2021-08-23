@@ -17,8 +17,8 @@
                 <tr>
                     <th width="50px">No</th>
                     <th>Nama Foto</th>
-                    <th width="250px">Kategori Album</th>
-                    <th width="250px">Foto</th>
+                    <th>Kategori Album</th>
+                    <th width="150px">Foto</th>
                     <th width="80px">Aksi</th>
                 </tr>
             </thead>
@@ -36,7 +36,6 @@
                             <?= $image->nama_album; ?>
                         </td>
                         <td>
-                            <!-- Isi dengan Gambar Struktur Organisasi -->
                             <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $image->path_foto ?>" width="150px">
                         </td>
                         <td class="center">

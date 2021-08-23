@@ -31,30 +31,21 @@
         <div class="row">
             <div class="col-lg-12 col-md-6">
                 <div class="featureartikel">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-12">
-                            <div class="contentfeatureartikel">
-                                <div class="textdatefeature"><?= $article[0]->tanggal_terbit; ?></div>
-                                <div class="titleartikeldetail"><?= $article[0]->judul_artikel; ?></div>
-                                <div class="deskripsisingkat">
-                                    
-                                </div>
-                                <div class="d-flex author-section">
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div class="image">
-                                            <img src="<?= base_url(); ?>/uploaded/images/<?= $article[0]->gambar_penulis; ?>" alt="Foto Penulis" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-2 c-details">
-                                            <h6 class="mb-0"><?= $article[0]->nama_penulis; ?></h6>
-                                        </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="contentfeatureartikel">
+                            <div class="textdatefeature"><?= $article[0]->tanggal_terbit; ?></div>
+                            <div class="titleartikeldetail"><?= $article[0]->judul_artikel; ?></div>
+                            <div class="d-flex author-section">
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="image">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $article[0]->gambar_penulis; ?>" alt="Foto Penulis" class="rounded-circle">
+                                    </div>
+                                    <div class="ms-2 c-details">
+                                        <h6 class="mb-0"><?= $article[0]->nama_penulis; ?></h6>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-7 col-md-12">
-                            <div class="featureimage">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $article[0]->cover; ?>" alt="">
-                            </div>
+                            <div class="separatorsection"> ... </div>
                         </div>
                     </div>
                 </div>

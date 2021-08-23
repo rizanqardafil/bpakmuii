@@ -35,40 +35,29 @@
             });
         </script>
 
-        <style>
-            .img-thumbnail {
-                margin: 20px 0;
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-
-        <form action="<?php echo base_url('/admin/artikel/update') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('/admin/artikel/save') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">
-                <div class="form-group input-group-lg">
-                    <input type="hidden" name="slug_artikel" class="form-control" value="<?= $article[0]->slug_artikel; ?>">
-                    <input type="hidden" name="path_gambar" class="form-control" value="<?= $article[0]->cover; ?>">
-                </div>
                 <div class="form-group input-group-lg">
                     <label>Pilihan Penulis</label>
                     <select name="id_penulis" class="form-control">
                         <?php foreach ($writers as $writer) : ?>
-                            <option value="<?= $writer['id_penulis']; ?>" <?= (((old('id_penulis')) ?? $article[0]->id_penulis) == $writer['id_penulis']) ? 'selected' : ''; ?>><?= $writer['nama_penulis']; ?></option>
+                            <option value="<?= $writer['id_penulis']; ?>" <?= (old('id_penulis') == $writer['id_penulis']) ? 'selected' : ''; ?>><?= $writer['nama_penulis']; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group input-group-lg">
-                    <label>Judul Artikel</label>
-                    <input type="text" name="judul_artikel" class="form-control <?= ($validation->hasError('judul_artikel')) ? 'is-invalid' : '' ?>" value="<?= (old('judul_artikel')) ?? $article[0]->judul_artikel; ?>" required placeholder="Judul Artikel">
+                <label>Judul Artikel</label>
+                    <input type="text" name="judul_artikel" class="form-control <?= ($validation->hasError('judul_artikel')) ? 'is-invalid' : '' ?>" value="<?= old('judul_artikel'); ?>" required placeholder="Judul Artikel">
                     <div class="invalid-feedback">
                         <?= $validation->getError('judul_artikel'); ?>
                     </div>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Isi Artikel</label>
-                    <input type="text" name="isi_artikel" class="form-control <?= ($validation->hasError('isi_artikel')) ? 'is-invalid' : '' ?>" value="<?= (old('isi_artikel')) ?? $article[0]->isi_artikel; ?>" required placeholder="Isi Artikel">
+                    <textarea name="isi_artikel" id="isi_artikel" class="form-control <?= ($validation->hasError('isi_artikel')) ? 'is-invalid' : '' ?>" required>
+                        <?= (old('isi_artikel')) ?? $article[0]->isi_artikel; ?>
+                    </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_artikel'); ?>
                     </div>
@@ -79,7 +68,7 @@
                     <div class="invalid-feedback">
                         <?= $validation->getError('path_gambar'); ?>
                     </div>
-                    <img src="<?= base_url(); ?>/uploaded/images/<?= $article[0]->cover; ?>" class="img-thumbnail img-preview">
+                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
                             <strong>Image Size</strong> : 1140px X 400px<br>
@@ -87,7 +76,8 @@
                     </div>
                 </div>
                 <div class="form-group"><br>
-                    <input type="submit" name="submit" value="Ubah" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
                     <a href="<?php echo base_url('admin/artikel/') ?>" class="btn btn-primary">Kembali</a>
                 </div>
             </div>

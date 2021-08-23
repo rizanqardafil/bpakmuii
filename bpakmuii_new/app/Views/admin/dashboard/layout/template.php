@@ -104,6 +104,7 @@
         });
 
         CKEDITOR.replace('detail_produk');
+        CKEDITOR.replace('isi_artikel');
     </script>
 
 

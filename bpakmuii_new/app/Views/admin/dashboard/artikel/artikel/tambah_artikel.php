@@ -35,15 +35,6 @@
             });
         </script>
 
-        <style>
-            .img-thumbnail {
-                margin: 20px 0;
-                height: 150px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-
         <form action="<?php echo base_url('/admin/artikel/save') ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">
@@ -64,7 +55,9 @@
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Isi Artikel</label>
-                    <input type="text" name="isi_artikel" class="form-control <?= ($validation->hasError('isi_artikel')) ? 'is-invalid' : '' ?>" value="<?= old('isi_artikel'); ?>" required placeholder="Isi Artikel">
+                    <textarea name="isi_artikel" id="isi_artikel" class="form-control <?= ($validation->hasError('isi_artikel')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('isi_artikel'); ?>
+                    </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_artikel'); ?>
                     </div>
