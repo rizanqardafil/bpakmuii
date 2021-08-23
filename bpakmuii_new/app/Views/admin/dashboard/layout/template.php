@@ -94,12 +94,16 @@
     <!-- DATA TABLE SCRIPTS -->
     <script src="<?= base_url(); ?>/admin/js/dataTables/jquery.dataTables.js"></script>
     <script src="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.js"></script>
+    <!-- CKEDITOR -->
+    <script src="<?= base_url(); ?>/admin/ckeditor/ckeditor/ckeditor.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
     <script>
         $(document).ready(function() {
             $('#dataTables-example').dataTable();
         });
+
+        CKEDITOR.replace('detail_produk');
     </script>
 
 

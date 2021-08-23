@@ -47,7 +47,9 @@
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Detail Produk</label>
-                    <input type="text" name="detail_produk" class="form-control <?= ($validation->hasError('detail_produk')) ? 'is-invalid' : '' ?>" value="<?= old('detail_produk'); ?>" required placeholder="Detail Produk">
+                    <textarea name="detail_produk" id="detail_produk" class="form-control <?= ($validation->hasError('detail_produk')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('detail_produk'); ?>
+                    </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('detail_produk'); ?>
                     </div>
