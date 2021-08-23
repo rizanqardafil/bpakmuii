@@ -5,6 +5,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li><a class="<?= ($uri->getSegment(2) == 'dashboard') ? 'active' : '' ?> " href="<?= base_url('admin/dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a class="<?= ($uri->getSegment(2) == 'users') ? 'active' : '' ?> " href="<?php echo base_url('admin/users') ?>"><i class="fa fa-users"></i> Data User</a></li>
             <li><a href="#"><i class="fa fa-wrench"></i>Pengaturan<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a class="<?= ($uri->getSegment(2) == 'config') ? 'active' : '' ?> " href="<?php echo base_url('admin/config') ?>">Pengaturan Umum</a></li>
@@ -46,9 +47,9 @@
                     <li><a class="<?= ($uri->getSegment(2) == 'penulis') ? 'active' : '' ?> " href="<?php echo base_url('admin/penulis') ?>">Penulis</a></li>
                 </ul>
             </li>
+            <li><a class="<?= ($uri->getSegment(2) == 'kegiatan-kami') ? 'active' : '' ?> " href="<?php echo base_url('admin/kegiatan-kami') ?>"><i class="fa fa-users"></i> Kegiatan Kami</a></li>
             <!-- <li><a href=""><i class="fa fa-plus-square"></i> Kegiatan</a></li>
             <li><a href=""><i class="fa fa-calendar"></i> Jadwal</a></li> -->
-            <li><a class="<?= ($uri->getSegment(2) == 'users') ? 'active' : '' ?> " href="<?php echo base_url('admin/users') ?>"><i class="fa fa-users"></i> Data User</a></li>
             <!-- <li><a href=""><i class="fa fa-users"></i> Struktur Organisasi</a></li>
             <li><a href=""><i class="fa fa-film"></i> Slider</a></li>
             <li><a href=""><i class="fa fa-envelope-o"></i> Kontak</a></li> -->

@@ -162,6 +162,7 @@ $routes->get('/admin/penulis/edit/(:any)', 'Admin\Artikel\Penulis::edit/$1', ['f
 $routes->get('/admin/kegiatan-kami', 'Admin\Kegiatan_Kami\Kegiatan::index', ['filter' => 'auth']);
 $routes->get('/admin/kegiatan-kami/tambah', 'Admin\Kegiatan_Kami\Kegiatan::tambah', ['filter' => 'auth']);
 $routes->get('/admin/kegiatan-kami/edit', 'Admin\Kegiatan_Kami\Kegiatan::edit', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
