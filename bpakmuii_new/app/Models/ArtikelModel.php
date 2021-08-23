@@ -19,7 +19,7 @@ class ArtikelModel extends Model
         $builder = $this->db->table($this->table);
         $builder->select('artikel.id_artikel, artikel.judul_artikel, 
         artikel.slug_artikel, artikel.isi_artikel, artikel.created_at AS tanggal_terbit ,artikel.path_gambar AS cover,
-        penulis.nama_penulis, penulis.slug_penulis, penulis.path_gambar AS gambar_penulis');
+        penulis.nama_penulis, penulis.id_penulis, penulis.slug_penulis, penulis.path_gambar AS gambar_penulis');
         $builder->join('penulis', 'artikel.id_penulis = penulis.id_penulis', 'left');
         $builder->orderBy('artikel.created_at', 'DESC');
 

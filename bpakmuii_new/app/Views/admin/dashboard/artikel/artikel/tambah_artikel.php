@@ -50,21 +50,32 @@
                 <div class="form-group input-group-lg">
                     <label>Pilihan Penulis</label>
                     <select name="id_penulis" class="form-control">
-                        
+                        <?php foreach ($writers as $writer) : ?>
+                            <option value="<?= $writer['id_penulis']; ?>" <?= (old('id_penulis') == $writer['id_penulis']) ? 'selected' : ''; ?>><?= $writer['nama_penulis']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Judul Artikel</label>
-                    <input type="text" name="judulArtikel" class="form-control" value="" required placeholder="Judul Artikel">
+                    <input type="text" name="judul_artikel" class="form-control <?= ($validation->hasError('judul_artikel')) ? 'is-invalid' : '' ?>" value="<?= old('judul_artikel'); ?>" required placeholder="Judul Artikel">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('judul_artikel'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Isi Artikel</label>
-                    <input type="text" name="isiArtikel" class="form-control" value="" required placeholder="Isi Artikel">
+                    <input type="text" name="isi_artikel" class="form-control <?= ($validation->hasError('isi_artikel')) ? 'is-invalid' : '' ?>" value="<?= old('isi_artikel'); ?>" required placeholder="Isi Artikel">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isi_artikel'); ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Upload Cover Artikel</label>
-                    <input type="file" name="coverArtikel" class="form-control" id="file" onchange="previewImage()">
-                    <img src="../../images/bangunan.jpeg" class="img-thumbnail img-preview">
+                    <input type="file" name="path_gambar" class="form-control <?= ($validation->hasError('path_gambar')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('path_gambar'); ?>
+                    </div>
+                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
                             <strong>Image Size</strong> : 1140px X 400px<br>
