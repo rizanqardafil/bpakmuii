@@ -149,6 +149,10 @@ $routes->get('/admin/penulis', 'Admin\Artikel\Penulis::index', ['filter' => 'aut
 $routes->get('/admin/penulis/tambah', 'Admin\Artikel\Penulis::tambah', ['filter' => 'auth']);
 $routes->get('/admin/penulis/edit', 'Admin\Artikel\Penulis::edit', ['filter' => 'auth']);
 
+// Admin Kegiatan kami
+$routes->get('/admin/kegiatan-kami', 'Admin\Kegiatan_Kami\Kegiatan::index', ['filter' => 'auth']);
+$routes->get('/admin/kegiatan-kami/tambah', 'Admin\Kegiatan_Kami\Kegiatan::tambah', ['filter' => 'auth']);
+$routes->get('/admin/kegiatan-kami/edit', 'Admin\Kegiatan_Kami\Kegiatan::edit', ['filter' => 'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
