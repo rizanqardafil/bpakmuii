@@ -10,7 +10,7 @@
                 <div class="titlepage">BPA KM UII</div>
             </div>
             <div class="col-lg-6 col-md-6 quote" data-aos="fade-left" data-aos-duration="2000">
-                <div class="aboutdesc">
+                <!-- <div class="aboutdesc">
                     BPA (Badan Pengelola Aset) KM UII adalah sebuah organisasi yang telah berkembang yang
                     awal
                     mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun 2014.
@@ -23,6 +23,9 @@
                     SCC , perkembangan merambah pada usaha-usaha lain diantaranya pengelolaan jas almamater,
                     layanan
                     sistem informasi ,dan usaha strategis lainnya.
+                </div> -->
+                <div class="aboutdesc">
+                    <?= $about[0]['isi_sejarah']; ?>
                 </div>
             </div>
         </div>
@@ -52,8 +55,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="../images/kegiatan1.png" title="Pendaftaran anggota baru" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -74,8 +76,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="../images/kegiatan2.png" title="CreativePreneurTalks 2020 !" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan2.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan2.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -92,8 +93,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="../images/kegiatan3.png" title="Pendaftaran Anggota Baru" class="component-products d-block image-popup">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan3.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan3.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -129,21 +129,21 @@
 
         <!-- Bagian Card Produk Kami-->
         <div class="row mt-5">
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="component-products d-block">
-                    <div class="products-thumbnail">
-                        <div class="products-image zoom"
-                            style="background-image: url('../images/bangunan.jpeg');">
+            <?php foreach ($products as $product) : ?>
+                <div class="col-12 col-md-4 col-lg-4 pr-2">
+                    <a href="<?= base_url('/produk/detail/' . $product->slug_produk); ?>" class="component-products d-block">
+                        <div class="products-thumbnail">
+                            <div class="products-image zoom" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $product->path_gambar_cover ?>);">
+                            </div>
                         </div>
-                    </div>
-                    <div class="products-text">Gedung SCC UII</div>
-                </a>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4">
+                        <div class="products-text"><?= $product->nama_produk; ?></div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+            <!-- <div class="col-12 col-md-4 col-lg-4">
                 <a href="#" class="component-products d-block">
                     <div class="products-thumbnail">
-                        <div class="products-image zoom"
-                            style="background-image: url('../images/soundspeaker.jpg');">
+                        <div class="products-image zoom" style="background-image: url('../images/soundspeaker.jpg');">
                         </div>
                     </div>
                     <div class="products-text">Sound Speaker</div>
@@ -157,7 +157,7 @@
                     </div>
                     <div class="products-text">Kursi</div>
                 </a>
-            </div>
+            </div> -->
         </div>
         <div class="row mt-5 mb-5">
             <div class="col text-center">
@@ -199,46 +199,42 @@
 
         <!-- Card Artikel -->
         <div class="row card-kegiatankami card-artikel">
-
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card" style="width: 18rem;">
-                    <a href="#" class="component-products d-block">
-                        <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <small class="card-date">17 Januari 2021</small>
-                            <h5 class="card-title">7 Skills Untuk Pemula dalam Trading</h5>
-                            <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                                amet
-                                sint. Velit officia consequat duis enim velit mollit. Exercitation veniam
-                                consequat
-                                sunt nostrud amet, Amet minim mollit non deserunt ullamco est sit aliqua dolor
-                                do
-                                amet sint...</p>
-                        </div>
-                        <div class="d-flex justify-content-between author-section">
-                            <div class="d-flex flex-row align-items-center">
-                                <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
-                                </div>
-                                <div class="c-details">
-                                    <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
+            <?php foreach ($articles as $article) : ?>
+                <div class="col-sm-4 d-flex align-items-stretch">
+                    <div class="card" style="width: 18rem;">
+                        <a href="#" class="component-products d-block">
+                            <div class="products-thumbnail">
+                                <div class="products-image" style="background-image: url('<?= base_url() ?>/uploaded/images/<?= $article->cover ?>');">
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                            <div class="card-body">
+                                <small class="card-date"><?= $article->tanggal_terbit ?></small>
+                                <h5 class="card-title"><?= $article->judul_artikel ?></h5>
+                                <p class="card-text">
+                                    <?php $content = substr($article->isi_artikel, 0, (strlen($article->isi_artikel) < 270) ? strlen($article->isi_artikel) : 270); ?>
+                                    <?= $result = (substr($content, -1) === " ") ? trim($content) : substr($content, 0, strrpos($content, ' ')); ?>
+                                    <span style="color: blue;"><?= (strlen($article->isi_artikel) < 270) ? '' : '...'; ?></span>
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between author-section">
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="image">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $article->gambar_penulis; ?>" alt="Foto Penulis" class="rounded-circle">
+                                    </div>
+                                    <div class="c-details">
+                                        <h6 class="mb-0"><?= $article->nama_penulis ?></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
+            <?php endforeach; ?>
+            <!-- <div class="col-sm-4 d-flex align-items-stretch">
                 <div class="card" style="width: 18rem;">
                     <a href="#" class="component-products d-block">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -255,8 +251,7 @@
                         <div class="d-flex justify-content-between author-section">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
+                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis" class="rounded-circle">
                                 </div>
                                 <div class="c-details">
                                     <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
@@ -270,8 +265,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="#" class="component-products d-block">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -288,8 +282,7 @@
                         <div class="d-flex justify-content-between author-section">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
+                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis" class="rounded-circle">
                                 </div>
                                 <div class="c-details">
                                     <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
@@ -303,8 +296,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="#" class="component-products d-block">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -321,8 +313,7 @@
                         <div class="d-flex justify-content-between author-section">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
+                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis" class="rounded-circle">
                                 </div>
                                 <div class="c-details">
                                     <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
@@ -336,8 +327,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="#" class="component-products d-block">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -354,8 +344,7 @@
                         <div class="d-flex justify-content-between author-section">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
+                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis" class="rounded-circle">
                                 </div>
                                 <div class="c-details">
                                     <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
@@ -369,8 +358,7 @@
                 <div class="card" style="width: 18rem;">
                     <a href="#" class="component-products d-block">
                         <div class="products-thumbnail">
-                            <div class="products-image"
-                                style="background-image: url('../images/kegiatan1.png');">
+                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
                             </div>
                         </div>
                         <div class="card-body">
@@ -387,8 +375,7 @@
                         <div class="d-flex justify-content-between author-section">
                             <div class="d-flex flex-row align-items-center">
                                 <div class="image">
-                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis"
-                                        class="rounded-circle">
+                                    <img src="../images/bangunan.jpeg" alt="Foto Penulis" class="rounded-circle">
                                 </div>
                                 <div class="c-details">
                                     <h6 class="mb-0">Muhammad Zikri Khatami Sagala</h6>
@@ -397,7 +384,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
 
             <!-- button lihat semua artikel -->
             <div class="row mt-5 mb-5">
@@ -417,15 +404,15 @@
     $('.image-popup').magnificPopup({
         type: 'image',
         image: {
-            markup: '<div class="mfp-figure">'+
-                    '<div class="mfp-close"></div>'+
-                    '<div class="mfp-another-title"></div>'+
-                    '<div class="mfp-img"></div>'+
-                    '<div class="mfp-bottom-bar">'+
-                        '<div class="mfp-title"></div>'+
-                    '</div>'+
+            markup: '<div class="mfp-figure">' +
+                '<div class="mfp-close"></div>' +
+                '<div class="mfp-another-title"></div>' +
+                '<div class="mfp-img"></div>' +
+                '<div class="mfp-bottom-bar">' +
+                '<div class="mfp-title"></div>' +
+                '</div>' +
                 '</div>'
-            }
+        }
     });
 </script>
 <?= $this->endSection(); ?>

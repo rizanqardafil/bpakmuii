@@ -20,7 +20,7 @@
                                     <div class="textdatefeature"><?= $newest_article->tanggal_terbit; ?></div>
                                     <div class="titleartikelfeature"><?= $newest_article->judul_artikel; ?></div>
                                     <div class="textbodyartikel">
-                                        <?php $content = substr($newest_article->isi_artikel, 0, (strlen($newest_article->isi_artikel) < 300) ?: 300); ?>
+                                        <?php $content = substr($newest_article->isi_artikel, 0, (strlen($newest_article->isi_artikel) < 300) ? strlen($newest_article->isi_artikel) : 300); ?>
                                         <?= $result = (substr($content, -1) === " ") ? trim($content) : substr($content, 0, strrpos($content, ' ')); ?>
                                         <span style="color: blue;"><?= (strlen($newest_article->isi_artikel) < 300) ? '' : '...'; ?></span>
                                     </div>
@@ -53,7 +53,7 @@
                                 <div class="textdatefeature"><?= $article->tanggal_terbit; ?></div>
                                 <div class="titlelist"><?= $article->judul_artikel; ?></div>
                                 <div class="textbodylist">
-                                    <?php $content = substr($article->isi_artikel, 0, (strlen($article->isi_artikel) < 300) ?: 300); ?>
+                                    <?php $content = substr($article->isi_artikel, 0, (strlen($article->isi_artikel) < 300) ? strlen($article->isi_artikel) : 300); ?>
                                     <?= $result = (substr($content, -1) === " ") ? trim($content) : substr($content, 0, strrpos($content, ' ')); ?>
                                     <span style="color: blue;"><?= (strlen($article->isi_artikel) < 300) ? '' : '...'; ?></span>
                                 </div>

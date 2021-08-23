@@ -65,7 +65,8 @@ class BaseController extends Controller
 			'ext_in'	=>	'Ekstensi file tidak tepat. File harus berekstensi {param}',
 			'is_image'	=>	'File harus berupa gambar',
 			'valid_email'	=> 'Bukan merupakan format email',
-			'numeric'	=> 'Hanya menerima angka'
+			'numeric'	=> 'Hanya menerima angka',
+			'regex_match'	=> 'Format tidak sesuai yang diharapkan'
 		];
 
 		session();

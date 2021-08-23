@@ -50,8 +50,6 @@ class Album extends BaseController
 
         if (!$this->validate($rules)) return redirect()->to(base_url('/admin/album/tambah'))->withInput();
 
-        dd('under maintenance');
-
         $nama_album = $this->request->getPost('nama_album');
         $slug_album = url_title($nama_album, '-', true);
 
@@ -97,8 +95,6 @@ class Album extends BaseController
 
         if (!$this->validate($rules)) return redirect()->to(base_url('/admin/album/edit/' . $slug_album))->withInput();
 
-        dd('under maintenance');
-
         $nama_album = $this->request->getPost('nama_album');
         $slug_album = url_title($nama_album, '-', true);
 
@@ -123,7 +119,7 @@ class Album extends BaseController
             'path_cover' => $path_cover
         ];
 
-        $this->gambar_produk_model->update($album['id_album'], $data);
+        $this->album_model->update($album['id_album'], $data);
 
         session()->setFlashdata('success', 'Berhasil Mengubah Album');
 

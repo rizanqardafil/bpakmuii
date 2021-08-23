@@ -21,6 +21,7 @@
                 <tr>
                     <th width="50px">No</th>
                     <th>Album</th>
+                    <th>Cover Album</th>
                     <th width="80px">Aksi</th>
                 </tr>
             </thead>
@@ -34,13 +35,15 @@
                         <td>
                             <?= $album['nama_album']; ?>
                         </td>
+                        <td>
+                        <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $album['path_cover']; ?>" width="150px">
+                        </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/album/edit/' . $album['slug_album']); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                             <form action="<?= base_url('/admin/album/delete/' . $album['id_album']); ?>" method="post" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
                             </form>
-
                         </td>
                     </tr>
                 <?php endforeach; ?>

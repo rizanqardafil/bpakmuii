@@ -44,19 +44,27 @@
             }
         </style>
 
-        <form action="<?php echo base_url() ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('/admin/video/save') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="col-md-12">
                 <div class="form-group input-group-lg">
                     <label>Nama Video</label>
-                    <input type="text" name="namaVideo" class="form-control" value="" required placeholder="Nama Video">
+                    <input type="text" name="nama_video" class="form-control <?= ($validation->hasError('nama_video')) ? 'is-invalid' : '' ?>" value="<?= old('nama_video'); ?>" required placeholder="Nama Video">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nama_video'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Link Video</label>
-                    <input type="text" name="linkVideo" class="form-control" value="" required placeholder="Link Video"> <br>
+                    <input type="text" name="path_video" class="form-control <?= ($validation->hasError('path_video')) ? 'is-invalid' : '' ?>" value="<?= old('path_video'); ?>" placeholder="Link Video">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('path_video'); ?>
+                    </div>
+                    <br>
+                    <br>
                     <div class="alert alert-warning">
                         <i>
-                            <strong>Input src Thumbnail nya bro</strong> !!! <br>
+                            <strong>Link berupa URL dari Youtube yang ingin dimasukkan</strong><br>
                         </i>
                     </div>
                 </div>

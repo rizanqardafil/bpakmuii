@@ -11,7 +11,6 @@
     ?>
     <!-- Search Card Section -->
     <form action="<?= base_url('/produk'); ?>" class="container mx-auto mb-5 pt-5" data-aos="fade-up" data-aos-duration="2000">
-        <?= csrf_field(); ?>
         <div class="row d-flex searchbox-custom">
             <div class="col-md-3 d-flex align-items-end space" style="border-right: 1px solid #ddd;">
                 <div class="d-flex align-items-center search-mobile">
