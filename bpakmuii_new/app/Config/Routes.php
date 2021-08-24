@@ -161,7 +161,10 @@ $routes->get('/admin/penulis/edit/(:any)', 'Admin\Artikel\Penulis::edit/$1', ['f
 // Admin Kegiatan kami
 $routes->get('/admin/kegiatan-kami', 'Admin\Kegiatan_Kami\Kegiatan::index', ['filter' => 'auth']);
 $routes->get('/admin/kegiatan-kami/tambah', 'Admin\Kegiatan_Kami\Kegiatan::tambah', ['filter' => 'auth']);
-$routes->get('/admin/kegiatan-kami/edit', 'Admin\Kegiatan_Kami\Kegiatan::edit', ['filter' => 'auth']);
+$routes->post('/admin/kegiatan-kami/save', 'Admin\Kegiatan_Kami\Kegiatan::save', ['filter' => 'auth']);
+$routes->post('/admin/kegiatan-kami/update', 'Admin\Kegiatan_Kami\Kegiatan::update', ['filter' => 'auth']);
+$routes->delete('/admin/kegiatan-kami/delete/(:num)', 'Admin\Kegiatan_Kami\Kegiatan::delete/$1', ['filter' => 'auth']);
+$routes->get('/admin/kegiatan-kami/edit/(:any)', 'Admin\Kegiatan_Kami\Kegiatan::edit/$1', ['filter' => 'auth']);
 
 /*
  * --------------------------------------------------------------------
