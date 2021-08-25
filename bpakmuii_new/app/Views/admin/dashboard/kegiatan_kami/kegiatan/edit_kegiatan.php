@@ -35,29 +35,35 @@
             });
         </script>
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('/admin/kegiatan-kami/update'); ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <div class="col-md-12">
                 <div class="form-group input-group-lg">
+                    <input type="hidden" name="slug_kegiatan" class="form-control" value="<?= $activity['slug_kegiatan']; ?>">
+                    <input type="hidden" name="image" class="form-control" value="<?= $activity['image']; ?>">
+                </div>
+
+                <div class="form-group input-group-lg">
                     <label>Nama Kegiatan</label>
-                    <input type="text" name="nama_kegiatan" class="form-control " value="" required placeholder="Nama Kegiatan">
+                    <input type="text" name="judul" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : '' ?>" value="<?= (old('judul')) ?? $activity['judul']; ?>" required placeholder="Nama Kegiatan">
                     <div class="invalid-feedback">
+                        <?= $validation->getError('judul'); ?>
                     </div>
                 </div>
                 <div class="form-group">
-                        <label>Keterangan Kegiatan</label>
-                        <textarea name="isi_misi" rows="6" class="form-control " placeholder="Isi keterangan singkat mengenai Kegiatan tersebut...">
-
-                        </textarea>
-                        <div class="invalid-feedback">
-                        </div>
+                    <label>Keterangan Kegiatan</label>
+                    <textarea name="sub_judul" rows="6" class="form-control <?= ($validation->hasError('sub_judul')) ? 'is-invalid' : '' ?>" placeholder="Isi keterangan singkat mengenai Kegiatan tersebut..."><?= (old('sub_judul')) ?? $activity['sub_judul']; ?></textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('sub_judul'); ?>
                     </div>
+                </div>
                 <div class="form-group">
                     <label>Upload Gambar Kegiatan</label>
-                    <input type="file" name="path_gambar" class="form-control " id="file" onchange="previewImage()">
+                    <input type="file" name="image" class="form-control " id="file" onchange="previewImage()">
                     <div class="invalid-feedback">
+                        <?= $validation->getError('image'); ?>
                     </div>
-                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
+                    <img src="<?= base_url(); ?>/uploaded/images/<?= $activity['image']; ?>" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
                             <strong>Image Size</strong> : 1140px X 400px<br>

@@ -11,11 +11,7 @@
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
 
-        <?php if (session()->getFlashdata('message')) : ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
-        <?php endif; ?>
-
-        <a href="<?php echo base_url('/admin/kegiatan-kami/tambah') ?>" class="btn btn-primary spacing"><i class="fa fa-plus"></i> Tambah Produk</a>
+        <a href="<?php echo base_url('/admin/kegiatan-kami/tambah') ?>" class="btn btn-<?= ($total_activity < 3) ? 'primary' : 'default disabled'; ?> spacing"><i class="fa fa-plus"></i> Tambah Kegiatan</a>
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>
                 <tr>
@@ -27,29 +23,34 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $index = 1; ?>
+                <?php foreach ($activities as $activity) : ?>
                     <tr class="odd gradeX">
                         <td>
-
+                            <?= $index++; ?>
                         </td>
                         <td>
                             <!-- Isi dengan Gambar Kegiatan -->
-                            <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/" width="150px">
+                            <img class="img-thumbnail" src="<?= base_url(); ?>/uploaded/images/<?= $activity['image']; ?>" width="150px">
                         </td>
                         <td>
                             <!-- Isi dengan Nama Kegiatan -->
+                            <?= $activity['judul']; ?>
                         </td>
                         <td>
                             <!-- Isi dengan Detail Kegiatan -->
+                            <?= $activity['sub_judul']; ?>
                         </td>
                         <td class="center">
-                            <a href="<?php echo base_url('/admin/kegiatan-kami/edit/'); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                            <form action="<?= base_url('/admin/kegiatan-kami/delete/'); ?>" method="post" style="display: inline-block;">
+                            <a href="<?php echo base_url('/admin/kegiatan-kami/edit/' . $activity['slug_kegiatan']); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <form action="<?= base_url('/admin/kegiatan-kami/delete/' . $activity['id_kegiatan']); ?>" method="post" style="display: inline-block;">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-trash"></i></button>
                             </form>
 
                         </td>
                     </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <?php //$pager->makeLinks($current_page, $per_page, $total) 

@@ -51,65 +51,22 @@
 
         <!-- Bagian Card -->
         <div class="row card-kegiatankami">
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card" style="width: 18rem;">
-                    <a href="../images/kegiatan1.png" title="Pendaftaran anggota baru" class="component-products d-block image-popup">
-                        <div class="products-thumbnail">
-                            <div class="products-image" style="background-image: url('../images/kegiatan1.png');">
+            <?php foreach ($events as $event) : ?>
+                <div class="col-sm-4 d-flex align-items-stretch">
+                    <div class="card" style="width: 18rem;">
+                        <a href="<?= base_url() ?>/uploaded/images/<?= $event['image'] ?>" title="<?= $event['judul']; ?>" class="component-products d-block image-popup">
+                            <div class="products-thumbnail">
+                                <div class="products-image" style="background-image: url('<?= base_url() ?>/uploaded/images/<?= $event['image'] ?>');">
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Pendaftaran Anggota Baru</h5>
-                            <p class="card-text">BPA KM UII kembali membuka seluruh produknya seperti SCC dan
-                                SAC
-                                pada
-                                tahun
-                                2021 ! Segera hubungi customer service untuk mendapatkan harga spesial dari
-                                setiap
-                                produk
-                                BPA KM UII !</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card" style="width: 18rem;">
-                    <a href="../images/kegiatan2.png" title="CreativePreneurTalks 2020 !" class="component-products d-block image-popup">
-                        <div class="products-thumbnail">
-                            <div class="products-image" style="background-image: url('../images/kegiatan2.png');">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $event['judul']; ?></h5>
+                                <p class="card-text"><?= $event['sub_judul']; ?></p>
                             </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">CreativePreneurTalks 2020 !</h5>
-                            <p class="card-text">Sabtu (31/10/2020), tim magang BPA KM UII sukses mengadakan
-                                webinar CreativePreneurTalks 2020 dengan tema " Digital Branding Dalam
-                                Eksistensi
-                                Ekonomi Kreatif" </p>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card" style="width: 18rem;">
-                    <a href="../images/kegiatan3.png" title="Pendaftaran Anggota Baru" class="component-products d-block image-popup">
-                        <div class="products-thumbnail">
-                            <div class="products-image" style="background-image: url('../images/kegiatan3.png');">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Pendaftaran Anggota Baru</h5>
-                            <p class="card-text">BPA KM UII kembali membuka seluruh produknya seperti SCC dan
-                                SAC
-                                pada
-                                tahun
-                                2021 ! Segera hubungi customer service untuk mendapatkan harga spesial dari
-                                setiap
-                                produk
-                                BPA KM UII !</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </section>
 
@@ -174,7 +131,7 @@
                 <h2 class="display-5 mb-0 pt-3 me-2 title">Tata Cara Peminjaman</h2>
             </div>
             <div class="col-lg-5 col-md-6">
-                <p class="pt-3 description">Bagaimana sih cara meminjam barang yang dimiliki oleh BPA KM UII??
+                <p class="pt-3 description">Bagaimana sih cara meminjam barang yang dimiliki oleh BPA KM UII ?
                     Jika
                     anda menginginkan untuk meminjam barang tersebut maka, bisa mengikuti beberapa langkah di
                     bawah
@@ -184,7 +141,7 @@
 
         <!-- Section tata cara peminjaman -->
         <div class="previewimage">
-            <img src="../images/tatacarapeminjamanlowsize.png" alt="Tata Cara Peminjaman Aset BPA KM UII">
+            <img src="<?= base_url(); ?>/images/tatacarapeminjamanlowsize.png" alt="Tata Cara Peminjaman Aset BPA KM UII">
         </div>
     </section>
 
@@ -202,7 +159,7 @@
             <?php foreach ($articles as $article) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card" style="width: 18rem;">
-                        <a href="#" class="component-products d-block">
+                        <a href="<?= base_url('artikel/detail/' . $article->slug_artikel); ?>" class="component-products d-block">
                             <div class="products-thumbnail">
                                 <div class="products-image" style="background-image: url('<?= base_url() ?>/uploaded/images/<?= $article->cover ?>');">
                                 </div>

@@ -164,15 +164,6 @@ class Laporan extends BaseController
 
         $this->laporan_model->update($report['id_laporan'], $data);
 
-        // try {
-        //     $this->laporan_model->delete($id);
-        // } catch (\Exception $e) {
-        //     $message = 'Data berkaitan dengan <b>' . $product['nama_produk'] . '</b> harus dihapus terlebih dahulu. Cek di admin <b>Paket</b>, <b>Gambar Produk</b>, atau <b>Pesanan</b>';
-        //     session()->setFlashdata('message', $message);
-
-        //     return redirect()->to(base_url('admin/produk'));
-        // }
-
         if (is_file('uploaded/docs/' . $report['path_laporan'])) {
             unlink('uploaded/docs/' . $report['path_laporan']);
         }
