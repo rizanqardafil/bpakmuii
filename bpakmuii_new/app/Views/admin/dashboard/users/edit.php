@@ -16,23 +16,35 @@
 
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="name" class="form-control" placeholder="Nama Admin" required value="<?php echo $user['name'] ?>">
+                    <input type="text" name="name" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : '' ?>" placeholder="Nama Admin" required value="<?= (old('name')) ?? $user['name']; ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('name'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon">@</span>
-                    <input type="email" name="email" class="form-control" placeholder="Alamat email" required value="<?php echo $user['email'] ?>">
+                    <input type="email" name="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" placeholder="Alamat email" required value="<?= (old('email')) ?? $user['email']; ?>">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('email'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="username" class="form-control" placeholder="Username" required value="<?php echo $user['username'] ?>" readonly disabled>
+                    <input type="text" name="username" class="form-control" placeholder="Username" required value="<?= (old('username')) ?? $user['username']; ?>" readonly disabled>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Password Baru">
+                    <input type="password" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Password Baru">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('password'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="password" name="repeat_password" class="form-control" placeholder="Ulangi Password">
+                    <input type="password" name="repeat_password" class="form-control <?= ($validation->hasError('repeat_password')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Password">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('repeat_password'); ?>
+                    </div>
                 </div>
                 <div class="form-group input-group">
                     <input type="submit" name="submit" value="Ubah" class="btn btn-primary btn-md">

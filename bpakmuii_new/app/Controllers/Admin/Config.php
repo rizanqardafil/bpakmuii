@@ -29,6 +29,7 @@ class Config extends BaseController
     {
         $config = $this->config_model->getConfig();
 
+        $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
         $rules = [
             'namaweb' =>  [
                 'rules' =>  'required|min_length[3]|max_length[255]',
@@ -39,7 +40,11 @@ class Config extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'telepon' =>  [
-                'rules' =>  'required|min_length[3]|max_length[15]|numeric',
+                'rules' =>  'required|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
+                'errors'    => $this->error_message
+            ],
+            'link_drive_laporan' =>  [
+                'rules' =>  'required|min_length[5]|max_length[255]',
                 'errors'    => $this->error_message
             ],
             'keyword' =>  [
@@ -57,6 +62,7 @@ class Config extends BaseController
         $namaweb = $this->request->getPost('namaweb');
         $email = $this->request->getPost('email');
         $telepon = $this->request->getPost('telepon');
+        $link_drive_laporan = $this->request->getPost('link_drive_laporan');
         $keyword = $this->request->getPost('keyword');
         $metatext = $this->request->getPost('metatext');
 
@@ -65,6 +71,7 @@ class Config extends BaseController
             'namaweb'     => $namaweb,
             'email'     => $email,
             'telepon' => $telepon,
+            'link_drive_laporan' => $link_drive_laporan,
             'keyword' => $keyword,
             'metatext' => $metatext
         ];

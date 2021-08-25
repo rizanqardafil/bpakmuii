@@ -54,6 +54,13 @@
                         <?= $validation->getError('detail_produk'); ?>
                     </div>
                 </div>
+                <div class="form-group input-group-lg">
+                    <label>Kontak WA</label>
+                    <input type="text" name="kontak" class="form-control <?= ($validation->hasError('kontak')) ? 'is-invalid' : '' ?>" value="<?= (old('kontak')) ?>" placeholder="Format kontak WA: 08xxxxxx">
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('kontak'); ?>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Upload Cover Produk</label>
                     <input type="file" name="path_gambar_cover" class="form-control <?= ($validation->hasError('path_gambar_cover')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">

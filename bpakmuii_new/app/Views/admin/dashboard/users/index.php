@@ -18,14 +18,14 @@
 
             <!--  Modals-->
             <div class="panel-body">
-                <p><button class="btn btn-primary" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i> Create User</button></p>
+                <p><button class="btn btn-primary" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i> Tambah Admin</button></p>
 
                 <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">Create New User</h4>
+                                <h4 class="modal-title" id="myModalLabel">Tambah Admin Baru</h4>
                             </div>
                             <div class="modal-body">
                                 <form action="<?= base_url('/admin/users/save'); ?>" method="post">

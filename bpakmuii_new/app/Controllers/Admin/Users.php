@@ -32,7 +32,8 @@ class Users extends BaseController
 
         $data = [
             'title' => 'Edit User - ' . $user['name'],
-            'user' => $user
+            'user' => $user,
+            'validation'    => \Config\Services::validation()
         ];
 
         return view('admin/dashboard/users/edit', $data);

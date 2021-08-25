@@ -41,16 +41,31 @@ class Auth extends BaseController
 
         //set rules validation form
         $rules = [
-            'name'          => 'required|min_length[3]|max_length[20]',
-            'username'      => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
-            'email'         => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
-            'password'      => 'required|min_length[6]|max_length[200]',
-            'repeat_password'  => 'matches[password]'
+            'name'          => [
+                'rules' =>  'required|min_length[3]|max_length[20]',
+                'errors'    => $this->error_message
+            ],
+            'username'      => [
+                'rules' =>  'required|min_length[3]|max_length[50]|is_unique[users.username]',
+                'errors'    =>  $this->error_message
+            ],
+            'email'         => [
+                'rules' =>  'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
+                'errors'    =>  $this->error_message
+            ],
+            'password'      => [
+                'rules' =>  'required|min_length[6]|max_length[200]',
+                'errors'    =>  $this->error_message
+            ],
+            'repeat_password'  => [
+                'rules' =>  'matches[password]',
+                'errors'    => $this->error_message
+            ]
         ];
 
         if ($this->validate($rules)) {
             $username = strtolower($this->request->getPost('username'));
-            $username = str_replace(" ", "", $username);
+            $username = url_title($username, '', true);
 
             $user_name = $this->request->getPost('name');
             $slug = url_title($user_name, '-', true);
@@ -85,17 +100,29 @@ class Auth extends BaseController
         $repeat_password = $this->request->getPost('repeat_password');
 
         $rules = [
-            'name'          => 'required|min_length[3]|max_length[20]',
-            'email'         => 'required|min_length[6]|max_length[50]|valid_email',
+            'name'          => [
+                'rules' =>  'required|min_length[3]|max_length[20]',
+                'errors'    => $this->error_message
+            ],
+            'email'         => [
+                'rules' => 'required|min_length[6]|max_length[50]|valid_email',
+                'errors'    =>  $this->error_message
+            ],
         ];
 
         if ($email !== $user['email']) {
-            $rules['email'] = $rules['email'] . '|is_unique[users.email]';
+            $rules['email']['rules'] = $rules['email']['rules'] . '|is_unique[users.email]';
         }
 
         if ($password || $repeat_password) {
-            $rules['password'] = 'required|min_length[6]|max_length[200]';
-            $rules['repeat_password'] = 'matches[password]';
+            $rules['password'] = [
+                'rules'   => 'required|min_length[6]|max_length[200]',
+                'errors'    =>  $this->error_message
+            ];
+            $rules['repeat_password'] = [
+                'rules'   => 'matches[password]',
+                'errors'    =>  $this->error_message
+            ];
         }
 
         if ($this->validate($rules)) {
@@ -116,12 +143,15 @@ class Auth extends BaseController
 
             $this->user_model->update($user['id_user'], $data);
 
+            if ($password && session()->get('username') == $user['username']) {
+                return redirect()->to(base_url('admin/logout'));
+            }
+
             session()->setFlashdata('success', 'Berhasil Mengubah Admin');
 
             return redirect()->to(base_url('admin/users'));
         } else {
-            session()->setFlashdata('message', $this->validator->listErrors());
-            return redirect()->to(base_url("admin/users/$slug"));
+            return redirect()->to(base_url("admin/users/$slug"))->withInput();
         }
     }
 

@@ -66,9 +66,9 @@
                     </div>
                     <div class="form-group">
                         <label>Link Google Drive Untuk Laporan Pertanggung Jawaban</label>
-                        <input type="text" name="linkDrive" placeholder="Format link google drive https://drive.google.com/file/" value="" required class="form-control <?= ($validation->hasError('linkDrive')) ? 'is-invalid' : '' ?>">
+                        <input type="text" name="link_drive_laporan" placeholder="Format link google drive https://drive.google.com/file/" value="<?= (old('link_drive_laporan')) ?? $config[0]['link_drive_laporan']; ?>" required class="form-control <?= ($validation->hasError('link_drive_laporan')) ? 'is-invalid' : '' ?>">
                         <div class="invalid-feedback">
-                            <?= $validation->getError('linkDrive'); ?>
+                            <?= $validation->getError('link_drive_laporan'); ?>
                         </div>
                     </div>
                 </div>

@@ -16,22 +16,11 @@ class Produk extends BaseController
 
     public function index()
     {
-        $current_page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
-        $per_page = 3;
-        $offset = ($per_page * ($current_page - 1));
-
-        $pager = service('pager');
-
         $prducts = $this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC');
-        $total = sizeof($this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC'));
 
         $data = [
             'title' =>  'Management Produk - Badan Pengelola Aset KM UII',
-            'products'  => $prducts,
-            'current_page'  => $current_page,
-            'per_page'  => $per_page,
-            'total' => $total,
-            'pager' => $pager
+            'products'  => $prducts
         ];
 
         return view('admin/dashboard/produk_kami/produk/index', $data);
@@ -49,6 +38,8 @@ class Produk extends BaseController
 
     public function save()
     {
+        $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
+
         $rules = [
             'nama_produk'   =>  [
                 'rules' =>  'required|is_unique[produk.nama_produk]|min_length[3]|max_length[255]',
@@ -57,6 +48,10 @@ class Produk extends BaseController
             'detail_produk' =>  [
                 'rules' =>  'required|min_length[10]',
                 'errors'    =>  $this->error_message
+            ],
+            'kontak' =>  [
+                'rules' =>  'permit_empty|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
+                'errors'    => $this->error_message
             ],
             'path_gambar_cover' =>  [
                 'rules' =>  'uploaded[path_gambar_cover]|max_size[path_gambar_cover,1024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
@@ -69,6 +64,7 @@ class Produk extends BaseController
         $nama_produk = $this->request->getPost('nama_produk');
         $slug_produk = url_title($nama_produk, '-', true);
         $detail_produk = $this->request->getPost('detail_produk');
+        $kontak = $this->request->getPost('kontak');
 
         $files = $this->request->getFile('path_gambar_cover');
         $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
@@ -81,6 +77,7 @@ class Produk extends BaseController
             'nama_produk'     => $nama_produk,
             'slug_produk' => $slug_produk,
             'detail_produk'    => $detail_produk,
+            'kontak'    =>  $kontak,
             'path_gambar_cover' => $path_gambar_cover,
             'path_nama_gambar' => $path_nama_gambar
         ];
@@ -102,10 +99,15 @@ class Produk extends BaseController
 
         ($nama_produk !== $product[0]->nama_produk) ? $nama_produk_rules .= '|is_unique[produk.nama_produk]' :  '';
 
+        $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
         $rules = [
             'nama_produk'   =>  [
                 'rules' =>  $nama_produk_rules,
                 'errors'    =>  $this->error_message
+            ],
+            'kontak' =>  [
+                'rules' =>  'permit_empty|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
+                'errors'    => $this->error_message
             ],
             'detail_produk' =>  [
                 'rules' =>  'required|min_length[10]',
@@ -122,6 +124,7 @@ class Produk extends BaseController
         $nama_produk = $this->request->getPost('nama_produk');
         $slug_produk = url_title($nama_produk, '-', true);
         $detail_produk = $this->request->getPost('detail_produk');
+        $kontak = $this->request->getPost('kontak');
 
         $files = $this->request->getFile('path_gambar_cover');
         $path_gambar_cover_old = $this->request->getPost('path_gambar_cover');
@@ -144,6 +147,7 @@ class Produk extends BaseController
             'nama_produk'     => $nama_produk,
             'slug_produk' => $slug_produk,
             'detail_produk'    => $detail_produk,
+            'kontak'    => $kontak,
             'path_gambar_cover' => $path_gambar_cover,
             'path_nama_gambar' => $path_nama_gambar
         ];

@@ -11,7 +11,7 @@ class ProdukModel extends Model
     protected $table = 'produk';
     protected $primaryKey = "id_produk";
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'path_gambar_cover', 'path_nama_gambar'];
+    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'kontak', 'path_gambar_cover', 'path_nama_gambar'];
     protected $status = "TERSEDIA";
 
 
@@ -20,7 +20,7 @@ class ProdukModel extends Model
         $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
 
         $builder = $this->db->table($this->table);
-        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, path_gambar_cover, path_nama_gambar');
+        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, kontak, path_gambar_cover, path_nama_gambar');
         $builder->selectMin('paket.harga', 'harga_terendah');
         $builder->join('paket', 'produk.id_produk = paket.id_produk', 'left');
         $builder->groupBy('produk.id_produk');
@@ -135,7 +135,8 @@ class ProdukModel extends Model
         // Get phone number from config
         $config = new ConfigModel();
         $config_result = $config->getConfig();
-        $phone = $config_result[0]['telepon'];
+
+        $phone = $product[0]->kontak ?: $config_result[0]['telepon'];
 
         $ina_id = '62';
 

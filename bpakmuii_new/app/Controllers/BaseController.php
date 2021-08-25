@@ -66,6 +66,7 @@ class BaseController extends Controller
 			'is_image'	=>	'File harus berupa gambar',
 			'valid_email'	=> 'Bukan merupakan format email',
 			'numeric'	=> 'Hanya menerima angka',
+			'matches'	=> 'Ulangi Password salah',
 			'regex_match'	=> 'Format tidak sesuai yang diharapkan'
 		];
 

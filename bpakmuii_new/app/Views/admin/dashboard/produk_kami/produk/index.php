@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $index = 1 + ($per_page * ($current_page - 1)); ?>
+                <?php $index = 1; ?>
                 <?php foreach ($products as $product) : ?>
                     <tr class="odd gradeX">
                         <td>
@@ -43,7 +43,9 @@
                         </td>
                         <td>
                             <!-- Isi dengan Detail Produk -->
-                            <?= substr($product->detail_produk, 0, 150) . '...'; ?>
+                            <?php $content = substr($product->detail_produk, 0, (strlen($product->detail_produk) < 150) ? strlen($product->detail_produk) : 150); ?>
+                            <?= $result = (substr($content, -1) === " ") ? trim($content) : substr($content, 0, (strrpos($content, ' ') ?: strlen($content))); ?>
+                            <span style="color: blue;"><?= (strlen($product->detail_produk) < 150) ? '' : '...'; ?></span>
                         </td>
                         <td class="center">
                             <a href="<?php echo base_url('/admin/produk/edit/' . $product->slug_produk); ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
@@ -57,8 +59,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <?php //$pager->makeLinks($current_page, $per_page, $total) 
-        ?>
     </div>
 </div>
 
