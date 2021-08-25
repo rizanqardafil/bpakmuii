@@ -19,7 +19,7 @@ class Produk extends BaseController
         $prducts = $this->produk_model->getAllProduct('', '', 'produk.created_at', 'DESC');
 
         $data = [
-            'title' =>  'Management Produk - Badan Pengelola Aset KM UII',
+            'title' =>  'Manajemen Produk - Badan Pengelola Aset KM UII',
             'products'  => $prducts
         ];
 

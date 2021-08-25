@@ -22,6 +22,8 @@ class InvestorController extends BaseController
 		$reports = $this->investor_model->getLaporan('', 'laporan.nama_laporan');
 		$config = $this->config_model->getConfig();
 
+		// dd($reports);
+
 		$data = [
 			'titles' => 'Investor | BPA KM UII',
 			'org'	=> $org,

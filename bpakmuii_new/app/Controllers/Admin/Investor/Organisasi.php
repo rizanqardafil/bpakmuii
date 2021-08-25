@@ -19,7 +19,7 @@ class Organisasi extends BaseController
         $org = $this->organisasi_model->getOrganizations();
 
         $data = [
-            'title' =>  'Management Organisasi - Badan Pengelola Aset KM UII',
+            'title' =>  'Manajemen Organisasi - Badan Pengelola Aset KM UII',
             'org'   => $org,
             'validation'    => \Config\Services::validation()
         ];

@@ -55,7 +55,7 @@ class GaleriController extends BaseController
 	public function video()
 	{
 		$current_page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
-		$per_page = 3;
+		$per_page = 6;
 		$offset = ($per_page * ($current_page - 1));
 
 		$pager = service('pager');

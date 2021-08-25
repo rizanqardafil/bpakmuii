@@ -134,7 +134,7 @@ class Config extends BaseController
     public function icon_config()
     {
         $data = [
-            'title' =>  'Config Icon',
+            'title' =>  'Pengaturan Ikon',
             'config'    => $this->config_model->getConfig(),
             'validation'    => \Config\Services::validation()
         ];

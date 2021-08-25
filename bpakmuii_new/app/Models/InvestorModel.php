@@ -31,12 +31,13 @@ class InvestorModel extends Model
         $builder->orderBy($order_by, $order_type);
         $builder->groupBy('laporan.id_laporan');
 
+
         if ($slug_laporan) {
             $builder->where('laporan.slug_laporan', $slug_laporan);
         }
 
         $reports = $builder->get()->getResult();
-        $report_images = $this->getGambarLaporan();
+        $report_images = $this->getGambarLaporan($order_by, $order_type);
 
         $index = 0;
         foreach ($reports as $report) {
@@ -60,13 +61,13 @@ class InvestorModel extends Model
         return $reports;
     }
 
-    public function getGambarLaporan()
+    public function getGambarLaporan($order_by = 'gambar_laporan.id_laporan', $order_type = 'ASC')
     {
         $builder = $this->db->table('laporan');
         $builder->select('gambar_laporan.id_laporan, laporan.nama_laporan, laporan.slug_laporan, gambar_laporan.nama_gambar, 
         gambar_laporan.slug_gambar, gambar_laporan.path_gambar');
         $builder->join('gambar_laporan', 'laporan.id_laporan = gambar_laporan.id_laporan', 'right');
-        $builder->orderBy('gambar_laporan.id_laporan', 'ASC');
+        $builder->orderBy($order_by, $order_type);
 
         $results = $builder->get()->getResultArray();
 

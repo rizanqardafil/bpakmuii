@@ -34,14 +34,14 @@
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="password" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Password Baru">
+                    <input type="password" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Password Baru" value="<?= old('password'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('password'); ?>
                     </div>
                 </div>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    <input type="password" name="repeat_password" class="form-control <?= ($validation->hasError('repeat_password')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Password">
+                    <input type="password" name="repeat_password" class="form-control <?= ($validation->hasError('repeat_password')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Password" value="<?= old('repeat_password'); ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('repeat_password'); ?>
                     </div>
