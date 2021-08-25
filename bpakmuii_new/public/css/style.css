@@ -273,6 +273,8 @@ a{
 
 .author-section{
     padding:1rem;
+    padding-top: 8px;
+    padding-left: 4px;
 }
 
 .author-section .c-details{
@@ -803,7 +805,7 @@ a{
     color: black;
     opacity: 0.5;
     margin-bottom: 16px;
-    padding-left: 1rem;
+    padding-left: 4px;
 }
 
 .titleartikelfeature{
@@ -813,20 +815,21 @@ a{
     letter-spacing: 0px;
     color: #121212;
     margin-bottom: 16px;
-    padding-left: 1rem;
+    padding-left: 4px;
 }
 
 .titleartikeldetail{
-    text-align: center;
-    font-size: 100px;
-    font-weight: 500;
-    line-height: 100px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 120px;
+    font-weight: 600;
+    line-height: 120px;
     letter-spacing: -1px;
     color: #121212;
-    max-width: 600px;
-    margin: auto;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    max-width: 900px;
+    padding-left: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .separatorsection{
@@ -846,7 +849,7 @@ a{
     font-size:16px;
     line-height: 26px;
     font-weight: 200;
-    padding-left: 1rem;
+    padding-left: 4px;
     color: #737B7D;
 }
 
@@ -886,7 +889,7 @@ a{
     letter-spacing: 0px;
     color: #121212;
     margin-bottom: 16px;
-    padding-left: 1rem;
+    padding-left: 4px;
 }
 
 .textbodylist{
@@ -894,7 +897,7 @@ a{
     font-size:15px;
     line-height: 25px;
     font-weight: 200;
-    padding-left: 1rem;
+    padding-left: 4px;
     color: #737B7D;
 }
 
@@ -907,6 +910,15 @@ a{
     text-align: justify;
     max-width: 750px;
     margin: 0 auto;
+}
+
+.isiartikel img{
+    display: flex;
+    margin: 0 auto;
+    max-height: 550px !important;
+    max-width: 700px !important;
+    object-fit: fill;
+    border-radius: 8px;
 }
 
 .subjudulartikel{
@@ -1027,6 +1039,83 @@ a{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* Image Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: transparent;
+    margin: 5% auto;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+  }
+  
+  .modal-header h2{
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .modal-header {
+    background: rgba(35, 34, 33, 0.8);
+    padding: 15px;
+    border-bottom: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .modal-body {
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+    padding: 10px 20px;
+    background: rgba(35, 34, 33, 0.6);
+  }
+
+  .list-foto {
+      margin-bottom: 10px;
+      margin-right: 10px;
+  }
+
+  .list-foto img{
+    width: 305px;
+    height: 160px;
+    border-radius: 4px;
+}
+  
+  .close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    color: #fff;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  @keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
 /* -end- */
 

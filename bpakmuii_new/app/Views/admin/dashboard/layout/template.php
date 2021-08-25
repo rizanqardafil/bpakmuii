@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Administrator | BPA KM UII</title>
     <!-- BOOTSTRAP STYLES-->
+    <!-- Icon on tabbar -->
+    <link rel="shortcut icon" type="image/png"  href="<?= base_url(); ?>/images/BPA_Icon_Browser.png">
     <link href="<?= base_url(); ?>/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
     <link href="<?= base_url(); ?>/admin/css/font-awesome.css" rel="stylesheet" />

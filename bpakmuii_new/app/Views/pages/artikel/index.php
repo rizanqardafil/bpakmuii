@@ -53,9 +53,9 @@
                                 <div class="textdatefeature"><?= $article->tanggal_terbit; ?></div>
                                 <div class="titlelist"><?= $article->judul_artikel; ?></div>
                                 <div class="textbodylist">
-                                    <?php $content = substr($article->isi_artikel, 0, (strlen($article->isi_artikel) < 300) ? strlen($article->isi_artikel) : 300); ?>
+                                    <?php $content = substr($article->isi_artikel, 0, (strlen($article->isi_artikel) < 150) ? strlen($article->isi_artikel) : 150); ?>
                                     <?= $result = (substr($content, -1) === " ") ? trim($content) : substr($content, 0, strrpos($content, ' ')); ?>
-                                    <span style="color: blue;"><?= (strlen($article->isi_artikel) < 300) ? '' : '...'; ?></span>
+                                    <span style="color: blue;"><?= (strlen($article->isi_artikel) < 150) ? '' : '...'; ?></span>
                                 </div>
                                 <div class="d-flex author-section">
                                     <div class="d-flex flex-row align-items-center">

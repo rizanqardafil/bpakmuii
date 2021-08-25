@@ -36,7 +36,8 @@
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri">
-                        <a href="#" class="component-galeri d-block">
+                        <a id="modal-btn">
+                        <div class="component-galeri">
                             <div class="galeri-thumbnail">
                                 <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
                                 </div>
@@ -44,6 +45,7 @@
                             <div class="card-bodygaleri">
                                 <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
                             </div>
+                        </div>
                         </a>
                     </div>
                 </div>
@@ -116,14 +118,132 @@
             </div> -->
         </div>
 
-
         <?= $pager->makeLinks($current_page, $per_page, $total_image, 'user_pagination') ?>
 
     </section>
+
+    <div id="my-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><?= $image->nama_album ?></h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg" title="foto 1">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg" title="foto 1">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg" title="foto 1">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 <?= $this->endSection(); ?>
 
 <?= $this->section('scripts'); ?>
+
+<script>
+    $(document).ready(function(){
+    
+        $('.modal-body').magnificPopup({
+    
+            delegate:'a',
+            type:'image',
+            gallery:{
+                enabled:true
+            }
+    
+        });
+    
+    });
+</script>
+
 <script>
     AOS.init();
     $(document).ready(function() {
