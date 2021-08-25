@@ -150,6 +150,10 @@ p {
   font-size: 40px;
 }
 
+.invalid-feedback{
+  color: red;
+}
+
 .main-temp-back {
   background: #8702a8;
   color: #ffffff;

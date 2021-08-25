@@ -15,7 +15,8 @@
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
-    <link href="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <!-- <link href="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/pdfmake-0.1.18/dt-1.10.12/b-1.2.2/b-colvis-1.2.2/b-html5-1.2.2/b-print-1.2.2/r-2.1.0/datatables.min.css" /> 
 
 </head>
 
@@ -92,8 +93,9 @@
     <!-- METISMENU SCRIPTS -->
     <script src="<?= base_url(); ?>/admin/js/jquery.metisMenu.js"></script>
     <!-- DATA TABLE SCRIPTS -->
-    <script src="<?= base_url(); ?>/admin/js/dataTables/jquery.dataTables.js"></script>
-    <script src="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/pdfmake-0.1.18/dt-1.10.12/b-1.2.2/b-colvis-1.2.2/b-html5-1.2.2/b-print-1.2.2/r-2.1.0/datatables.min.js"></script>
+    <!-- <script src="<?= base_url(); ?>/admin/js/dataTables/jquery.dataTables.js"></script> -->
+    <!-- <script src="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.js"></script> -->
     <!-- CKEDITOR -->
     <script src="<?= base_url(); ?>/admin/ckeditor/ckeditor/ckeditor.js"></script>
 

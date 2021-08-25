@@ -34,7 +34,6 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="product-thumbnail">
-                            <span class="notify-badges-available">TERSEDIA</span>
                             <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" class="xzoom" id="xzoom-default" xoriginal="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
                         </div>
                     </div>
@@ -66,6 +65,30 @@
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                             Kontak Untuk Peminjaman
                         </a>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-8">
+                        <h6>Daftar Paket yang Tersedia:</h6>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama Paket</th>
+                                    <th scope="col">Harga Paket</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!-- bagian ini isi dengan nomor paket -->
+                                    <th scope="row">1</th>
+                                    <!-- bagian ini isi dengan nama paket -->
+                                    <th>Paket Murah</th> 
+                                    <!-- bagian ini isi dengan harga paket -->
+                                    <th>Rp 10.000</th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="row">

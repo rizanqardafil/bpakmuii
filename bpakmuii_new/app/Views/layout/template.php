@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titles; ?></title>
+    <!-- Icon on tabbar -->
+    <link rel="shortcut icon" type="image/png"  href="<?= base_url(); ?>/images/BPA_Icon_Browser.png">
     <!-- Poppins Font -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
     <!-- xzoom file -->
@@ -93,10 +95,10 @@
                             <div class="footer-widget text-left">
                                 <h5>Kontak Kami</h5>
                                 <ul>
-                                    <li><a href="#">Universitas Islam Indonesia,
+                                    <li><a class="inactiveLink" href="">Universitas Islam Indonesia,
                                             Yogyakarta, Sleman, Kaliurang KM. 24</a></li>
-                                    <li><a href="#"><?= 'Telepon: +' . $phone_number; ?></a></li>
-                                    <li><a href="#"><?= 'Email: ' . $config[0]['email']; ?></a></li>
+                                    <li><a class="inactiveLink" href=""><?= 'Telepon: +' . $phone_number; ?></a></li>
+                                    <li><a class="inactiveLink" href="#"><?= 'Email: ' . $config[0]['email']; ?></a></li>
                                 </ul>
                             </div>
                         </div>
