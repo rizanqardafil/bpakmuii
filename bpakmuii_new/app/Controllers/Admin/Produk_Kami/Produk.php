@@ -20,7 +20,8 @@ class Produk extends BaseController
 
         $data = [
             'title' =>  'Manajemen Produk - Badan Pengelola Aset KM UII',
-            'products'  => $prducts
+            'products'  => $prducts,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/produk/index', $data);
@@ -30,7 +31,8 @@ class Produk extends BaseController
     {
         $data = [
             'title' => 'Tambah Produk - Badan Pengelola Aset KM UII',
-            'validation'    =>  \Config\Services::validation()
+            'validation'    =>  \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/produk/tambah_produk', $data);
@@ -168,7 +170,8 @@ class Produk extends BaseController
         $data = [
             'title' => "Edit Produk - " . $product[0]->nama_produk,
             'product'   => $product,
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/produk/edit_produk', $data);

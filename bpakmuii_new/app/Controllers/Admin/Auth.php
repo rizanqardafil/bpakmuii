@@ -19,7 +19,8 @@ class Auth extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Login Administrator | BPA KM UII'
+            'title' => 'Login Administrator | BPA KM UII',
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/auth/login', $data);
@@ -28,7 +29,8 @@ class Auth extends BaseController
     public function dashboard()
     {
         $data = [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/index', $data);

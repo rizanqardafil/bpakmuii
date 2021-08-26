@@ -24,7 +24,8 @@ class Gambar extends BaseController
         $data = [
             'title' =>  'Gambar Produk - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'images'  => $images
+            'images'  => $images,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/gambar_produk/index', $data);
@@ -37,7 +38,8 @@ class Gambar extends BaseController
         $data = [
             'title' => 'Tambah Gambar Produk - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'products'  => $products
+            'products'  => $products,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/gambar_produk/tambah_gambar', $data);
@@ -154,7 +156,8 @@ class Gambar extends BaseController
             'title' => 'Edit Gambar - ' . $image[0]->nama_produk,
             'image'   => $image,
             'products'  => $products,
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
 

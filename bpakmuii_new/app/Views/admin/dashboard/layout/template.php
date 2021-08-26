@@ -7,7 +7,7 @@
     <title>Administrator | BPA KM UII</title>
     <!-- BOOTSTRAP STYLES-->
     <!-- Icon on tabbar -->
-    <link rel="shortcut icon" type="image/png"  href="<?= base_url(); ?>/images/BPA_Icon_Browser.png">
+    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>/uploaded/images/<?= $config[0]['icon']; ?>">
     <link href="<?= base_url(); ?>/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
     <link href="<?= base_url(); ?>/admin/css/font-awesome.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <!-- <link href="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/pdfmake-0.1.18/dt-1.10.12/b-1.2.2/b-colvis-1.2.2/b-html5-1.2.2/b-print-1.2.2/r-2.1.0/datatables.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/pdfmake-0.1.18/dt-1.10.12/b-1.2.2/b-colvis-1.2.2/b-html5-1.2.2/b-print-1.2.2/r-2.1.0/datatables.min.css" />
 
 </head>
 

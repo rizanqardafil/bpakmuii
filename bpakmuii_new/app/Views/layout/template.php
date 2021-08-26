@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titles; ?></title>
     <!-- Icon on tabbar -->
-    <link rel="shortcut icon" type="image/png"  href="<?= base_url(); ?>/images/BPA_Icon_Browser.png">
+    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>/uploaded/images/<?= $config[0]['icon']; ?>">
     <!-- Poppins Font -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
     <!-- xzoom file -->

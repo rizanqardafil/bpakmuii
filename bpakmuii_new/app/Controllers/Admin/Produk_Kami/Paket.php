@@ -24,7 +24,8 @@ class Paket extends BaseController
         $data = [
             'title' =>  'Paket Produk - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'packages'  => $packages
+            'packages'  => $packages,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/paket/index', $data);
@@ -37,7 +38,8 @@ class Paket extends BaseController
         $data = [
             'title' => 'Tambah Paket - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'products'  => $products
+            'products'  => $products,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/paket/tambah_paket', $data);
@@ -132,7 +134,8 @@ class Paket extends BaseController
             'title' => 'Edit Paket - ' . $package[0]->nama_paket,
             'package'   => $package,
             'products'  => $products,
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/paket/edit_paket', $data);

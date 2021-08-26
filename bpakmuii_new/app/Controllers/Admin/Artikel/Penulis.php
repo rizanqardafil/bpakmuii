@@ -19,6 +19,7 @@ class Penulis extends BaseController
         $data = [
             'title' =>  'Manajemen Penulis Artikel - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'writers'  => $this->penulis_model->getWriters()
         ];
 
@@ -29,6 +30,7 @@ class Penulis extends BaseController
     {
         $data = [
             'title' => 'Tambah Penulis Artikel - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 
@@ -136,6 +138,7 @@ class Penulis extends BaseController
         $data = [
             'title' => 'Edit Penulis Artikel - ' . $writer['nama_penulis'],
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'writer'    => $writer
         ];
 

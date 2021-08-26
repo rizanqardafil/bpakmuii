@@ -23,6 +23,7 @@ class Laporan extends BaseController
             'title' =>  'Manajemen Laporan - Badan Pengelola Aset KM UII',
             'reports'   => $reports,
             'total_report'  => $total_report,
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 
@@ -33,6 +34,7 @@ class Laporan extends BaseController
     {
         $data = [
             'title' => 'Tambah Laporan Pertanggung Jawaban - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'validation'    =>  \Config\Services::validation()
         ];
 
@@ -147,6 +149,7 @@ class Laporan extends BaseController
         $data = [
             'title' => 'Edit Laporan - ' . $report[0]->nama_laporan,
             'report'   => $report,
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 

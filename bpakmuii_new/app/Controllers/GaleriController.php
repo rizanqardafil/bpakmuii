@@ -18,6 +18,7 @@ class GaleriController extends BaseController
 		$images = $this->galeri_model->getAlbum('', 6);
 		$videos = $this->galeri_model->getVideo('', 6);
 
+		// dd($images);
 		$data = [
 			'titles' => 'Galeri | BPA KM UII',
 			'config'	=> $this->config->getConfig(),

@@ -22,7 +22,8 @@ class Kegiatan extends BaseController
         $data = [
             'title' =>  'Manajemen Kegiatan - Badan Pengelola Aset KM UII',
             'activities'  => $activities,
-            'total_activity'    =>  $total_activity
+            'total_activity'    =>  $total_activity,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/kegiatan_kami/kegiatan/index', $data);
@@ -32,7 +33,8 @@ class Kegiatan extends BaseController
     {
         $data = [
             'title' => 'Tambah Kegiatan - Badan Pengelola Aset KM UII',
-            'validation'    =>  \Config\Services::validation()
+            'validation'    =>  \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/kegiatan_kami/kegiatan/tambah_kegiatan', $data);
@@ -148,6 +150,7 @@ class Kegiatan extends BaseController
         $data = [
             'title' => "Edit Kegiatan - " . $activity['judul'],
             'activity'  => $activity,
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 

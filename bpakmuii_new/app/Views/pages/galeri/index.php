@@ -23,87 +23,20 @@
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri">
-                        <a id="modal-btn">
-                        <div class="component-galeri">
-                            <div class="galeri-thumbnail">
-                                <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
+                        <a id="modal-btn" data-id="<?= $image->slug_album; ?>">
+                            <div class="component-galeri">
+                                <div class="galeri-thumbnail">
+                                    <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
+                                    </div>
+                                </div>
+                                <div class="card-bodygaleri">
+                                    <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
                                 </div>
                             </div>
-                            <div class="card-bodygaleri">
-                                <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
-                            </div>
-                        </div>
                         </a>
                     </div>
                 </div>
             <?php endforeach; ?>
-
-            <!-- <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
-                            </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Creative Preneur Talks 2020 !</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
-                            </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Pendaftaran Anggota Baru</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
-                            </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Creative Preneur Talks 2020 !</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri" style="background-image: url('../images/kegiatan3.png');">
-                            </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Pendaftaran Anggota Baru</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 d-flex align-items-stretch">
-                <div class="card-galeri">
-                    <a href="#" class="component-galeri d-block">
-                        <div class="galeri-thumbnail">
-                            <div class="products-galeri" style="background-image: url('../images/kegiatan2.png');">
-                            </div>
-                        </div>
-                        <div class="card-bodygaleri">
-                            <h5 class="card-titlegaleri">Creative Preneur Talks 2020 !</h5>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -123,10 +56,6 @@
             </div>
         </div>
 
-        <!-- <iframe width="1424" height="620" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe> -->
-
         <!-- Bagian Card Video -->
         <div class="row">
             <?php foreach ($videos as $video) : ?>
@@ -143,170 +72,33 @@
                     </div>
                 </div>
             <?php endforeach; ?>
-            <!-- <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                        </div>
-                    </div>
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                        </div>
-                    </div>
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-4 col-lg-4 pr-2 mb-5">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                        </div>
-                    </div>
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                        </div>
-                    </div>
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4 pr-2">
-                <a href="#" class="d-block">
-                    <div class="video-thumbnail">
-                        <div class="products-video">
-                            <iframe width="300px" height="200px" src="https://www.youtube.com/embed/cfxG01c5Aa8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                        </div>
-                    </div>
-                </a>
-                <div class="row-titlevideo">
-                    <div class="text-titlevideo">Digital Branding Dalam Eksistensi Ekonomi Kreatif</div>
-                </div>
-            </div> -->
         </div>
     </section>
 
-    <div id="my-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><?= $image->nama_album ?></h2>
-                <span class="close">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg" title="foto 1">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
+    <?php foreach ($images as $image) : ?>
+        <div id="my-modal-<?= $image->slug_album; ?>" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><?= $image->nama_album ?></h2>
+                    <span class="close" id="close-<?= $image->slug_album; ?>">&times;</span>
                 </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg" title="foto 1">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg" title="foto 1">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
-                </div>
-                <div class="list-foto">
-                    <a href="../images/artikel1.jpg">
-                        <img src="../images/artikel1.jpg" alt="">
-                    </a>
+                <div class="modal-body">
+                    <?php foreach ($image->path_gambar_album as $i => $img) : ?>
+                        <div class="list-foto">
+                            <a href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" title="<?= $image->nama_gambar_album[$i]; ?>">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                    <!-- <div class="list-foto">
+                        <a href="../images/artikel1.jpg">
+                            <img src="../images/artikel1.jpg" alt="">
+                        </a>
+                    </div> -->
                 </div>
             </div>
         </div>
-    </div>
+    <?php endforeach; ?>
 
 </section>
 <?= $this->endSection(); ?>
@@ -314,18 +106,18 @@
 <?= $this->section('scripts'); ?>
 
 <script>
-    $(document).ready(function(){
-    
+    $(document).ready(function() {
+
         $('.modal-body').magnificPopup({
-    
-            delegate:'a',
-            type:'image',
-            gallery:{
-                enabled:true
+
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
             }
-    
+
         });
-    
+
     });
 </script>
 

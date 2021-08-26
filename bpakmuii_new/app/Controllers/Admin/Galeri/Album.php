@@ -18,6 +18,7 @@ class Album extends BaseController
     {
         $data = [
             'title' =>  'Management Album - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation(),
             'albums'  => $this->album_model->getAlbums()
         ];
@@ -29,6 +30,7 @@ class Album extends BaseController
     {
         $data = [
             'title' => 'Tambah Album - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 
@@ -135,6 +137,7 @@ class Album extends BaseController
         $data = [
             'title' => 'Edit Album - ' . $album['nama_album'],
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'album' => $album
         ];
 

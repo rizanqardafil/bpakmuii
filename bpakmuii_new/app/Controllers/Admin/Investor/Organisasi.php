@@ -21,6 +21,7 @@ class Organisasi extends BaseController
         $data = [
             'title' =>  'Manajemen Organisasi - Badan Pengelola Aset KM UII',
             'org'   => $org,
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 

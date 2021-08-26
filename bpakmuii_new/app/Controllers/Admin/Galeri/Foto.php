@@ -22,6 +22,7 @@ class Foto extends BaseController
         $data = [
             'title' =>  'Manajemen Galeri Foto - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'images'  => $this->galeri_foto->getImage()
         ];
 
@@ -35,6 +36,7 @@ class Foto extends BaseController
         $data = [
             'title' => 'Tambah Galeri Foto - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'albums'  => $albums
         ];
 
@@ -146,6 +148,7 @@ class Foto extends BaseController
         $data = [
             'title' => 'Edit Galeri Foto - ' . $image[0]->nama_foto,
             'image' =>  $image,
+            'config'    => $this->config->getConfig(),
             'albums'    => $albums,
             'validation'    => \Config\Services::validation()
         ];

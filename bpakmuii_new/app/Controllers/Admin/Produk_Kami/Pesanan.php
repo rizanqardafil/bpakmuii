@@ -24,7 +24,8 @@ class Pesanan extends BaseController
         $data = [
             'title' =>  'Pesanan Produk - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'orders'  => $orders
+            'orders'  => $orders,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/pesanan/index', $data);
@@ -37,7 +38,8 @@ class Pesanan extends BaseController
         $data = [
             'title' => 'Tambah Pesanan - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
-            'products'  => $products
+            'products'  => $products,
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/produk_kami/pesanan/tambah_pesanan', $data);
@@ -121,7 +123,8 @@ class Pesanan extends BaseController
             'title' => 'Edit Pesanan - ' . $order[0]->nama_produk,
             'order'   => $order,
             'products'  => $products,
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
 

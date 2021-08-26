@@ -21,6 +21,7 @@ class Artikel extends BaseController
     {
         $data = [
             'title' =>  'Management Artikel - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'articles'  => $this->artikel_model->getAllArtikel(),
         ];
 
@@ -32,6 +33,7 @@ class Artikel extends BaseController
         $data = [
             'title' => 'Tambah Artikel - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'writers'  => $this->penulis_model->getWriters()
         ];
 
@@ -154,6 +156,7 @@ class Artikel extends BaseController
             'title' => 'Edit Artikel - ' . $article[0]->judul_artikel,
             'validation'    => \Config\Services::validation(),
             'article'   => $article,
+            'config'    => $this->config->getConfig(),
             'writers'    => $writers
         ];
 

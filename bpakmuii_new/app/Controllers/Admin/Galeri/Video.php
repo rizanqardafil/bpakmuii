@@ -19,6 +19,7 @@ class Video extends BaseController
         $data = [
             'title' =>  'Management Galeri Video - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'videos'  => $this->video_model->getVideos()
         ];
 
@@ -29,6 +30,7 @@ class Video extends BaseController
     {
         $data = [
             'title' => 'Tambah Galeri Video - Badan Pengelola Aset KM UII',
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation(),
         ];
 
@@ -119,6 +121,7 @@ class Video extends BaseController
         $data = [
             'title' => 'Edit Galeri Video - ' . $video['nama_video'],
             'video' => $video,
+            'config'    => $this->config->getConfig(),
             'validation'    => \Config\Services::validation()
         ];
 

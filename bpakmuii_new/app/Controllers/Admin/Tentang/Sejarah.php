@@ -19,7 +19,8 @@ class Sejarah extends BaseController
         $data = [
             'title' =>  'Sejarah - Badan Pengelola Aset KM UII',
             'sejarah'   => $this->sejarah_model->getSejarah(),
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/tentang/sejarah/index', $data);

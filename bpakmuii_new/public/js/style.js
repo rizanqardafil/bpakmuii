@@ -28,29 +28,43 @@ function xzoom() {
     });
 }
 
-// Get DOM Elements // JS Halaman Galeri Foto
-const modal = document.querySelector('#my-modal');
-const modalBtn = document.querySelector('#modal-btn');
-const closeBtn = document.querySelector('.close');
 
-// Events
-modalBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-
-// Open
-function openModal() {
+$(document).on("click", "#modal-btn", function () {
+  var slug_album = $(this).data('id');
+  
+  const modal = document.querySelector('#my-modal-' + slug_album);
+  const closeBtn = document.querySelector('#close-' + slug_album);
+  
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', outsideClick);
+  
   modal.style.display = 'block';
-}
 
-// Close
-function closeModal() {
-  modal.style.display = 'none';
-}
-
-// Close If Outside Click
-function outsideClick(e) {
-  if (e.target == modal) {
+  // Close
+  function closeModal() {
     modal.style.display = 'none';
   }
-}
+
+// Close If Outside Click
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+});
+
+// Get DOM Elements // JS Halaman Galeri Foto
+// const modal = document.querySelector('#my-modal');
+// const modalBtn = document.querySelector('#modal-btn');
+// const closeBtn = document.querySelector('.close');
+
+// Events
+// modalBtn.addEventListener('click', openModal);
+// closeBtn.addEventListener('click', closeModal);
+// window.addEventListener('click', outsideClick);
+
+// Open
+// function openModal() {
+//   modal.style.display = 'block';
+// }

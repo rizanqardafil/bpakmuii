@@ -24,6 +24,7 @@ class Gambar extends BaseController
         $data = [
             'title' =>  'Management Gambar Laporan - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'images'  => $images
         ];
 
@@ -37,6 +38,7 @@ class Gambar extends BaseController
         $data = [
             'title' => 'Tambah Gambar Laporan - Badan Pengelola Aset KM UII',
             'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig(),
             'reports'  => $reports
         ];
 
@@ -153,6 +155,7 @@ class Gambar extends BaseController
         $data = [
             'title' => 'Edit Gambar Laporan - ' . $image[0]->nama_laporan,
             'image'   => $image,
+            'config'    => $this->config->getConfig(),
             'reports'  => $reports,
             'validation'    => \Config\Services::validation()
         ];

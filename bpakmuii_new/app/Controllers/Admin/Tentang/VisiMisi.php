@@ -19,7 +19,8 @@ class VisiMisi extends BaseController
         $data = [
             'title' =>  'Visi Misi - Badan Pengelola Aset KM UII',
             'visi_misi'   => $this->visi_misi_model->getVisiMisi(),
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/tentang/visi_misi/index', $data);

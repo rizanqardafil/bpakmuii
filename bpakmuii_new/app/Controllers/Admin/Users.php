@@ -20,7 +20,8 @@ class Users extends BaseController
 
         $data = [
             'title' => 'Manajemen Pengguna',
-            'users' => $this->user_model->getUsers()
+            'users' => $this->user_model->getUsers(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/users/index', $data);
@@ -33,7 +34,8 @@ class Users extends BaseController
         $data = [
             'title' => 'Edit User - ' . $user['name'],
             'user' => $user,
-            'validation'    => \Config\Services::validation()
+            'validation'    => \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
         ];
 
         return view('admin/dashboard/users/edit', $data);
