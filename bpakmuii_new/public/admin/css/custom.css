@@ -154,6 +154,10 @@ p {
   color: red;
 }
 
+.is-invalid{
+  border: 1px solid red;
+}
+
 .main-temp-back {
   background: #8702a8;
   color: #ffffff;
