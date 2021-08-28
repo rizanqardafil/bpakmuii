@@ -59,7 +59,7 @@ class BaseController extends Controller
 			'is_unique'    => '{value} sudah tercatat',
 			'min_length'    => 'Minimal berisi {param} karakter',
 			'max_length'	=> 'Maksimal berisi {param} karakter',
-			'max_size'	=> 'File terlalu besar. Maksimal 1 MB',
+			'max_size'	=> 'File terlalu besar. Maksimal 10 MB',
 			'uploaded'	=> 'Harus melakukan upload',
 			'mime_in'	=> 'Jenis file tidak tepat. File harus berupa {param}',
 			'ext_in'	=>	'Ekstensi file tidak tepat. File harus berekstensi {param}',

@@ -52,7 +52,7 @@ class Laporan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_laporan' =>  [
-                'rules' => 'uploaded[path_laporan]|ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,1048]',
+                'rules' => 'uploaded[path_laporan]|ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,10048]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -99,7 +99,7 @@ class Laporan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_laporan' =>  [
-                'rules' => 'ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,1048]',
+                'rules' => 'ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,10048]',
                 'errors'    => $this->error_message
             ]
         ];
