@@ -60,6 +60,7 @@ $routes->post('/admin/icon-config/save-icon', 'Admin\Config::save_icon', ['filte
 
 // Routes CRUD Admin
 $routes->get('/admin/users', 'Admin\Users::index', ['filter' => 'auth']);
+$routes->get('/admin/users/tambah', 'Admin\Users::tambah', ['filter' => 'auth']);
 $routes->get('/admin/users/(:segment)', 'Admin\Users::edit/$1', ['filter' => 'auth']);
 $routes->post('/admin/users/save', 'Admin\Auth::save', ['filter' => 'auth']);
 $routes->post('/admin/users/update/(:segment)', 'Admin\Auth::update/$1', ['filter' => 'auth']);

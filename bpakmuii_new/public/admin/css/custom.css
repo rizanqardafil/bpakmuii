@@ -382,6 +382,10 @@ p {
   line-height: 40px;
 }
 
+.margin-error{
+  margin-bottom: 4px;
+}
+
 .spacing {
   margin-bottom: 10px;
 }

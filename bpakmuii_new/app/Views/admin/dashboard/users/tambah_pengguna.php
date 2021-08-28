@@ -12,11 +12,11 @@
                 <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
             <?php endif; ?>
 
-            <form action="<?php echo base_url('/admin/users/update/' . $user['slug_user']) ?>" method="post">
+            <form action="<?php echo base_url('/admin/users/save') ?>" method="post">
 
                 <div class="form-group input-group <?= ($validation->hasError('name')) ? 'margin-error' : '' ?>">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="name" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : '' ?>" placeholder="Nama Admin" required value="<?= (old('name')) ?? $user['name']; ?>">
+                    <input type="text" name="name" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : '' ?>" placeholder="Nama Admin" required value="<?= (old('name')); ?>">
                 </div>
                 <div class="form-group">
                     <div class="invalid-feedback">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group input-group <?= ($validation->hasError('email')) ? 'margin-error' : '' ?>">
                     <span class="input-group-addon">@</span>
-                    <input type="email" name="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" placeholder="Alamat email" required value="<?= (old('email')) ?? $user['email']; ?>">
+                    <input type="email" name="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" placeholder="Alamat email" required value="<?= (old('email')); ?>">
                 </div>
                 <div class="form-group">
                     <div class="invalid-feedback">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group input-group <?= ($validation->hasError('username')) ? 'margin-error' : '' ?>">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" name="username" class="form-control" placeholder="Username" required value="<?= (old('username')) ?? $user['username']; ?>" readonly disabled>
+                    <input type="text" name="username" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" placeholder="Username" required value="<?= (old('username')); ?>">
                 </div>
                 <div class="form-group">
                     <div class="invalid-feedback">
@@ -60,7 +60,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="submit" value="Ubah" class="btn btn-primary btn-md">
+                    <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+                    <input type="reset" name="reset" value="Reset" class="btn btn-default">
                     <a href="<?php echo base_url('/admin/users/') ?>" class="btn btn-primary"> Kembali</a>
                 </div>
             </form>

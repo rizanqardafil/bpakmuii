@@ -18,7 +18,7 @@
 
             <!--  Modals-->
             <div class="panel-body">
-                <p><button class="btn btn-primary" data-toggle="modal" data-target="#tambah"><i class="fa fa-plus"></i> Tambah Admin</button></p>
+                <p><a class="btn btn-primary" href="<?php echo base_url('/admin/users/tambah') ?>"><i class="fa fa-plus"></i> Tambah Admin</a></p>
 
                 <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

@@ -27,12 +27,23 @@ class Users extends BaseController
         return view('admin/dashboard/users/index', $data);
     }
 
+    public function tambah(){
+        
+        $data = [
+            'title' => 'Tambah Pengguna - Badan Pengelola Aset KM UII',
+            'validation'    =>  \Config\Services::validation(),
+            'config'    => $this->config->getConfig()
+        ];
+
+        return view('admin/dashboard/users/tambah_pengguna', $data);
+    }
+
     public function edit($slug)
     {
         $user = $this->user_model->getUsers('', $slug);
 
         $data = [
-            'title' => 'Edit User - ' . $user['name'],
+            'title' => 'Edit Pengguna - ' . $user['name'],
             'user' => $user,
             'validation'    => \Config\Services::validation(),
             'config'    => $this->config->getConfig()

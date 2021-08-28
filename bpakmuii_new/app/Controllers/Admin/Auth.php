@@ -89,8 +89,8 @@ class Auth extends BaseController
 
             return redirect()->to(base_url('admin/users'));
         } else {
-            session()->setFlashdata('message', $this->validator->listErrors());
-            return redirect()->to(base_url('admin/users'));
+            // session()->setFlashdata('message', $this->validator->listErrors());
+            return redirect()->to(base_url('admin/users/tambah'))->withInput();
         }
     }
 

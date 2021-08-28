@@ -37,7 +37,7 @@
                             <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" class="xzoom" id="xzoom-default" xoriginal="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
                         </div>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 img-wrapper">
                         <div class="row">
                             <?php foreach ($product['images'] as $image) : ?>
                                 <div class="col-3 col-lg-12 mt-2 mt-lg-0">

@@ -100,6 +100,10 @@
     <!-- <script src="<?= base_url(); ?>/admin/js/dataTables/dataTables.bootstrap.js"></script> -->
     <!-- CKEDITOR -->
     <script src="<?= base_url(); ?>/admin/ckeditor/ckeditor/ckeditor.js"></script>
+    <!-- style JS -->
+    <script src="<?= base_url(); ?>/admin/js/style.js"></script>
+
+    <?= $this->renderSection('scripts'); ?>
 
     <!-- CUSTOM SCRIPTS -->
     <script>
