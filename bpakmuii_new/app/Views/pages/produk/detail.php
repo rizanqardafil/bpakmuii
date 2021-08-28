@@ -79,14 +79,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <!-- bagian ini isi dengan nomor paket -->
-                                    <th scope="row">1</th>
-                                    <!-- bagian ini isi dengan nama paket -->
-                                    <th>Paket Murah</th> 
-                                    <!-- bagian ini isi dengan harga paket -->
-                                    <th>Rp 10.000</th>
-                                </tr>
+                                <?php $index = 1; ?>
+                                <?php foreach ($packages as $pakcage) : ?>
+                                    <tr>
+                                        <!-- bagian ini isi dengan nomor paket -->
+                                        <th scope="row"><?= $index++; ?></th>
+                                        <!-- bagian ini isi dengan nama paket -->
+                                        <th><?= $pakcage->nama_paket; ?></th>
+                                        <!-- bagian ini isi dengan harga paket -->
+                                        <th><?= $pakcage->harga; ?></th>
+                                    </tr>
+                                <?php endforeach; ?>
+                                <?php if (!$packages) : ?>
+                                    <tr>
+                                        <!-- bagian ini isi dengan nomor paket -->
+                                        <th scope="row"><?= $index; ?></th>
+                                        <!-- bagian ini isi dengan nama paket -->
+                                        <th>Paket belum didefinisikan</th>
+                                        <!-- bagian ini isi dengan harga paket -->
+                                        <th>Paket belum didefinisikan</th>
+                                    </tr>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>

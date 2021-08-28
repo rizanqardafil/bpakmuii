@@ -45,12 +45,26 @@ $(document).on("click", "#modal-btn", function () {
     modal.style.display = 'none';
   }
 
-// Close If Outside Click
+  // Close If Outside Click
   function outsideClick(e) {
     if (e.target == modal) {
       modal.style.display = 'none';
     }
   }
+
+  $(document).ready(function() {
+
+    $('.modal-body').magnificPopup({
+
+        delegate: '.a-'+ slug_album,
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+
+    });
+
+  });
 
 });
 

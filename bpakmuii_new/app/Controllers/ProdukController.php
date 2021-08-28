@@ -54,10 +54,12 @@ class ProdukController extends BaseController
 	public function detail($slug_produk)
 	{
 		$product = $this->product_model->getDetailProduct($slug_produk);
+		$packages = $this->product_model->getPackage($slug_produk);
 
 		$data = [
 			'titles' => 'Detail Produk | BPA KM UII',
 			'product'	=> $product,
+			'packages'	=>	$packages,
 			'config'	=> $this->config->getConfig()
 		];
 

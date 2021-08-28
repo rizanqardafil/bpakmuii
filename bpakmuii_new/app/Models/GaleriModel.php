@@ -21,8 +21,10 @@ class GaleriModel extends Model
 
         $result = $builder->get($limit, $offset)->getResult();
 
+
         foreach ($result as $r) {
             $images = $this->getImage($r->slug_album);
+
             foreach ($images as $image) {
                 $r->nama_gambar_album[] = $image->nama_foto;
                 $r->path_gambar_album[] = $image->path_foto;

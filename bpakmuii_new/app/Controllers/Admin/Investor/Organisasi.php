@@ -39,7 +39,7 @@ class Organisasi extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'keterangan' =>  [
-                'rules' =>  'required|min_length[10]',
+                'rules' =>  'required|min_length[10]|max_length[1650]',
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [

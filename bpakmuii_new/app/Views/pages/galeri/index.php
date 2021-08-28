@@ -75,51 +75,38 @@
         </div>
     </section>
 
-    <?php foreach ($images as $image) : ?>
-        <div id="my-modal-<?= $image->slug_album; ?>" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2><?= $image->nama_album ?></h2>
-                    <span class="close" id="close-<?= $image->slug_album; ?>">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <?php foreach ($image->path_gambar_album as $i => $img) : ?>
-                        <div class="list-foto">
-                            <a href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" title="<?= $image->nama_gambar_album[$i]; ?>">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
-                            </a>
-                        </div>
-                    <?php endforeach; ?>
-                    <!-- <div class="list-foto">
-                        <a href="../images/artikel1.jpg">
-                            <img src="../images/artikel1.jpg" alt="">
-                        </a>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 
 </section>
 <?= $this->endSection(); ?>
 
 <?= $this->section('scripts'); ?>
 
-<script>
-    $(document).ready(function() {
-
-        $('.modal-body').magnificPopup({
-
-            delegate: 'a',
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
-
-        });
-
-    });
-</script>
+<?php foreach ($images as $image) : ?>
+    <div id="my-modal-<?= $image->slug_album; ?>" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><?= $image->nama_album ?></h2>
+                <span class="close" id="close-<?= $image->slug_album; ?>">&times;</span>
+            </div>
+            <div class="modal-body">
+                <?php if (isset($image->path_gambar_album)) : ?>
+                    <?php foreach ($image->path_gambar_album as $i => $img) : ?>
+                        <div class="list-foto">
+                            <a class="a-<?= $image->slug_album; ?>" href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" title="<?= $image->nama_gambar_album[$i]; ?>">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <!-- <div class="list-foto">
+                    <a href="../images/artikel1.jpg">
+                        <img src="../images/artikel1.jpg" alt="">
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <script>
     AOS.init();

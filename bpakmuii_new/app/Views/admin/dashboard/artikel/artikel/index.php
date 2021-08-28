@@ -23,7 +23,7 @@
                     <th width="150px">Nama Penulis</th>
                     <th width="150px">Judul Artikel</th>
                     <th>Isi Artikel</th>
-                    <th width="150px">Cover Artikel</th>
+                    <th width="250px">Cover Artikel</th>
                     <th width="80px">Aksi</th>
                 </tr>
             </thead>

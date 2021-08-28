@@ -55,24 +55,32 @@ class ProdukModel extends Model
     {
         if (!$rent_date) {
             $rent_date = date('Y-m-d');
-            $return_date = date('Y-m-d');
+        }
+
+        if (empty($return_date)) {
+            $return_date  = date('Y-m-d', strtotime($rent_date . "+1 day"));
         }
 
         $rent_date = date('Y-m-d', strtotime($rent_date));
         $return_date = date('Y-m-d', strtotime($return_date));
 
+        $cond_1 = "(tanggal_pinjam <= '$rent_date' AND tanggal_kembali >= '$rent_date')";
+        $cond_2 = "(tanggal_pinjam<='$return_date' AND tanggal_kembali>='$return_date')";
+        $cond_3 = "(tanggal_kembali>'$rent_date' AND tanggal_kembali<'$return_date')";
+
         $builder_pesanan = $this->db->table('pesanan');
         $builder_pesanan->select('pesanan.id_produk');
-        $builder_pesanan->where('tanggal_pinjam <=', $rent_date);
-        $builder_pesanan->where('tanggal_kembali >=', $rent_date);
-        $builder_pesanan->groupBy('pesanan.id_produk');
+        $builder_pesanan->where($cond_1);
+        $builder_pesanan->orWhere($cond_2);
+        $builder_pesanan->orWhere($cond_3);
 
+        $builder_pesanan->groupBy('pesanan.id_produk');
         $pesanan = $builder_pesanan->get()->getResultArray();
 
         $id_produk = [];
 
-        foreach ($pesanan as $pesanan) {
-            $id_produk[] = $pesanan['id_produk'];
+        foreach ($pesanan as $p) {
+            $id_produk[] = $p['id_produk'];
         }
 
         return $id_produk;
@@ -80,6 +88,7 @@ class ProdukModel extends Model
 
     public function searchProduct($product_name = '', $rent_date = null, $return_date = null, $limit = 0, $offset = 0)
     {
+
         $id_produk_rent = $this->getPeminjaman($rent_date, $return_date);
 
         $products = $this->getAllProduct($product_name, '', '', 'ASC', $limit, $offset);
@@ -97,6 +106,8 @@ class ProdukModel extends Model
 
     public function getPackage($slug_product = '')
     {
+        $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
+
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, produk.slug_produk, paket.id_paket, paket.nama_paket, paket.slug_paket, paket.harga');
         $builder->join('paket', 'produk.id_produk = paket.id_produk', 'right');
@@ -106,6 +117,13 @@ class ProdukModel extends Model
         }
 
         $results = $builder->get()->getResult();
+
+        foreach ($results as $result) {
+            $currency = $formatter->formatCurrency($result->harga, 'IDR');
+            $currency = substr($currency, 0, strrpos($currency, ','));
+
+            $result->harga = $currency;
+        }
 
         return $results;
     }
