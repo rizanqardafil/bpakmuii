@@ -40,11 +40,11 @@ class Sejarah extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_sejarah' =>  [
-                'rules' =>  'max_size[path_gambar_sejarah,1024]|is_image[path_gambar_sejarah]|mime_in[path_gambar_sejarah,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_sejarah,10024]|is_image[path_gambar_sejarah]|mime_in[path_gambar_sejarah,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
             'path_gambar_logo' =>  [
-                'rules' =>  'max_size[path_gambar_logo,1024]|is_image[path_gambar_logo]|mime_in[path_gambar_logo,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_logo,10024]|is_image[path_gambar_logo]|mime_in[path_gambar_logo,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

@@ -43,7 +43,7 @@ class Organisasi extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [
-                'rules' =>  'max_size[image,1024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[image,10024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

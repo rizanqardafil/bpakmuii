@@ -41,11 +41,11 @@ class VisiMisi extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_visi' =>  [
-                'rules' =>  'max_size[path_gambar_visi,1024]|is_image[path_gambar_visi]|mime_in[path_gambar_visi,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_visi,10024]|is_image[path_gambar_visi]|mime_in[path_gambar_visi,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
             'path_gambar_misi' =>  [
-                'rules' =>  'max_size[path_gambar_misi,1024]|is_image[path_gambar_misi]|mime_in[path_gambar_misi,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_misi,10024]|is_image[path_gambar_misi]|mime_in[path_gambar_misi,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

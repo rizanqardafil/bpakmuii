@@ -99,7 +99,7 @@ class Config extends BaseController
 
         $rules = [
             'logo' =>  [
-                'rules' =>  'max_size[logo,1024]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[logo,10024]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
         ];
@@ -147,7 +147,7 @@ class Config extends BaseController
 
         $rules = [
             'icon' =>  [
-                'rules' =>  'max_size[icon,1024]|is_image[icon]|mime_in[icon,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[icon,10024]|is_image[icon]|mime_in[icon,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
         ];

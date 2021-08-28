@@ -52,7 +52,7 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar' =>  [
-                'rules' =>  'uploaded[path_gambar]|max_size[path_gambar,1024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_gambar]|max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -105,7 +105,7 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar' =>  [
-                'rules' =>  'max_size[path_gambar,1024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

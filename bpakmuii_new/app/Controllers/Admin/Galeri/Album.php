@@ -45,7 +45,7 @@ class Album extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_cover' =>  [
-                'rules' =>  'uploaded[path_cover]|max_size[path_cover,1024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_cover]|max_size[path_cover,10024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -90,7 +90,7 @@ class Album extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_cover' =>  [
-                'rules' =>  'max_size[path_cover,1024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_cover,10024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

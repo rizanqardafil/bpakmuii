@@ -56,7 +56,7 @@ class Produk extends BaseController
                 'errors'    => $this->error_message
             ],
             'path_gambar_cover' =>  [
-                'rules' =>  'uploaded[path_gambar_cover]|max_size[path_gambar_cover,1024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_gambar_cover]|max_size[path_gambar_cover,10024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -116,7 +116,7 @@ class Produk extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_cover' =>  [
-                'rules' =>  'max_size[path_gambar_cover,1024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_cover,10024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];

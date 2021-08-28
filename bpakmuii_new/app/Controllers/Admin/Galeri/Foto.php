@@ -51,7 +51,7 @@ class Foto extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_foto' =>  [
-                'rules' =>  'uploaded[path_foto]|max_size[path_foto,1024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_foto]|max_size[path_foto,10024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -98,7 +98,7 @@ class Foto extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_foto' =>  [
-                'rules' =>  'max_size[path_foto,1024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_foto,10024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
