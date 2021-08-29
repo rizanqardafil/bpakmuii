@@ -15,6 +15,9 @@
         echo $tgl_sekarang;
 
         ?>
-        &nbsp; <a href="<?php echo base_url('admin/dasbor/profil') ?>" class="btn btn-warning square-btn-adjust"><i class="fa fa-user"></i> <?php echo session()->get('username') ?></a> <a href="<?php echo base_url('admin/logout') ?>" class="btn btn-warning square-btn-adjust"><i class="fa fa-sign-out"></i> Keluar</a> <a href="<?php echo base_url('/beranda') ?>" class="btn btn-warning square-btn-adjust" target="_blank"><i class="fa fa-home"></i> Beranda</a>
+        &nbsp; 
+        <a href="<?php echo base_url('admin/dasbor/profil') ?>" class="btn btn-warning square-btn-adjust"><i class="fa fa-user"></i> <?php echo session()->get('username') ?></a> 
+        <a href="<?php echo base_url('admin/logout') ?>" class="btn btn-warning square-btn-adjust" onClick="return confirm('Apakah anda yakin?')"><i class="fa fa-sign-out"></i> Keluar</a>
+        <a href="<?php echo base_url('/beranda') ?>" class="btn btn-warning square-btn-adjust" target="_blank"><i class="fa fa-home"></i> Beranda</a>
     </div>
 </nav>

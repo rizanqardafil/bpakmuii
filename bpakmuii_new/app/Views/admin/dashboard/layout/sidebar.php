@@ -53,7 +53,7 @@
             <!-- <li><a href=""><i class="fa fa-users"></i> Struktur Organisasi</a></li>
             <li><a href=""><i class="fa fa-film"></i> Slider</a></li>
             <li><a href=""><i class="fa fa-envelope-o"></i> Kontak</a></li> -->
-            <li><a class="<?= ($uri->getSegment(2) == 'logout') ? 'active' : '' ?> " href="<?= base_url('admin/logout'); ?>"><i class="fa fa-close"></i> Keluar</a></li>
+            <li><a class="<?= ($uri->getSegment(2) == 'logout') ? 'active' : '' ?> " href="<?= base_url('admin/logout'); ?>" onClick="return confirm('Apakah anda yakin?')" ><i class="fa fa-close"></i> Keluar</a></li>
 
         </ul>
     </div>

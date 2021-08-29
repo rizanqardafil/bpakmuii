@@ -42,7 +42,7 @@
             <footer class="footer-section">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             <div class="footer-left text-left">
                                 <div class="footer-logo">
                                     <a href="<?= base_url('/beranda'); ?>">
@@ -53,17 +53,17 @@
                                     BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang
                                     yang
                                     awal
-                                    mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun
+                                    mulanya disebut Tim Kerja Pengelola Aset SCC & SAC UII yang pertama kali dibentuk tahun
                                     2014.
                                 </div>
                                 <div class="footer-social">
-                                    <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/">
+                                    <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/mycompany/">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
                                     <a href="https://www.instagram.com/bpakmuii/?hl=en">
                                         <i class="fa fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw">
+                                    <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw/featured">
                                         <i class="fa fa-youtube"></i>
                                     </a>
                                 </div>
@@ -91,12 +91,11 @@
                             $phone_number = $ina_id . $phone_number;
                         }
                         ?>
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <div class="footer-widget text-left">
                                 <h5>Kontak Kami</h5>
                                 <ul>
-                                    <li><a class="inactiveLink" href="">Universitas Islam Indonesia,
-                                            Yogyakarta, Sleman, Kaliurang KM. 24</a></li>
+                                    <li><a class="inactiveLink" href="">Jalan Ngipiksari, Hargobinangun, Kec. Pakem, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55582</a></li>
                                     <li><a class="inactiveLink" href=""><?= 'Telepon: +' . $phone_number; ?></a></li>
                                     <li><a class="inactiveLink" href="#"><?= 'Email: ' . $config[0]['email']; ?></a></li>
                                 </ul>
