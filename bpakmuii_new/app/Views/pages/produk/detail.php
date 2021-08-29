@@ -39,6 +39,13 @@
                     </div>
                     <div class="col-lg-2 img-wrapper">
                         <div class="row">
+                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
+                                <a href="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
+                                    <div class="product-preview xzoom-gallery" xpreview="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" alt="Gambar Produk">
+                                    </div>
+                                </a>
+                            </div>
                             <?php foreach ($product['images'] as $image) : ?>
                                 <div class="col-3 col-lg-12 mt-2 mt-lg-0">
                                     <a href="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
