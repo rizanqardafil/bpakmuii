@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $title; ?></title>
+
+    <link rel="shortcut icon" type="image/png" href="<?= base_url(); ?>/uploaded/images/<?= $config[0]['icon']; ?>">
     <!-- BOOTSTRAP STYLES-->
     <link href="<?= base_url(); ?>/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -44,11 +46,11 @@
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                                <input type="text" name="username" class="form-control" placeholder="Username " />
+                                <input type="text" name="username" class="form-control" placeholder="Username " value="<?= old('username'); ?>" />
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" name="password" class="form-control" placeholder="Password" />
+                                <input type="password" name="password" class="form-control" placeholder="Password" value="<?= old('password'); ?>" />
                             </div>
 
                             <input type="submit" name="submit" value="Login Now" class="btn btn-primary">

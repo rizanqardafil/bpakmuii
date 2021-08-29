@@ -27,8 +27,9 @@ class Users extends BaseController
         return view('admin/dashboard/users/index', $data);
     }
 
-    public function tambah(){
-        
+    public function tambah()
+    {
+
         $data = [
             'title' => 'Tambah Pengguna - Badan Pengelola Aset KM UII',
             'validation'    =>  \Config\Services::validation(),
@@ -41,6 +42,11 @@ class Users extends BaseController
     public function edit($slug)
     {
         $user = $this->user_model->getUsers('', $slug);
+
+        if ($user['username'] === 'admin') {
+            session()->setFlashdata('message', "Super admin tidak dapat diubah");
+            return redirect()->to(base_url('admin/users'));
+        }
 
         $data = [
             'title' => 'Edit Pengguna - ' . $user['name'],

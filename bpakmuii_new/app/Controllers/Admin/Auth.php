@@ -101,6 +101,11 @@ class Auth extends BaseController
         $password = $this->request->getPost('password');
         $repeat_password = $this->request->getPost('repeat_password');
 
+        if ($user['username'] === 'admin') {
+            session()->setFlashdata('message', "Super admin tidak dapat diubah");
+            return redirect()->to(base_url('admin/users'));
+        }
+
         $rules = [
             'name'          => [
                 'rules' =>  'required|min_length[3]|max_length[20]',
@@ -161,6 +166,13 @@ class Auth extends BaseController
     {
         $id = $this->request->getPost('id_user');
 
+        $user_admin = $this->user_model->find($id);
+
+        if ($user_admin['username'] === 'admin') {
+            session()->setFlashdata('message', "Super admin tidak dapat dihapus");
+            return redirect()->to(base_url('admin/users'));
+        }
+
         if (!$id) {
             session()->setFlashdata('message', "Admin tidak terdaftar");
             return redirect()->to(base_url('admin/users'));
@@ -180,7 +192,7 @@ class Auth extends BaseController
 
         if (!$data) {
             $this->session->setFlashdata('message', 'Username tidak ditemukan');
-            return redirect()->to(base_url('/admin/login'));
+            return redirect()->to(base_url('/admin/login'))->withInput();
         }
 
         $pass = $data['password'];
@@ -188,7 +200,7 @@ class Auth extends BaseController
 
         if (!$verify_pass) {
             $this->session->setFlashdata('message', 'Password salah');
-            return redirect()->to(base_url('/admin/login'));
+            return redirect()->to(base_url('/admin/login'))->withInput();
         }
 
         $ses_data = [

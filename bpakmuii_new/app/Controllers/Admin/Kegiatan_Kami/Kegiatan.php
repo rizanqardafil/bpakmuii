@@ -48,7 +48,7 @@ class Kegiatan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'sub_judul' =>  [
-                'rules' =>  'required|min_length[10]',
+                'rules' =>  'required|min_length[10]|max_length[450]',
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [
@@ -99,7 +99,7 @@ class Kegiatan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'sub_judul' =>  [
-                'rules' =>  'required|min_length[10]',
+                'rules' =>  'required|min_length[10]|max_length[450]',
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [
