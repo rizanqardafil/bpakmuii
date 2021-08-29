@@ -36,7 +36,7 @@
             allowfullscreen></iframe> -->
 
         <!-- Bagian Card Video -->
-        <div class="row">
+        <div class="row" style="margin-top: 60px">
             <?php foreach ($videos as $video) : ?>
                 <div class="col-12 col-md-4 col-lg-4 pr-2">
                     <a href="#" class="d-block">

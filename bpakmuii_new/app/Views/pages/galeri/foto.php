@@ -35,7 +35,7 @@
         <div class="row" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
-                    <div class="card-galeri">
+                    <div class="card-galeri" style="margin-top: 60px">
                         <a id="modal-btn" data-id="<?= $image->slug_album; ?>">
                             <div class="component-galeri">
                                 <div class="galeri-thumbnail">
@@ -66,10 +66,12 @@
                 <div class="modal-body">
                     <?php if (isset($image->path_gambar_album)) : ?>
                         <?php foreach ($image->path_gambar_album as $i => $img) : ?>
-                            <div class="list-foto">
+                            <div class="col-md-4 col-lg-4">
+                                <div class="list-foto">
                                 <a class="a-<?= $image->slug_album; ?>" href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" title="<?= $image->nama_gambar_album[$i]; ?>">
                                     <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
                                 </a>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>

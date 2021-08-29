@@ -9,7 +9,7 @@
             <div class="col-lg-12 col-md-6">
                 <div class="featureartikel">
                     <a href="<?= base_url('artikel/detail/' . $newest_article->slug_artikel); ?>">
-                        <div class="row">
+                        <div class="row" style="align-items: center;">
                             <div class="col-lg-7 col-md-12">
                                 <div class="featureimage">
                                     <img src="<?= base_url(); ?>/uploaded/images/<?= ($newest_article->cover) ?: 'default.png'; ?>" alt="">

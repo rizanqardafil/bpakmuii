@@ -9,13 +9,13 @@
         <div class="row">
             <!-- title-section -->
             <div class="col-lg-6 col-md-6 struktur-organisasi">
-                <h2 class="display-5 mb-0 pt-3 me-2 title">
+                <h2 class="display-5 mb-0 title">
                     <span>Struktur Organisasi</span>
                     BPA KM UII
                 </h2>
             </div>
             <!-- image section struktur organisasi BPA KM UII -->
-            <div class="previewimage">
+            <div class="previewimage" style="margin-top: 60px">
                 <img src="<?= base_url(); ?>/uploaded/images/<?= $org[0]->image; ?>" alt="Struktur Organisasi BPA KM UII">
             </div>
             <!-- Description Section -->
