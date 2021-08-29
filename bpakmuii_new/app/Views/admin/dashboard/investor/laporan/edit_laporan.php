@@ -55,7 +55,7 @@
                     <div class="invalid-feedback">
                         <?= $validation->getError('path_laporan'); ?>
                     </div>
-                    <img src="<?= base_url(); ?>/uploaded/images/default_pdf.png" class="img-thumbnail">
+                    <img src="<?= base_url(); ?>/uploaded/images/<?=($report[0]->path_laporan) ? 'FolderSuccess.png' : 'FolderUnsuccess.png';?>" class="img-laporan img-thumbnail">
                     <label for="" class="document-label"><?= $report[0]->path_nama_laporan; ?></label>
                     <!-- <img src="../../images/bangunan.jpeg" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
