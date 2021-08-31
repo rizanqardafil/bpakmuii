@@ -19,7 +19,12 @@ class ArtikelController extends BaseController
 
 		$current_page = $this->request->getGet('page') ? $this->request->getGet('page') : 1;
 		$per_page = 6;
-		$offset = ($per_page * ($current_page - 1));
+		$addition = 1;
+		if ($current_page == 1) {
+			$per_page = 7;
+			$addition = 0;
+		}
+		$offset = ($per_page * ($current_page - 1)) + $addition;
 
 		$pager = service('pager');
 
