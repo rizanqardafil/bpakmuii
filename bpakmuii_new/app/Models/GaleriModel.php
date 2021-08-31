@@ -41,7 +41,7 @@ class GaleriModel extends Model
         galeri_foto.nama_foto, galeri_foto.slug_galeri_foto, galeri_foto.path_foto,
         album.nama_album, album.slug_album, album.id_album');
         $builder->join('album', 'album.id_album = galeri_foto.id_album', 'left');
-        $builder->orderBy('galeri_foto.created_at', 'DESC');
+        $builder->orderBy('galeri_foto.created_at', 'ASC');
 
         if ($slug_album) {
             $builder->where('album.slug_album', $slug_album);
