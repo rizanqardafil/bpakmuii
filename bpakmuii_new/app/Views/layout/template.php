@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Meta Description of this web -->
-    <meta name="description" content="BPA KM UII | BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang yang awal mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun 2014.">
+    <meta name="description" content="<?= $config[0]['metatext']; ?>">
+    <meta name="keywords" content="<?= $config[0]['keyword']; ?>" />
     <!-- Meta Author -->
     <meta name="author" content="GAS Development Team">
     <title><?= $titles; ?></title>
@@ -57,7 +58,7 @@
                                     BPA (Badan Pengelola Aset ) KM UII adalah sebuah organisasi yang telah berkembang
                                     yang
                                     awal
-                                    mulanya disebut Tim Kerja Pengelola Aset SCC & SAC UII yang pertama kali dibentuk tahun
+                                    mulanya disebut Tim Kerja Pengelola Aset SCC UII yang pertama kali dibentuk tahun
                                     2014.
                                 </div>
                                 <div class="footer-social">
@@ -111,7 +112,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="copyright-text">Copyright &copy; 2021 Badan Pengelola Aset KM UII |
+                                <div class="copyright-text">Copyright &copy; <?= date('Y'); ?> Badan Pengelola Aset KM UII |
                                     Development
                                     with <span> &#9829; </span> by <span> GAS </span> </div>
                             </div>
