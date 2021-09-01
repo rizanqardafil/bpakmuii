@@ -53,7 +53,7 @@ class Produk extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'detail_produk' =>  [
-                'rules' =>  'required|min_length[18]',
+                'rules' =>  'required|min_length[18]', // Detail produk memiliki default 9 karakter karena ketambahan tag p
                 'errors'    =>  [
                     'required'  =>  'Tidak boleh kosong',
                     'min_length'    =>  'Minimal berisi 10 karakter'
@@ -125,7 +125,7 @@ class Produk extends BaseController
                 'errors'    => $this->error_message
             ],
             'detail_produk' =>  [
-                'rules' =>  'required|min_length[18]',
+                'rules' =>  'required|min_length[18]', // Detail produk memiliki default 9 karakter karena ketambahan tag p
                 'errors'    =>  [
                     'required'  =>  'Tidak boleh kosong',
                     'min_length'    =>  'Minimal berisi 10 karakter'

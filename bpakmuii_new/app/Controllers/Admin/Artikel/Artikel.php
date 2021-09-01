@@ -53,7 +53,7 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'isi_artikel' =>  [
-                'rules' =>  'required|min_length[18]',
+                'rules' =>  'required|min_length[18]', // Isi artikel memiliki default 9 karakter karena ketambahan tag p
                 'errors'    =>  [
                     'required'  =>  'Tidak boleh kosong',
                     'min_length'    =>  'Minimal berisi 10 karakter'
@@ -114,7 +114,7 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'isi_artikel' =>  [
-                'rules' =>  'required|min_length[18]',
+                'rules' =>  'required|min_length[18]', // Isi artikel memiliki default 9 karakter karena ketambahan tag p
                 'errors'    =>  [
                     'required'  =>  'Tidak boleh kosong',
                     'min_length'    =>  'Minimal berisi 10 karakter'
