@@ -53,8 +53,11 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'isi_artikel' =>  [
-                'rules' =>  'required|min_length[10]',
-                'errors'    =>  $this->error_message
+                'rules' =>  'required|min_length[18]',
+                'errors'    =>  [
+                    'required'  =>  'Tidak boleh kosong',
+                    'min_length'    =>  'Minimal berisi 10 karakter'
+                ]
             ],
             'path_gambar' =>  [
                 'rules' =>  'uploaded[path_gambar]|max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
@@ -111,8 +114,11 @@ class Artikel extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'isi_artikel' =>  [
-                'rules' =>  'required|min_length[10]',
-                'errors'    =>  $this->error_message
+                'rules' =>  'required|min_length[18]',
+                'errors'    =>  [
+                    'required'  =>  'Tidak boleh kosong',
+                    'min_length'    =>  'Minimal berisi 10 karakter'
+                ]
             ],
             'path_gambar' =>  [
                 'rules' =>  'max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',

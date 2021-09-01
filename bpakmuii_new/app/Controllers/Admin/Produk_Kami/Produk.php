@@ -53,8 +53,11 @@ class Produk extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'detail_produk' =>  [
-                'rules' =>  'required|min_length[10]',
-                'errors'    =>  $this->error_message
+                'rules' =>  'required|min_length[18]',
+                'errors'    =>  [
+                    'required'  =>  'Tidak boleh kosong',
+                    'min_length'    =>  'Minimal berisi 10 karakter'
+                ]
             ],
             'kontak' =>  [
                 'rules' =>  'permit_empty|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
@@ -122,8 +125,11 @@ class Produk extends BaseController
                 'errors'    => $this->error_message
             ],
             'detail_produk' =>  [
-                'rules' =>  'required|min_length[10]',
-                'errors'    =>  $this->error_message
+                'rules' =>  'required|min_length[18]',
+                'errors'    =>  [
+                    'required'  =>  'Tidak boleh kosong',
+                    'min_length'    =>  'Minimal berisi 10 karakter'
+                ]
             ],
             'path_gambar_cover' =>  [
                 'rules' =>  'max_size[path_gambar_cover,10024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
