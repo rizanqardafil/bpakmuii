@@ -52,10 +52,10 @@
                         <?= $validation->getError('path_video'); ?>
                     </div>
                     <br>
-                    <br>
                     <div class="alert alert-warning">
                         <i>
-                            <strong>Link berupa URL dari Youtube yang ingin dimasukkan</strong><br>
+                            <strong>1. Link berupa URL dari Youtube</strong> <br> misal: https://www.youtube.com/watch?v=ION68fauhtU&ab_channel=BPAKMUII<br>
+                            <strong>2. Link berupa copy video url pada video youtube</strong> <br> misal: https://youtu.be/ION68fauhtU<br>
                         </i>
                     </div>
                 </div>

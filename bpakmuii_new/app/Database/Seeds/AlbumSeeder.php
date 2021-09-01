@@ -10,26 +10,26 @@ class AlbumSeeder extends Seeder
 	{
 		$data = [
 			[
-				'id_album'	=> 1,
+				// 'id_album'	=> 1,
 				'nama_album' => 'Orientasi Anggota',
 				'slug_album'    => url_title('Orientasi Anggota', '-', true),
-				'path_cover'    => 'cover1.jpg',
+				'path_cover'    => 'default.png',
 				'created_at'	=> 	date('Y-m-d'),
 				'updated_at'	=> 	date('Y-m-d')
 			],
 			[
-				'id_album'	=> 2,
+				// 'id_album'	=> 2,
 				'nama_album' => 'Makrab',
 				'slug_album'    => url_title('Makrab', '-', true),
-				'path_cover'    => 'cover2.png',
+				'path_cover'    => 'default.png',
 				'created_at'	=> 	date('Y-m-d'),
 				'updated_at'	=> 	date('Y-m-d')
 			],
 			[
-				'id_album'	=> 3,
+				// 'id_album'	=> 3,
 				'nama_album' => 'Kunjungan Industri',
 				'slug_album'    => url_title('Kunjungan Industri', '-', true),
-				'path_cover'    => 'cover3.jpg',
+				'path_cover'    => 'default.png',
 				'created_at'	=> 	date('Y-m-d'),
 				'updated_at'	=> 	date('Y-m-d')
 			],

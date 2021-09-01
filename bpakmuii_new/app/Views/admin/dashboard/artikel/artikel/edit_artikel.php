@@ -80,7 +80,8 @@
                     <img src="<?= base_url(); ?>/uploaded/images/<?= $article[0]->cover; ?>" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
-                            <strong>Image Size</strong> : 1140px X 400px<br>
+                            <strong>Recommended Image Size (in pixels) :</strong><br>
+                            <strong>Large or ></strong>  1920 x 1295<br>
                         </i>
                     </div>
                 </div>

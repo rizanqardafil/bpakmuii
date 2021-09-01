@@ -67,12 +67,14 @@
                     <img src="<?= base_url(); ?>/uploaded/images/default.png" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
-                            <strong>Image Size</strong> : 1140px X 400px<br>
+                            <strong>Recommended Image Size (in pixels) :</strong><br>
+                            <strong>Small</strong> : 640 x 431<br>
+                            <strong>Large</strong> : 1920 x 1295<br>
                         </i>
                     </div>
                 </div>
                 <div class="form-group"><br>
-                    <input type="submit" name="submit" value="Create" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
                     <input type="reset" name="reset" value="Reset" class="btn btn-default">
                     <a href="<?php echo base_url('admin/penulis') ?>" class="btn btn-primary">Cancel</a>
                 </div>

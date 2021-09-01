@@ -30,7 +30,7 @@
         <!-- Bagian Terbaru / Feature -->
         <div class="row">
             <div class="col-lg-12 col-md-6">
-                <div class="featureartikel">
+                <div class="featureartikel" style="margin-top: 40px;">
                     <div class="col-lg-12 col-md-12">
                         <div class="contentfeatureartikel">
                             <div class="textdatefeature"><?= $article[0]->tanggal_terbit; ?></div>
@@ -74,12 +74,12 @@
                     mungkin untuk ditampilkan, jangan dipaksakan. Fokus untuk menampilkan hal hal yang paling penting saja.
                 </div> -->
                 <div class="linenextartikel"></div>
-                <div class="row">
-                    <div class="btnbackartikel">
-                        <a href="<?= base_url('/artikel'); ?>">
-                            <img src="<?= base_url(); ?>/images/TombolKembali.svg">
-                        </a>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="btnbackartikel">
+                    <a href="<?= base_url('/artikel'); ?>">
+                        <img src="<?= base_url(); ?>/images/TombolKembali.svg">
+                    </a>
                 </div>
             </div>
         </div>
