@@ -30,6 +30,11 @@ class Organisasi extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_organisasi = $this->request->getPost('slug_organisasi');
         $org = $this->organisasi_model->getOrganizations($slug_organisasi);
 

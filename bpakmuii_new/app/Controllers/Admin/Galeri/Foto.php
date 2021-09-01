@@ -45,6 +45,11 @@ class Foto extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'nama_foto'   =>  [
                 'rules' =>  'required|is_unique[galeri_foto.nama_foto]|min_length[3]|max_length[255]',
@@ -84,6 +89,11 @@ class Foto extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_galeri_foto = $this->request->getPost('slug_galeri_foto');
         $nama_foto = $this->request->getPost('nama_foto');
         $image = $this->galeri_foto->getImage('', $slug_galeri_foto);

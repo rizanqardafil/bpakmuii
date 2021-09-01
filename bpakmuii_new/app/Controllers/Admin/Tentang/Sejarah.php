@@ -28,6 +28,11 @@ class Sejarah extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $sejarah = $this->sejarah_model->getSejarah();
 
         $rules = [

@@ -9,9 +9,14 @@
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
+        <?php if (session()->getFlashdata('message')) : ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <?php endif; ?>
 
         <div class="table-responsive">
             <form action="<?php echo base_url('/admin/icon-config/save-icon') ?>" method="post" enctype="multipart/form-data">
+                <?= csrf_field(); ?>
+
                 <input type="hidden" name="icon" class="form-control" value="<?= $config[0]['icon']; ?>">
 
                 <div class="col-md-6">

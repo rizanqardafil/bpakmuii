@@ -43,6 +43,11 @@ class Laporan extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $this->error_message['ext_in'] = 'Ekstensi file tidak tepat. File harus berekstensi <b>.pdf</b>';
         $this->error_message['mime_in'] = 'Jenis file tidak tepat. File harus berupa <b>PDF</b>';
 
@@ -85,6 +90,11 @@ class Laporan extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_laporan = $this->request->getPost('slug_laporan');
         $nama_laporan = $this->request->getPost('nama_laporan');
         $report = $this->laporan_model->getLaporan($slug_laporan);

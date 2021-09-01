@@ -47,6 +47,11 @@ class Gambar extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'nama_gambar'   =>  [
                 'rules' =>  'required|is_unique[gambar_produk.nama_gambar]|min_length[3]|max_length[255]',
@@ -88,6 +93,11 @@ class Gambar extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_gambar = $this->request->getPost('slug_gambar');
         $nama_gambar = $this->request->getPost('nama_gambar');
         $image = $this->gambar_produk_model->getImages($slug_gambar);

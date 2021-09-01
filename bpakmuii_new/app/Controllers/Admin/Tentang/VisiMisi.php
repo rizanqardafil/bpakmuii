@@ -28,6 +28,11 @@ class VisiMisi extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_visi_misi = $this->request->getPost('slug_visi_misi');
         $visi_misi = $this->visi_misi_model->getVisiMisi($slug_visi_misi);
 

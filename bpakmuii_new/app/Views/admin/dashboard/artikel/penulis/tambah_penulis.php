@@ -7,6 +7,10 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
+        <?php if (session()->getFlashdata('message')) : ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <?php endif; ?>
+
         <script src="<?php echo base_url('/admin/penulis/save') ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
             tinymce.init({

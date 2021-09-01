@@ -95,6 +95,11 @@ class Config extends BaseController
 
     public function save_logo()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload logo terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $config = $this->config_model->getConfig();
 
         $rules = [
@@ -133,6 +138,7 @@ class Config extends BaseController
 
     public function icon_config()
     {
+
         $data = [
             'title' =>  'Pengaturan Ikon',
             'config'    => $this->config_model->getConfig(),
@@ -143,6 +149,11 @@ class Config extends BaseController
 
     public function save_icon()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload ikon terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $config = $this->config_model->getConfig();
 
         $rules = [

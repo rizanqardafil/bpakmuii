@@ -11,6 +11,10 @@
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
 
+        <?php if (session()->getFlashdata('message')) : ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <?php endif; ?>
+
         <div class="table-responsive">
             <script src="<?= base_url(); ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
             <script type="text/javascript">

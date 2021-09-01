@@ -42,6 +42,11 @@ class Artikel extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File cover artikel terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'judul_artikel'   =>  [
                 'rules' =>  'required|is_unique[artikel.judul_artikel]|min_length[3]|max_length[255]',
@@ -87,6 +92,11 @@ class Artikel extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File cover artikel terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_artikel = $this->request->getPost('slug_artikel');
         $judul_artikel = $this->request->getPost('judul_artikel');
         $article = $this->artikel_model->getAllArtikel('', $slug_artikel);

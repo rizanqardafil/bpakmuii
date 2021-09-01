@@ -39,6 +39,11 @@ class Penulis extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File foto penulis terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'nama_penulis'   =>  [
                 'rules' =>  'required|is_unique[penulis.nama_penulis]|min_length[3]|max_length[255]',
@@ -79,6 +84,11 @@ class Penulis extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File foto penulis terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_penulis = $this->request->getPost('slug_penulis');
         $nama_penulis = $this->request->getPost('nama_penulis');
         $writer = $this->penulis_model->getWriters($slug_penulis);

@@ -39,6 +39,11 @@ class Album extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'nama_album'   =>  [
                 'rules' =>  'required|is_unique[album.nama_album]|min_length[3]|max_length[255]',
@@ -76,6 +81,11 @@ class Album extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_album = $this->request->getPost('slug_album');
         $nama_album = $this->request->getPost('nama_album');
         $album = $this->album_model->getAlbums($slug_album);

@@ -7,6 +7,9 @@
         <h2><?= $title; ?></h2>
     </div>
     <div class="panel-body">
+        <?php if (session()->getFlashdata('message')) : ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <?php endif; ?>
         <script src="<?php echo base_url() ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
             tinymce.init({
@@ -55,7 +58,7 @@
                     <div class="invalid-feedback">
                         <?= $validation->getError('path_laporan'); ?>
                     </div>
-                    <img src="<?= base_url(); ?>/uploaded/images/<?=($report[0]->path_laporan) ? 'FolderSuccess.png' : 'FolderUnsuccess.png';?>" class="img-laporan img-thumbnail">
+                    <img src="<?= base_url(); ?>/uploaded/images/<?= ($report[0]->path_laporan) ? 'FolderSuccess.png' : 'FolderUnsuccess.png'; ?>" class="img-laporan img-thumbnail">
                     <label for="" class="document-label"><?= $report[0]->path_nama_laporan; ?></label>
                     <!-- <img src="../../images/bangunan.jpeg" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">

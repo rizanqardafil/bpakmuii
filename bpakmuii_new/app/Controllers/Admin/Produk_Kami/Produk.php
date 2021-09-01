@@ -40,6 +40,11 @@ class Produk extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
 
         $rules = [
@@ -93,6 +98,11 @@ class Produk extends BaseController
 
     public function update()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            return redirect()->back()->withInput();
+        }
+
         $slug_produk = $this->request->getPost('slug_produk');
         $nama_produk = $this->request->getPost('nama_produk');
         $product = $this->produk_model->getAllProduct('', $slug_produk);
