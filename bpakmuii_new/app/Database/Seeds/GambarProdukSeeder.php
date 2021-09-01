@@ -12,7 +12,7 @@ class GambarProdukSeeder extends Seeder
 		$faker = \Faker\Factory::create('id_ID');
 
 		for ($i = 0; $i < 5; $i++) {
-			$id_produk = rand(1, 3);
+			$id_produk = rand(1, 10);
 			$nama_gambar = $faker->text(10);
 
 			$data = [

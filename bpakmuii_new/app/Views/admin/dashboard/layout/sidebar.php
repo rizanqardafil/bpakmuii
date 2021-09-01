@@ -13,7 +13,7 @@
                     <li><a class="<?= ($uri->getSegment(2) == 'icon-config') ? 'active' : '' ?> " href="<?php echo base_url('admin/icon-config') ?>">Ikon</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-wrench"></i>Produk Kami<span class="fa arrow"></span></a>
+            <li><a href="#"><i class="fa fa-cubes"></i>Produk Kami<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a class="<?= ($uri->getSegment(2) == 'produk') ? 'active' : '' ?> " href="<?php echo base_url('admin/produk') ?>">Produk</a></li>
                     <li><a class="<?= ($uri->getSegment(2) == 'gambar') ? 'active' : '' ?> " href="<?php echo base_url('admin/gambar') ?>">Gambar Produk</a></li>
@@ -21,7 +21,7 @@
                     <li><a class="<?= ($uri->getSegment(2) == 'pesanan') ? 'active' : '' ?> " href="<?php echo base_url('admin/pesanan') ?>">Pesanan</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-wrench"></i>Investor<span class="fa arrow"></span></a>
+            <li><a href="#"><i class="fa fa-money"></i>Investor<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a class="<?= ($uri->getSegment(2) == 'organisasi') ? 'active' : '' ?> " href="<?php echo base_url('admin/organisasi') ?>">Organisasi</a></li>
                     <li><a class="<?= ($uri->getSegment(2) == 'laporan') ? 'active' : '' ?> " href="<?php echo base_url('admin/laporan') ?>">Laporan</a></li>
@@ -47,7 +47,7 @@
                     <li><a class="<?= ($uri->getSegment(2) == 'penulis') ? 'active' : '' ?> " href="<?php echo base_url('admin/penulis') ?>">Penulis</a></li>
                 </ul>
             </li>
-            <li><a class="<?= ($uri->getSegment(2) == 'kegiatan-kami') ? 'active' : '' ?> " href="<?php echo base_url('admin/kegiatan-kami') ?>"><i class="fa fa-users"></i> Kegiatan Kami</a></li>
+            <li><a class="<?= ($uri->getSegment(2) == 'kegiatan-kami') ? 'active' : '' ?> " href="<?php echo base_url('admin/kegiatan-kami') ?>"><i class="fa fa-clipboard"></i> Kegiatan Kami</a></li>
             <!-- <li><a href=""><i class="fa fa-plus-square"></i> Kegiatan</a></li>
             <li><a href=""><i class="fa fa-calendar"></i> Jadwal</a></li> -->
             <!-- <li><a href=""><i class="fa fa-users"></i> Struktur Organisasi</a></li>

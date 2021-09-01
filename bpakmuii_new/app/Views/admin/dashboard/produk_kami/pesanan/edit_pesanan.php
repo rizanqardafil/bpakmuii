@@ -49,14 +49,14 @@
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Tanggal Pinjam</label>
-                    <input type="date" name="tanggal_pinjam" class="form-control <?= ($validation->hasError('tanggal_pinjam')) ? 'is-invalid' : '' ?>" value="<?= (old('tanggal_pinjam')) ?? $order[0]->tanggal_pinjam; ?>" min=<?= $date; ?>>
+                    <input type="date" id="tanggalPeminjaman" name="tanggal_pinjam" class="form-control <?= ($validation->hasError('tanggal_pinjam')) ? 'is-invalid' : '' ?>" value="<?= (old('tanggal_pinjam')) ?? $order[0]->tanggal_pinjam; ?>" min=<?= $date; ?>>
                     <div class="invalid-feedback">
                         <?= $validation->getError('tanggal_pinjam'); ?>
                     </div>
                 </div>
                 <div class="form-group input-group-lg">
                     <label>Tanggal Kembali</label>
-                    <input type="date" name="tanggal_kembali" class="form-control <?= ($validation->hasError('tanggal_kembali')) ? 'is-invalid' : '' ?>" value="<?= (old('tanggal_kembali')) ?? $order[0]->tanggal_kembali; ?>" min=<?= $date; ?>>
+                    <input type="date" id="tanggalPengembalian" name="tanggal_kembali" class="form-control <?= ($validation->hasError('tanggal_kembali')) ? 'is-invalid' : '' ?>" value="<?= (old('tanggal_kembali')) ?? $order[0]->tanggal_kembali; ?>" min=<?= $date; ?>>
                     <div class="invalid-feedback">
                         <?= $validation->getError('tanggal_kembali'); ?>
                     </div>
@@ -81,4 +81,13 @@
 </div>
 
 
+<?= $this->endSection(); ?>
+
+
+<?= $this->section('scripts'); ?>
+<script>
+    $(document).ready(function() {
+        datePemesananEdit();
+    });
+</script>
 <?= $this->endSection(); ?>

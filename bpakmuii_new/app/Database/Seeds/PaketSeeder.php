@@ -11,8 +11,8 @@ class PaketSeeder extends Seeder
 	{
 		$faker = \Faker\Factory::create('id_ID');
 
-		for ($i = 0; $i < 5; $i++) {
-			$id_produk = rand(1, 3);
+		for ($i = 0; $i < 10; $i++) {
+			$id_produk = rand(1, 10);
 			$harga = rand(50000, 1000000);
 			$nama_paket = $faker->text(10);
 
