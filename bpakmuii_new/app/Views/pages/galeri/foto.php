@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <!-- Section Bagian Galeri -->
 <section class="section2">
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- breadcrumbs section -->
         <section class="detail-breadcrumbs" data-aos="fade-up" data-aos-duration="2000">
             <div class="container">
@@ -32,7 +32,7 @@
         </div>
 
         <!-- Bagian Card Galeri-->
-        <div class="row" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="row p-5" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri" style="margin-top: 60px">

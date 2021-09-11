@@ -16,7 +16,7 @@
                                         <img src="<?= base_url(); ?>/uploaded/images/<?= ($newest_article->cover) ?: 'default.png'; ?>" alt="">
                                     </div>
                                 </div>
-                                <div class="col-lg-5 col-md-12">
+                                <div class="col-lg-5 col-md-12 mt-3">
                                     <div class="contentfeatureartikel">
                                         <div class="textdatefeature"><?= $newest_article->tanggal_terbit; ?></div>
                                         <div class="titleartikelfeature"><?= $newest_article->judul_artikel; ?></div>

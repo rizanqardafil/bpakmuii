@@ -50,14 +50,26 @@
                 <input type="hidden" name="path_gambar_sejarah" value="<?= $sejarah[0]['path_gambar_sejarah']; ?>">
                 <input type="hidden" name="path_gambar_logo" value="<?= $sejarah[0]['path_gambar_logo']; ?>">
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Keterangan Sejarah BPA KM UII</label>
-                        <textarea name="isi_sejarah" rows="6" class="form-control <?= ($validation->hasError('isi_sejarah')) ? 'is-invalid' : '' ?>" placeholder="Isi keterangan mengenai sejarah BPA KM UII..."><?= (old('isi_sejarah')) ?? $sejarah[0]['isi_sejarah']; ?></textarea>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('isi_sejarah'); ?>
-                        </div>
+                <div class="form-group input-group-lg">
+                    <label>Keterangan Sejarah BPA KM UII</label>
+                    <textarea name="isi_sejarah" id="isi_sejarah" class="form-control <?= ($validation->hasError('isi_sejarah')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('isi_sejarah'); ?>
+                    </textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isi_sejarah'); ?>
                     </div>
+                </div>
+                <div class="form-group input-group-lg">
+                    <label>Keterangan Filosofi Logo BPA KM UII</label>
+                    <textarea name="isi_logo" id="isi_logo" class="form-control <?= ($validation->hasError('isi_logo')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('isi_logo'); ?>
+                    </textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isi_logo'); ?>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Upload Gambar Sejarah</label>
                         <input type="file" name="path_gambar_sejarah" class="form-control <?= ($validation->hasError('path_gambar_sejarah')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
@@ -74,15 +86,7 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Keterangan Filosofi Logo BPA KM UII</label>
-                        <textarea name="isi_logo" rows="6" class="form-control <?= ($validation->hasError('isi_logo')) ? 'is-invalid' : '' ?>" placeholder="Isi keterangan singkat mengenai filosofi logo BPA KM UII..."><?= (old('isi_logo')) ?? $sejarah[0]['isi_logo']; ?></textarea>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('isi_logo'); ?>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label>Upload Gambar Logo</label>
                         <input type="file" name="path_gambar_logo" class="form-control <?= ($validation->hasError('path_gambar_logo')) ? 'is-invalid' : '' ?>" id="file2" onchange="previewImage2()">

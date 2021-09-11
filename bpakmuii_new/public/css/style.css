@@ -768,13 +768,13 @@ h3 {
 }
 
 .contentfeaturetk {
-  padding: 20px 20px 10px 10px;
+  padding: 20px 10px 20px 10px;
 }
 
 .titletk {
-  font-size: 56px;
-  font-weight: 500;
-  line-height: 72px;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 4.375rem;
   letter-spacing: 0px;
   color: #121212;
   margin-bottom: 16px;
@@ -782,9 +782,9 @@ h3 {
 
 .textisitk {
   text-align: justify;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 28px;
+  font-size: 1.0625rem;
+  font-weight: 300;
+  line-height: 32px;
   color: black;
   opacity: 0.7;
   margin-bottom: 16px;
@@ -1006,7 +1006,7 @@ h1 {
   display: flex;
   margin-top: 12px;
   margin-bottom: 3rem;
-  width: 100%;
+  width: 300px;
   height: 80px;
   text-align: center;
   padding: 10px;

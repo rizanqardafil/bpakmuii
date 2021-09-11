@@ -51,14 +51,26 @@
                 <input type="hidden" name="path_gambar_visi" value="<?= $visi_misi[0]['path_gambar_visi']; ?>">
                 <input type="hidden" name="path_gambar_misi" value="<?= $visi_misi[0]['path_gambar_misi']; ?>">
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Keterangan Visi</label>
-                        <textarea name="isi_visi" rows="6" class="form-control <?= ($validation->hasError('isi_visi')) ? 'is-invalid' : '' ?>" placeholder="Isi keterangan singkat mengenai visi BPA KM UII..."><?= (old('isi_visi')) ?? $visi_misi[0]['isi_visi']; ?></textarea>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('isi_visi'); ?>
-                        </div>
+                <div class="form-group input-group-lg">
+                    <label>Keterangan Visi</label>
+                    <textarea name="isi_visi" id="isi_visi" class="form-control <?= ($validation->hasError('isi_visi')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('isi_visi'); ?>
+                    </textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isi_visi'); ?>
                     </div>
+                </div>
+                <div class="form-group input-group-lg">
+                    <label>Keterangan Misi</label>
+                    <textarea name="isi_misi" id="isi_misi" class="form-control <?= ($validation->hasError('isi_misi')) ? 'is-invalid' : '' ?>" required>
+                        <?= old('isi_misi'); ?>
+                    </textarea>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('isi_misi'); ?>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Upload Gambar Visi</label>
                         <input type="file" name="path_gambar_visi" class="form-control <?= ($validation->hasError('path_gambar_visi')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
@@ -75,15 +87,7 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Keterangan Misi</label>
-                        <textarea name="isi_misi" rows="6" class="form-control <?= ($validation->hasError('isi_misi')) ? 'is-invalid' : '' ?>" placeholder="Isi keterangan singkat mengenai misi BPA KM UII..."><?= (old('isi_misi')) ?? $visi_misi[0]['isi_misi']; ?></textarea>
-                        <div class="invalid-feedback">
-                            <?= $validation->getError('isi_misi'); ?>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label>Upload Gambar Misi</label>
                         <input type="file" name="path_gambar_misi" class="form-control <?= ($validation->hasError('path_gambar_misi')) ? 'is-invalid' : '' ?>" id="file2" onchange="previewImage2()">

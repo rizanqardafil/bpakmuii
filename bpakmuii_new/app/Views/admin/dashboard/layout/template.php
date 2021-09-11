@@ -113,6 +113,10 @@
 
         CKEDITOR.replace('detail_produk');
         CKEDITOR.replace('isi_artikel');
+        CKEDITOR.replace('isi_visi');
+        CKEDITOR.replace('isi_misi');
+        CKEDITOR.replace('isi_sejarah');
+        CKEDITOR.replace('isi_logo');
     </script>
 
 

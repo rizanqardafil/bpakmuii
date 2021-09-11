@@ -3,13 +3,13 @@
 <?= $this->section('content'); ?>
 <!-- Section Bagian Galeri -->
 <section class="section2">
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- Bagian title Foto & Button Lihat semua -->
         <div class="row d-flex align-items-center">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-xs-7 col-sm-6 col-lg-8">
                 <h2 class="display-5 mb-0 title">Galeri Foto</h2>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-xs-5 col-sm-6 col-lg-4">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/foto'); ?>">
                         <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Bagian Card Galeri-->
-        <div class="row" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="row p-5" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri" style="margin-top: 60px">
@@ -41,13 +41,13 @@
     </section>
 
     <!-- Section Bagian Video -->
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- Bagian title Video & Description -->
         <div class="row d-flex align-items-center">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-xs-7 col-sm-6 col-lg-8">
                 <h2 class="display-5 mb-0 pt-3 me-2 title">Galeri Video</h2>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-xs-5 col-sm-6 col-lg-4">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/video'); ?>">
                         <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
@@ -57,9 +57,9 @@
         </div>
 
         <!-- Bagian Card Video -->
-        <div class="row" style="margin-top: 60px">
+        <div class="row p-4" style="margin-top: 60px">
             <?php foreach ($videos as $video) : ?>
-                <div class="col-12 col-md-4 col-lg-4 pr-2">
+                <div class="col-12 col-md-4 col-lg-4">
                     <a href="#" class="d-block">
                         <div class="video-thumbnail">
                             <div class="products-video">

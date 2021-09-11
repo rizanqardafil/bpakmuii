@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <!-- Section Bagian Video -->
 <section class="section2">
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- breadcrumbs section -->
         <section class="detail-breadcrumbs" data-aos="fade-up" data-aos-duration="2000">
             <div class="container">
@@ -36,7 +36,7 @@
             allowfullscreen></iframe> -->
 
         <!-- Bagian Card Video -->
-        <div class="row" style="margin-top: 60px">
+        <div class="row p-4" style="margin-top: 60px">
             <?php foreach ($videos as $video) : ?>
                 <div class="col-12 col-md-4 col-lg-4 pr-2">
                     <a href="#" class="d-block">
