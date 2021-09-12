@@ -41,7 +41,8 @@ class Sejarah extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'isi_logo' =>  [
-                'rules' =>  'required|min_length[10]|max_length[400]',
+                'rules' =>  'required|min_length[10]',
+                // 'rules' =>  'required|min_length[10]|max_length[400]',
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_sejarah' =>  [

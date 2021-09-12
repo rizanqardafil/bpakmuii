@@ -77,4 +77,25 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 	}
+
+	public function image_compression($source, $destination, $image_name)
+	{
+		$info = getimagesize($source);
+		$quality = 50;
+
+		if ($info['mime'] == 'image/jpeg') {
+			$image = imagecreatefromjpeg($source);
+			imagejpeg($image, $destination . "/$image_name", $quality);
+		} elseif ($info['mime'] == 'image/png') {
+			$image = imagecreatefrompng($source);
+
+			imagealphablending($image, true);
+			imagesavealpha($image, true);
+
+			$pngQuality = ($quality - 100) / 11.111111;
+			$pngQuality = round(abs($pngQuality));
+
+			imagepng($image, $destination . "/$image_name", $pngQuality);
+		}
+	}
 }

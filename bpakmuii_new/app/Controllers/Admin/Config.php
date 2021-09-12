@@ -96,7 +96,7 @@ class Config extends BaseController
     public function save_logo()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload logo terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload logo terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -104,7 +104,7 @@ class Config extends BaseController
 
         $rules = [
             'logo' =>  [
-                'rules' =>  'max_size[logo,10024]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[logo,8024]|is_image[logo]|mime_in[logo,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
         ];
@@ -119,7 +119,11 @@ class Config extends BaseController
             $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
             $logo = $image_name . '_' . $files->getRandomName();
 
-            $files->move('uploaded/images/', $logo);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $logo);
+            } else {
+                $files->move('uploaded/images/', $logo);
+            }
 
             (is_file('uploaded/images/' . $logo_old) && $logo_old !== 'default.png') ? unlink('uploaded/images/' . $logo_old) : '';
         }
@@ -150,7 +154,7 @@ class Config extends BaseController
     public function save_icon()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload ikon terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload ikon terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -158,7 +162,7 @@ class Config extends BaseController
 
         $rules = [
             'icon' =>  [
-                'rules' =>  'max_size[icon,10024]|is_image[icon]|mime_in[icon,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[icon,8024]|is_image[icon]|mime_in[icon,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
         ];
@@ -173,7 +177,11 @@ class Config extends BaseController
             $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
             $icon = $image_name . '_' . $files->getRandomName();
 
-            $files->move('uploaded/images/', $icon);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $icon);
+            } else {
+                $files->move('uploaded/images/', $icon);
+            }
 
             (is_file('uploaded/images/' . $icon_old) && $icon_old !== 'default.png') ? unlink('uploaded/images/' . $icon_old) : '';
         }
