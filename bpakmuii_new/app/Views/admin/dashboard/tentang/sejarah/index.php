@@ -53,7 +53,7 @@
                 <div class="form-group input-group-lg">
                     <label>Keterangan Sejarah BPA KM UII</label>
                     <textarea name="isi_sejarah" id="isi_sejarah" class="form-control <?= ($validation->hasError('isi_sejarah')) ? 'is-invalid' : '' ?>" required>
-                        <?= old('isi_sejarah'); ?>
+                        <?= old('isi_sejarah') ?: $sejarah[0]['isi_sejarah']; ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_sejarah'); ?>
@@ -62,7 +62,7 @@
                 <div class="form-group input-group-lg">
                     <label>Keterangan Filosofi Logo BPA KM UII</label>
                     <textarea name="isi_logo" id="isi_logo" class="form-control <?= ($validation->hasError('isi_logo')) ? 'is-invalid' : '' ?>" required>
-                        <?= old('isi_logo'); ?>
+                        <?= old('isi_logo') ?: $sejarah[0]['isi_logo']; ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_logo'); ?>

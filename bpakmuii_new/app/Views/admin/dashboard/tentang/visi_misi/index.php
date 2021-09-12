@@ -54,7 +54,7 @@
                 <div class="form-group input-group-lg">
                     <label>Keterangan Visi</label>
                     <textarea name="isi_visi" id="isi_visi" class="form-control <?= ($validation->hasError('isi_visi')) ? 'is-invalid' : '' ?>" required>
-                        <?= old('isi_visi'); ?>
+                        <?= old('isi_visi') ?: $visi_misi[0]['isi_visi']; ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_visi'); ?>
@@ -63,7 +63,7 @@
                 <div class="form-group input-group-lg">
                     <label>Keterangan Misi</label>
                     <textarea name="isi_misi" id="isi_misi" class="form-control <?= ($validation->hasError('isi_misi')) ? 'is-invalid' : '' ?>" required>
-                        <?= old('isi_misi'); ?>
+                        <?= old('isi_misi') ?: $visi_misi[0]['isi_misi']; ?>
                     </textarea>
                     <div class="invalid-feedback">
                         <?= $validation->getError('isi_misi'); ?>

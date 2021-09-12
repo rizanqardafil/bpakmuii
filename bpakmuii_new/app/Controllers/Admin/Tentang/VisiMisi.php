@@ -38,12 +38,12 @@ class VisiMisi extends BaseController
 
         $rules = [
             'isi_visi' =>  [
-                'rules' =>  'required|min_length[10]',
+                'rules' =>  'required|min_length[18]',
                 // 'rules' =>  'required|min_length[10]|max_length[400]',
                 'errors'    =>  $this->error_message
             ],
             'isi_misi' =>  [
-                'rules' =>  'required|min_length[10]',
+                'rules' =>  'required|min_length[18]',
                 // 'rules' =>  'required|min_length[10]|max_length[400]',
                 'errors'    =>  $this->error_message
             ],
