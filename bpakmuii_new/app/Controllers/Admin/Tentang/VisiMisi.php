@@ -29,7 +29,7 @@ class VisiMisi extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -48,11 +48,11 @@ class VisiMisi extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_visi' =>  [
-                'rules' =>  'max_size[path_gambar_visi,10024]|is_image[path_gambar_visi]|mime_in[path_gambar_visi,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_visi,8024]|is_image[path_gambar_visi]|mime_in[path_gambar_visi,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
             'path_gambar_misi' =>  [
-                'rules' =>  'max_size[path_gambar_misi,10024]|is_image[path_gambar_misi]|mime_in[path_gambar_misi,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_misi,8024]|is_image[path_gambar_misi]|mime_in[path_gambar_misi,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -70,7 +70,13 @@ class VisiMisi extends BaseController
             $image_name = substr($files_visi->getName(), 0, strrpos($files_visi->getName(), '.'));
             $path_gambar_visi = $image_name . '_' . $files_visi->getRandomName();
 
-            $files_visi->move('uploaded/images/', $path_gambar_visi);
+            if ($files_visi->getSize() > 1000000) {
+                $this->image_compression($files_visi, 'uploaded/images/', $path_gambar_visi);
+            } else {
+                $files_visi->move('uploaded/images/', $path_gambar_visi);
+            }
+
+            // $files_visi->move('uploaded/images/', $path_gambar_visi);
 
             (is_file('uploaded/images/' . $image_old_visi) && $image_old_visi !== 'default.png') ? unlink('uploaded/images/' . $image_old_visi) : '';
         }
@@ -83,7 +89,13 @@ class VisiMisi extends BaseController
             $image_name = substr($files_misi->getName(), 0, strrpos($files_misi->getName(), '.'));
             $path_gambar_misi = $image_name . '_' . $files_misi->getRandomName();
 
-            $files_misi->move('uploaded/images/', $path_gambar_misi);
+            if ($files_misi->getSize() > 1000000) {
+                $this->image_compression($files_misi, 'uploaded/images/', $path_gambar_misi);
+            } else {
+                $files_misi->move('uploaded/images/', $path_gambar_misi);
+            }
+
+            // $files_misi->move('uploaded/images/', $path_gambar_misi);
 
             (is_file('uploaded/images/' . $image_old_misi) && $image_old_misi !== 'default.png') ? unlink('uploaded/images/' . $image_old_misi) : '';
         }

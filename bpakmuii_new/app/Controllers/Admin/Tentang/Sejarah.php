@@ -29,7 +29,7 @@ class Sejarah extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -46,11 +46,11 @@ class Sejarah extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar_sejarah' =>  [
-                'rules' =>  'max_size[path_gambar_sejarah,10024]|is_image[path_gambar_sejarah]|mime_in[path_gambar_sejarah,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_sejarah,8024]|is_image[path_gambar_sejarah]|mime_in[path_gambar_sejarah,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ],
             'path_gambar_logo' =>  [
-                'rules' =>  'max_size[path_gambar_logo,10024]|is_image[path_gambar_logo]|mime_in[path_gambar_logo,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar_logo,8024]|is_image[path_gambar_logo]|mime_in[path_gambar_logo,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -68,7 +68,13 @@ class Sejarah extends BaseController
             $image_name = substr($files_sejarah->getName(), 0, strrpos($files_sejarah->getName(), '.'));
             $path_gambar_sejarah = $image_name . '_' . $files_sejarah->getRandomName();
 
-            $files_sejarah->move('uploaded/images/', $path_gambar_sejarah);
+            if ($files_sejarah->getSize() > 1000000) {
+                $this->image_compression($files_sejarah, 'uploaded/images/', $path_gambar_sejarah);
+            } else {
+                $files_sejarah->move('uploaded/images/', $path_gambar_sejarah);
+            }
+
+            // $files_sejarah->move('uploaded/images/', $path_gambar_sejarah);
 
             (is_file('uploaded/images/' . $image_old_sejarah) && $image_old_sejarah !== 'default.png') ? unlink('uploaded/images/' . $image_old_sejarah) : '';
         }
@@ -81,7 +87,12 @@ class Sejarah extends BaseController
             $image_name = substr($files_logo->getName(), 0, strrpos($files_logo->getName(), '.'));
             $path_gambar_logo = $image_name . '_' . $files_logo->getRandomName();
 
-            $files_logo->move('uploaded/images/', $path_gambar_logo);
+            if ($files_logo->getSize() > 1000000) {
+                $this->image_compression($files_logo, 'uploaded/images/', $path_gambar_logo);
+            } else {
+                $files_logo->move('uploaded/images/', $path_gambar_logo);
+            }
+            // $files_logo->move('uploaded/images/', $path_gambar_logo);
 
             (is_file('uploaded/images/' . $image_old_logo) && $image_old_logo !== 'default.png') ? unlink('uploaded/images/' . $image_old_logo) : '';
         }

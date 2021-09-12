@@ -48,7 +48,7 @@ class Gambar extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -58,7 +58,7 @@ class Gambar extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar' =>  [
-                'rules' =>  'uploaded[path_gambar]|max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_gambar]|max_size[path_gambar,8024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -74,7 +74,12 @@ class Gambar extends BaseController
         $path_gambar = $image_name . '_' . $files->getRandomName();
         $path_nama_gambar = $files->getName();
 
-        $files->move('uploaded/images/', $path_gambar);
+        if ($files->getSize() > 1000000) {
+            $this->image_compression($files, 'uploaded/images/', $path_gambar);
+        } else {
+            $files->move('uploaded/images/', $path_gambar);
+        }
+        // $files->move('uploaded/images/', $path_gambar);
 
         $data = [
             'nama_gambar'     => $nama_gambar,
@@ -94,7 +99,7 @@ class Gambar extends BaseController
     public function update()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -112,7 +117,7 @@ class Gambar extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_gambar' =>  [
-                'rules' =>  'max_size[path_gambar,10024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_gambar,8024]|is_image[path_gambar]|mime_in[path_gambar,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -133,7 +138,12 @@ class Gambar extends BaseController
             $path_gambar = $image_name . '_' . $files->getRandomName();
             $path_nama_gambar = $files->getName();
 
-            $files->move('uploaded/images/', $path_gambar);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $path_gambar);
+            } else {
+                $files->move('uploaded/images/', $path_gambar);
+            }
+            // $files->move('uploaded/images/', $path_gambar);
 
             (is_file('uploaded/images/' . $path_gambar_old) && $path_gambar_old !== 'default.png') ? unlink('uploaded/images/' . $path_gambar_old) : '';
         }
