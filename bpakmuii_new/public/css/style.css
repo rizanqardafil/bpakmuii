@@ -97,6 +97,13 @@ a {
   background-color: #0e1726 !important;
 }
 
+.container-left{
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+  height:100%;
+}
+
 .aboutbpakm {
   text-align: left;
   font-weight: 600;
@@ -110,7 +117,7 @@ a {
 .titlepage {
   text-align: left;
   font-weight: 600;
-  font-size: 110px;
+  font-size: 90px;
   line-height: 110px;
   padding-top: 12px;
 }
@@ -692,9 +699,6 @@ h3 {
 }
 
 /* Style Halaman Investors */
-.struktur-organisasi span {
-  border-bottom: 2px solid #044bd9;
-}
 
 .description-strukturorganisasi {
   font-size: 17px;

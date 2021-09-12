@@ -6,8 +6,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6" data-aos="fade-right" data-aos-duration="2000">
-                <div class="aboutbpakm">Tentang Kami</div>
-                <div class="titlepage">BPA KM UII</div>
+                <div class="container-left">
+                    <div>
+                        <div class="aboutbpakm">Tentang Kami</div>
+                        <div class="titlepage">BPA KM UII</div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6 col-md-6 quote" data-aos="fade-left" data-aos-duration="2000">
                 <!-- <div class="aboutdesc">
