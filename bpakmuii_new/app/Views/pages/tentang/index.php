@@ -29,7 +29,7 @@
                 <div class="featuretentangkami">
                     <div class="row" style="align-items: center;">
                         <div class="col-lg-6 col-md-12">
-                            <div class="featuretkimage">
+                            <div class="featuretkimage-visi">
                                 <img src="<?= base_url(); ?>/uploaded/images/<?= $visi_misi[0]['path_gambar_visi']; ?>" alt="">
                             </div>
                         </div>

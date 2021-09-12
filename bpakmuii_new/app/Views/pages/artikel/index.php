@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <!-- Section Artikel -->
 <section class="section2">
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
         <!-- Bagian Terbaru / Feature -->
         <div class="row">
             <?php if ($current_page == 1) : ?>

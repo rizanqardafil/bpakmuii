@@ -12,14 +12,14 @@
             <div class="col-xs-5 col-sm-6 col-lg-4">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/foto'); ?>">
-                        <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
+                        <p class="description" style="color:#044BD9; font-weight: bold;">Lihat Semua &#8594;</p>
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Bagian Card Galeri-->
-        <div class="row p-5" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="row p-4" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri" style="margin-top: 60px">
@@ -50,7 +50,7 @@
             <div class="col-xs-5 col-sm-6 col-lg-4">
                 <div class="btnlihatsemua">
                     <a href="<?= base_url('/galeri/video'); ?>">
-                        <img src="<?= base_url(); ?>/images/TombolLihatSemua.svg">
+                        <p class="description" style="color:#044BD9; font-weight: bold;">Lihat Semua &#8594;</p>
                     </a>
                 </div>
             </div>

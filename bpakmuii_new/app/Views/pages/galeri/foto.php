@@ -32,7 +32,7 @@
         </div>
 
         <!-- Bagian Card Galeri-->
-        <div class="row p-5" data-aos="zoom-in-up" data-aos-duration="2000">
+        <div class="row p-4" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
                 <div class="col-sm-4 d-flex align-items-stretch">
                     <div class="card-galeri" style="margin-top: 60px">
