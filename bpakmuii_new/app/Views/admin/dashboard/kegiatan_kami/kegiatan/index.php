@@ -11,6 +11,10 @@
             <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
 
+        <?php if (session()->getFlashdata('message')) : ?>
+            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <?php endif; ?>
+
         <a href="<?php echo base_url('/admin/kegiatan-kami/tambah') ?>" class="btn btn-<?= ($total_activity < 3) ? 'primary' : 'default disabled'; ?> spacing"><i class="fa fa-plus"></i> Tambah Kegiatan</a>
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
             <thead>

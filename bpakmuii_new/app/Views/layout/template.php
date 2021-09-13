@@ -62,13 +62,13 @@
                                     2014.
                                 </div>
                                 <div class="footer-social">
-                                    <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/mycompany/">
+                                    <a href="https://www.linkedin.com/company/badan-pengelola-aset-km-uii/mycompany/" target="_blank">
                                         <i class="fa fa-linkedin"></i>
                                     </a>
-                                    <a href="https://www.instagram.com/bpakmuii/?hl=en">
+                                    <a href="https://www.instagram.com/bpakmuii/?hl=en" target="_blank">
                                         <i class="fa fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw/featured">
+                                    <a href="https://www.youtube.com/channel/UClZUs0gjl1W3kqyTLQbo0Gw/featured" target="_blank">
                                         <i class="fa fa-youtube"></i>
                                     </a>
                                 </div>

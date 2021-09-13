@@ -40,7 +40,7 @@ class Album extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -50,7 +50,7 @@ class Album extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_cover' =>  [
-                'rules' =>  'uploaded[path_cover]|max_size[path_cover,10024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_cover]|max_size[path_cover,8024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -64,7 +64,13 @@ class Album extends BaseController
         $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
         $path_cover = $image_name . '_' . $files->getRandomName();
 
-        $files->move('uploaded/images/', $path_cover);
+        if ($files->getSize() > 1000000) {
+            $this->image_compression($files, 'uploaded/images/', $path_cover);
+        } else {
+            $files->move('uploaded/images/', $path_cover);
+        }
+
+        // $files->move('uploaded/images/', $path_cover);
 
         $data = [
             'nama_album'     => $nama_album,
@@ -82,7 +88,7 @@ class Album extends BaseController
     public function update()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File cover album terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -100,7 +106,7 @@ class Album extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_cover' =>  [
-                'rules' =>  'max_size[path_cover,10024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_cover,8024]|is_image[path_cover]|mime_in[path_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -118,7 +124,13 @@ class Album extends BaseController
             $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
             $path_cover = $image_name . '_' . $files->getRandomName();
 
-            $files->move('uploaded/images/', $path_cover);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $path_cover);
+            } else {
+                $files->move('uploaded/images/', $path_cover);
+            }
+
+            // $files->move('uploaded/images/', $path_cover);
 
             (is_file('uploaded/images/' . $path_cover_old) && $path_cover_old !== 'default.png') ? unlink('uploaded/images/' . $path_cover_old) : '';
         }

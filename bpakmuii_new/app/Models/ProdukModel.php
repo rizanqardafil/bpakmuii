@@ -17,7 +17,7 @@ class ProdukModel extends Model
 
     public function getAllProduct($product_name = '', $slug_product = '', $order_by = '', $type_order = 'ASC', $limit = 0, $offset = 0)
     {
-        $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
+        $formatter = new NumberFormatter('id_ID.utf8',  NumberFormatter::CURRENCY);
 
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, kontak, path_gambar_cover, path_nama_gambar');
@@ -43,7 +43,7 @@ class ProdukModel extends Model
             $result->status = $this->status;
 
             $currency = $formatter->formatCurrency($result->harga_terendah, 'IDR');
-            $currency = substr($currency, 0, strrpos($currency, ','));
+            $currency = (!strrpos($currency, ',')) ? $currency : substr($currency, 0, strrpos($currency, ','));
 
             $result->harga_terendah = $currency;
         }
@@ -106,7 +106,7 @@ class ProdukModel extends Model
 
     public function getPackage($slug_product = '')
     {
-        $formatter = new NumberFormatter('id_ID',  NumberFormatter::CURRENCY);
+        $formatter = new NumberFormatter('id_ID.utf8',  NumberFormatter::CURRENCY);
 
         $builder = $this->db->table($this->table);
         $builder->select('produk.id_produk, produk.slug_produk, paket.id_paket, paket.nama_paket, paket.slug_paket, paket.harga');

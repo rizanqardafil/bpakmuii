@@ -46,7 +46,7 @@ class Foto extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -56,7 +56,7 @@ class Foto extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_foto' =>  [
-                'rules' =>  'uploaded[path_foto]|max_size[path_foto,10024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[path_foto]|max_size[path_foto,8024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -71,7 +71,13 @@ class Foto extends BaseController
         $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
         $path_foto = $image_name . '_' . $files->getRandomName();
 
-        $files->move('uploaded/images/', $path_foto);
+        if ($files->getSize() > 1000000) {
+            $this->image_compression($files, 'uploaded/images/', $path_foto);
+        } else {
+            $files->move('uploaded/images/', $path_foto);
+        }
+
+        // $files->move('uploaded/images/', $path_foto);
 
         $data = [
             'nama_foto'     => $nama_foto,
@@ -90,7 +96,7 @@ class Foto extends BaseController
     public function update()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File foto terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -108,7 +114,7 @@ class Foto extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_foto' =>  [
-                'rules' =>  'max_size[path_foto,10024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[path_foto,8024]|is_image[path_foto]|mime_in[path_foto,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -127,7 +133,13 @@ class Foto extends BaseController
             $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
             $path_foto = $image_name . '_' . $files->getRandomName();
 
-            $files->move('uploaded/images/', $path_foto);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $path_foto);
+            } else {
+                $files->move('uploaded/images/', $path_foto);
+            }
+
+            // $files->move('uploaded/images/', $path_foto);
 
             (is_file('uploaded/images/' . $path_foto_old) && $path_foto_old !== 'default.png') ? unlink('uploaded/images/' . $path_foto_old) : '';
         }

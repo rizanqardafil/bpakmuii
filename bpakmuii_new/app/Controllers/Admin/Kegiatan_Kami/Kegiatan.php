@@ -42,6 +42,11 @@ class Kegiatan extends BaseController
 
     public function save()
     {
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File gambar kegiatan kami terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
+            return redirect()->back()->withInput();
+        }
+
         $rules = [
             'judul'   =>  [
                 'rules' =>  'required|is_unique[kegiatan.judul]|min_length[3]|max_length[255]',
@@ -52,7 +57,7 @@ class Kegiatan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [
-                'rules' =>  'uploaded[image]|max_size[image,10024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'uploaded[image]|max_size[image,8024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -67,7 +72,13 @@ class Kegiatan extends BaseController
         $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
         $image = $image_name . '_' . $files->getRandomName();
 
-        $files->move('uploaded/images/', $image);
+        if ($files->getSize() > 1000000) {
+            $this->image_compression($files, 'uploaded/images/', $image);
+        } else {
+            $files->move('uploaded/images/', $image);
+        }
+
+        // $files->move('uploaded/images/', $image);
 
         $data = [
             'judul'     => $judul,
@@ -103,7 +114,7 @@ class Kegiatan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'image' =>  [
-                'rules' =>  'max_size[image,10024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
+                'rules' =>  'max_size[image,8024]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -122,7 +133,13 @@ class Kegiatan extends BaseController
             $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
             $image = $image_name . '_' . $files->getRandomName();
 
-            $files->move('uploaded/images/', $image);
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $image);
+            } else {
+                $files->move('uploaded/images/', $image);
+            }
+
+            // $files->move('uploaded/images/', $image);
 
             (is_file('uploaded/images/' . $image_old) && $image_old !== 'default.png') ? unlink('uploaded/images/' . $image_old) : '';
         }

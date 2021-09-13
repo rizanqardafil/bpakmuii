@@ -44,7 +44,7 @@ class Laporan extends BaseController
     public function save()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -57,7 +57,7 @@ class Laporan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_laporan' =>  [
-                'rules' => 'uploaded[path_laporan]|ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,10048]',
+                'rules' => 'uploaded[path_laporan]|ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,8048]',
                 'errors'    => $this->error_message
             ]
         ];
@@ -91,7 +91,7 @@ class Laporan extends BaseController
     public function update()
     {
         if (!$this->request->getVar('csrf_test_name')) {
-            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 10 MB');
+            session()->setFlashdata('message', 'File upload terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
             return redirect()->back()->withInput();
         }
 
@@ -109,7 +109,7 @@ class Laporan extends BaseController
                 'errors'    =>  $this->error_message
             ],
             'path_laporan' =>  [
-                'rules' => 'ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,10048]',
+                'rules' => 'ext_in[path_laporan,pdf]|mime_in[path_laporan,application/pdf]|max_size[path_laporan,8048]',
                 'errors'    => $this->error_message
             ]
         ];
