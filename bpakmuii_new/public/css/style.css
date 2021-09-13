@@ -850,10 +850,7 @@ h3 {
 .titleartikeldetail {
   text-align: left;
   text-transform: uppercase;
-  /* font-size: 120px;
-  font-weight: 600;
-  line-height: 120px; */
-  letter-spacing: -1px;
+  letter-spacing: 8px;
   color: #121212;
   max-width: 900px;
   padding-left: 8px;
