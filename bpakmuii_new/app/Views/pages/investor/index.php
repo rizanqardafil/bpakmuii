@@ -27,8 +27,8 @@
         </div>
     </section>
 
-    <!-- Section Struktur Organisasi -->
-    <section class="container pt-5" data-aos="fade-up" data-aos-duration="2000">
+    <!-- Section Laporan Pertanggung Jawaban -->
+    <section class="container pt-5">
         <div class="row">
             <!-- title-section -->
             <div class="col-lg-8 col-md-8 struktur-organisasi">

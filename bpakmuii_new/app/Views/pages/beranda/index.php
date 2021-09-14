@@ -75,7 +75,7 @@
     </section>
 
     <!-- Section Produk Kami-->
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container p-5">
         <!-- Bagian title & Description -->
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 col-md-6">
@@ -128,7 +128,7 @@
     </section>
 
     <!-- Section Tata Cara Peminjaman -->
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container p-5">
         <!-- Bagian title & Description -->
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 col-md-6">
@@ -150,7 +150,7 @@
     </section>
 
     <!-- Section Artikel -->
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container p-5">
         <!-- Bagian title & Description -->
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 col-md-6">
