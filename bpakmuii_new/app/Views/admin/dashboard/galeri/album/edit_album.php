@@ -63,9 +63,9 @@
                     <img src="<?= base_url(); ?>/uploaded/images/<?= $album['path_cover']; ?>" class="img-thumbnail img-preview">
                     <div class="alert alert-warning">
                         <i>
-                            <strong>Recommended Image Size (in pixels) :</strong><br>
-                            <strong>Small</strong> : 640 x 431<br>
-                            <strong>Large</strong> : 1920 x 1295<br>
+                            <strong>Rekomendasi Ukuran Gambar (dalam pixels) :</strong><br>
+                            <strong>Kecil</strong> : 640 x 431<br>
+                            <strong>Besar</strong> : 1920 x 1295 (atau lebih dari ukuran tsb)<br>
                         </i>
                     </div>
                 </div>
