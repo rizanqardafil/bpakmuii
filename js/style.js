@@ -12,6 +12,7 @@ function date(){
     }
     var year = date.getUTCFullYear();
     var minDate = year + "-" + month + "-" + tdate;
+    console.log(minDate);
     document.getElementById("tanggalPeminjaman").setAttribute('min', minDate);
     document.getElementById("tanggalPengembalian").setAttribute('min', minDate);
 

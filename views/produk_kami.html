@@ -78,13 +78,11 @@
                     </div>
                     <div class="col-md-3 space" style="border-right: 1px solid #ddd;">
                         <label for="inputtanggalpeminjaman" class="form-label">Tanggal Peminjaman</label>
-                        <div class="tanggal">
-                            <input type="date" class="form-control" id="tanggalPeminjaman">
-                        </div>
+                        <input name="setTodaysDate" type="date" class="form-control" id="tanggalPeminjaman" min="">
                     </div>
                     <div class="col-md-3 space noborder-mobile">
                         <label for="inputtanggalpengembalian" class="form-label">Tanggal Pengembalian</label>
-                        <input type="date" class="form-control" id="tanggalPengembalian">
+                        <input name="setTodaysDate" type="date" class="form-control" id="tanggalPengembalian" min="">
                     </div>
                     <div class="col-md-3 d-flex align-item-stretch p-0">
                         <button type="submit" class="btn btn-primary btn-block">Cari Produk</button>
