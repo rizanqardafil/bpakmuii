@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 <!-- Section Artikel -->
 <section class="section2">
-    <section class="container p-5" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container p-4" data-aos="fade-up" data-aos-duration="2000">
         <!-- breadcrumbs section -->
         <section class="detail-breadcrumbs" data-aos="fade-up" data-aos-duration="2000">
             <div class="container">
@@ -34,7 +34,7 @@
                     <div class="col-lg-12 col-md-12">
                         <div class="contentfeatureartikel">
                             <div class="textdatefeature"><?= $article[0]->tanggal_terbit; ?></div>
-                            <div class="titleartikeldetail"><?= $article[0]->judul_artikel; ?></div>
+                            <div class="titleartikeldetail display-1"><?= $article[0]->judul_artikel; ?></div>
                             <div class="d-flex author-section">
                                 <div class="d-flex flex-row align-items-center">
                                     <div class="image">

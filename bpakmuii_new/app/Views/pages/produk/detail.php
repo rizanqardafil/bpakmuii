@@ -61,7 +61,7 @@
             </div>
 
             <!-- Description Section -->
-            <div class="container description-product" data-aos="fade-up" data-aos-duration="2000">
+            <div class="container description-product">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="products-text"><?= $product['product'][0]->nama_produk; ?></div>
