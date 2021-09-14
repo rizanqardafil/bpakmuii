@@ -120,7 +120,7 @@ class ProdukModel extends Model
 
         foreach ($results as $result) {
             $currency = $formatter->formatCurrency($result->harga, 'IDR');
-            $currency = substr($currency, 0, strrpos($currency, ','));
+            $currency = (!strrpos($currency, ',')) ? $currency : substr($currency, 0, strrpos($currency, ','));
 
             $result->harga = $currency;
         }
