@@ -17,7 +17,8 @@
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="featuretkimage">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $sejarah[0]['path_gambar_logo']; ?>" alt="">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $sejarah[0]['path_gambar_logo']; ?>"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,8 @@
                     <div class="row" style="align-items: center;">
                         <div class="col-lg-6 col-md-12">
                             <div class="featuretkimage-visi">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $visi_misi[0]['path_gambar_visi']; ?>" alt="">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $visi_misi[0]['path_gambar_visi']; ?>"
+                                    alt="">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12">
@@ -57,7 +59,8 @@
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <div class="featuretkimage">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $visi_misi[0]['path_gambar_misi']; ?>" alt="">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $visi_misi[0]['path_gambar_misi']; ?>"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -83,9 +86,9 @@
 
 <?= $this->section('scripts'); ?>
 <script>
-    AOS.init();
-    $(document).ready(function() {
-        date();
-    });
+AOS.init();
+$(document).ready(function() {
+    date();
+});
 </script>
 <?= $this->endSection(); ?>

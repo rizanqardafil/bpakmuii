@@ -11,7 +11,7 @@ class ProdukModel extends Model
     protected $table = 'produk';
     protected $primaryKey = "id_produk";
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'kontak', 'path_gambar_cover', 'path_nama_gambar'];
+    protected $allowedFields = ['nama_produk', 'slug_produk', 'detail_produk', 'kontak', 'link', 'path_gambar_cover', 'path_nama_gambar'];
     protected $status = "TERSEDIA";
 
 
@@ -20,7 +20,7 @@ class ProdukModel extends Model
         $formatter = new NumberFormatter('id_ID.utf8',  NumberFormatter::CURRENCY);
 
         $builder = $this->db->table($this->table);
-        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, kontak, path_gambar_cover, path_nama_gambar');
+        $builder->select('produk.id_produk, nama_produk, slug_produk, detail_produk, kontak, link, path_gambar_cover, path_nama_gambar');
         $builder->selectMin('paket.harga', 'harga_terendah');
         $builder->join('paket', 'produk.id_produk = paket.id_produk', 'left');
         $builder->groupBy('produk.id_produk');
@@ -144,12 +144,23 @@ class ProdukModel extends Model
         return $results;
     }
 
+    public function getLink($slug_product = ''){
+        $builder = $this->db->table($this->table);
+        $builder->select('produk.link');   
+        if($slug_product){
+            $builder->where('produk.link', $slug_product);
+        }
+        $results = $builder->get()->getResult();
+
+        return $results;
+    }
+
     public function getDetailProduct($slug_product = '')
     {
         $product = $this->getAllProduct('', $slug_product);
         $packages = $this->getPackage($slug_product);
         $product_images = $this->getAllImage($slug_product);
-
+        $linkk = $this->getLink($slug_product);
         // Get phone number from config
         $config = new ConfigModel();
         $config_result = $config->getConfig();
@@ -167,7 +178,9 @@ class ProdukModel extends Model
             'product'   => $product,
             'packages'  => $packages,
             'images'    => $product_images,
-            'phone'     => $phone
+            'phone'     => $phone,
+            'linkk' => $linkk
+            
         ];
 
         return $all_detail_data;

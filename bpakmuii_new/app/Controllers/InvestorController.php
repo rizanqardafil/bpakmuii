@@ -21,12 +21,16 @@ class InvestorController extends BaseController
 		$org = $this->investor_model->getOrganisasi();
 		$reports = $this->investor_model->getLaporan('', 'laporan.nama_laporan');
 		$config = $this->config_model->getConfig();
+		$org_team = $this->investor_model->getTeam();
+		
+		
 
 		// dd($reports);
 
 		$data = [
 			'titles' => 'Investor | BPA KM UII',
 			'org'	=> $org,
+			'org_team' => $org_team,
 			'reports' 	=>	$reports,
 			'config'	=> $config
 		];

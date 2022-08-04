@@ -197,4 +197,68 @@ class Config extends BaseController
 
         return redirect()->to(base_url('admin/icon-config'));
     }
+
+    public function popup_config()
+    {
+        $data = [
+            'title' =>  'Pengaturan Pop Up',
+            'config'    => $this->config_model->getConfig(),
+            'validation'    => \Config\Services::validation()
+        ];
+        return view('admin/dashboard/settings/popup-config', $data);
+    }
+
+    public function save_popup(){
+        if (!$this->request->getVar('csrf_test_name')) {
+            session()->setFlashdata('message', 'File upload ikon terlalu besar dan melebihi kapasitas server. Silahkan upload file < 8 MB');
+            return redirect()->back()->withInput();
+        }
+
+        $config = $this->config_model->getConfig();
+
+        $rules = [
+            'popup' =>  [
+                'rules' =>  'max_size[popup,8024]|is_image[popup]|mime_in[popup,image/jpg,image/jpeg,image/png]',
+                'errors'    => $this->error_message
+            ],
+            'link_popup' => [
+                'rules' =>  'max_length[255]',
+                'errors'    => $this->error
+            ]
+        ];
+
+        if(!$this->validate($rules)) return redirect()->to(base_url('admin/popup-config'))->withInput();
+
+        $files = $this->request->getFile('popup');
+        $popup_old = $this->request->getPost('popup');
+        $popup = $config[0]['popup'];
+        $link_popup = $this->request->getPost('link_popup');
+
+
+        if ($files->getError() !== 4) {
+            $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
+            $popup = $image_name . '_' . $files->getRandomName();
+
+            if ($files->getSize() > 1000000) {
+                $this->image_compression($files, 'uploaded/images/', $popup);
+            } else {
+                $files->move('uploaded/images/', $popup);
+            }
+
+            (is_file('uploaded/images/' . $popup_old) && $popup_old !== 'default.png') ? unlink('uploaded/images/' . $popup_old) : '';
+        }
+
+        $data = [
+            'popup'     => $popup,
+            'link_popup' => $link_popup
+        ];
+
+        $this->config_model->update($config[0]['id_config'], $data);
+
+        session()->setFlashdata('success', 'Berhasil Mengubah Popup');
+
+        return redirect()->to(base_url('admin/popup-config'));
+    }
+
+    
 }

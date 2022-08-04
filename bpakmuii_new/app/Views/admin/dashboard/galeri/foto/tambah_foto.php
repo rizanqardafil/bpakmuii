@@ -8,35 +8,36 @@
     </div>
     <div class="panel-body">
         <?php if (session()->getFlashdata('message')) : ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
         <?php endif; ?>
 
         <script src="<?php echo base_url() ?>/admin/tinymce/js/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
-            tinymce.init({
-                file_browser_callback: function(field, url, type, win) {
-                    tinyMCE.activeEditor.windowManager.open({
-                        file: '<?php echo base_url() ?>/admin/kcfinder/browse.php?opener=tinymce4&field=' + field + '&type=' + type,
-                        title: 'KCFinder',
-                        width: 700,
-                        height: 500,
-                        inline: true,
-                        close_previous: false
-                    }, {
-                        window: win,
-                        input: field
-                    });
-                    return false;
-                },
-                selector: "#isi",
-                height: 250,
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste"
-                ],
-                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-            });
+        tinymce.init({
+            file_browser_callback: function(field, url, type, win) {
+                tinyMCE.activeEditor.windowManager.open({
+                    file: '<?php echo base_url() ?>/admin/kcfinder/browse.php?opener=tinymce4&field=' +
+                        field + '&type=' + type,
+                    title: 'KCFinder',
+                    width: 700,
+                    height: 500,
+                    inline: true,
+                    close_previous: false
+                }, {
+                    window: win,
+                    input: field
+                });
+                return false;
+            },
+            selector: "#isi",
+            height: 250,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
         </script>
 
         <form action="<?php echo base_url('/admin/foto/save') ?>" method="post" enctype="multipart/form-data">
@@ -44,7 +45,9 @@
             <div class="col-md-12">
                 <div class="form-group input-group-lg">
                     <label>Nama Foto</label>
-                    <input type="text" name="nama_foto" class="form-control <?= ($validation->hasError('nama_foto')) ? 'is-invalid' : '' ?>" value="<?= old('nama_foto'); ?>" required placeholder="Nama Foto">
+                    <input type="text" name="nama_foto"
+                        class="form-control <?= ($validation->hasError('nama_foto')) ? 'is-invalid' : '' ?>"
+                        value="<?= old('nama_foto'); ?>" required placeholder="Nama Foto">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_foto'); ?>
                     </div>
@@ -53,13 +56,17 @@
                     <label>Album Untuk Foto</label>
                     <select name="id_album" class="form-control">
                         <?php foreach ($albums as $album) : ?>
-                            <option value="<?= $album['id_album']; ?>" <?= (old('id_album') == $album['id_album']) ? 'selected' : ''; ?>><?= $album['nama_album']; ?></option>
+                        <option value="<?= $album['id_album']; ?>"
+                            <?= (old('id_album') == $album['id_album']) ? 'selected' : ''; ?>>
+                            <?= $album['nama_album']; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Upload Foto</label>
-                    <input type="file" name="path_foto" class="form-control <?= ($validation->hasError('path_foto')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                    <input type="file" name="path_foto"
+                        class="form-control <?= ($validation->hasError('path_foto')) ? 'is-invalid' : '' ?>" id="file"
+                        onchange="previewImage()">
                     <div class="invalid-feedback">
                         <?= $validation->getError('path_foto'); ?>
                     </div>

@@ -9,6 +9,7 @@ class VisiMisi extends Migration
 	public function up()
 	{
 		$this->forge->addField([
+			
 			'id_visi_misi'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,

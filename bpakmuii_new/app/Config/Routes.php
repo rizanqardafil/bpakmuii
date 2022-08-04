@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'BerandaController::index');
 $routes->get('/beranda', 'BerandaController::index');
+
 $routes->get('/produk', 'ProdukController::index');
 $routes->get('/produk/detail/(:any)', 'ProdukController::detail/$1');
 $routes->get('/investor', 'InvestorController::index');
@@ -43,7 +44,8 @@ $routes->get('/galeri/video', 'GaleriController::video');
 $routes->get('/artikel', 'ArtikelController::index');
 $routes->get('/artikel/detail/(:any)', 'ArtikelController::detail/$1');
 $routes->get('/tentang', 'TentangController::index');
-
+$routes->get('/contact', 'ContactController::index');
+$routes->post('/contact/send', 'ContactController::sendEmail');
 // Routes Auth
 $routes->get('/admin/login', 'Admin\Auth::index');
 $routes->post('/admin/auth', 'Admin\Auth::auth');
@@ -57,6 +59,9 @@ $routes->get('/admin/logo-config', 'Admin\Config::logo_config', ['filter' => 'au
 $routes->post('/admin/logo-config/save-logo', 'Admin\Config::save_logo', ['filter' => 'auth']);
 $routes->get('/admin/icon-config', 'Admin\Config::icon_config', ['filter' => 'auth']);
 $routes->post('/admin/icon-config/save-icon', 'Admin\Config::save_icon', ['filter' => 'auth']);
+$routes->get('/admin/popup-config', 'Admin\Config::popup_config', ['filter' => 'auth']);
+$routes->post('/admin/popup-config/save-popup', 'Admin\Config::save_popup', ['filter' => 'auth']);
+
 
 // Routes CRUD Admin
 $routes->get('/admin/users', 'Admin\Users::index', ['filter' => 'auth']);
@@ -74,12 +79,22 @@ $routes->post('/admin/produk/update', 'Admin\Produk_Kami\Produk::update', ['filt
 $routes->delete('/admin/produk/delete/(:num)', 'Admin\Produk_Kami\Produk::delete/$1', ['filter' => 'auth']);
 $routes->get('/admin/produk/edit/(:any)', 'Admin\Produk_Kami\Produk::edit/$1', ['filter' => 'auth']);
 
+
+
 $routes->get('/admin/gambar', 'Admin\Produk_Kami\Gambar::index', ['filter' => 'auth']);
 $routes->get('/admin/gambar/tambah', 'Admin\Produk_Kami\Gambar::tambah', ['filter' => 'auth']);
 $routes->get('/admin/gambar/edit/(:any)', 'Admin\Produk_Kami\Gambar::edit/$1', ['filter' => 'auth']);
 $routes->post('/admin/gambar/update', 'Admin\Produk_Kami\Gambar::update', ['filter' => 'auth']);
 $routes->delete('/admin/gambar/delete/(:num)', 'Admin\Produk_Kami\Gambar::delete/$1', ['filter' => 'auth']);
 $routes->post('/admin/gambar/save', 'Admin\Produk_Kami\Gambar::save', ['filter' => 'auth']);
+
+
+$routes->get('/admin/slider', 'Admin\Produk_Kami\Slider::index', ['filter' => 'auth']);
+$routes->get('/admin/slider/tambah', 'Admin\Produk_Kami\Slider::tambah', ['filter' => 'auth']);
+$routes->get('/admin/slider/edit/(:any)', 'Admin\Produk_Kami\Slider::edit/$1', ['filter' => 'auth']);
+$routes->post('/admin/slider/update', 'Admin\Produk_Kami\Slider::update', ['filter' => 'auth']);
+$routes->delete('/admin/slider/delete/(:num)', 'Admin\Produk_Kami\Slider::delete/$1', ['filter' => 'auth']);
+$routes->post('/admin/slider/save', 'Admin\Produk_Kami\Slider::save', ['filter' => 'auth']);
 
 $routes->get('/admin/paket', 'Admin\Produk_Kami\Paket::index', ['filter' => 'auth']);
 $routes->get('/admin/paket/tambah', 'Admin\Produk_Kami\Paket::tambah', ['filter' => 'auth']);
@@ -99,6 +114,13 @@ $routes->get('/admin/pesanan/edit/(:num)', 'Admin\Produk_Kami\Pesanan::edit/$1',
 // Admin Investor routes
 $routes->get('/admin/organisasi', 'Admin\Investor\Organisasi::index', ['filter' => 'auth']);
 $routes->post('/admin/organisasi/save', 'Admin\Investor\Organisasi::save', ['filter' => 'auth']);
+
+$routes->get('/admin/team', 'Admin\Investor\Team::index', ['filter' => 'auth']);
+$routes->get('/admin/team/tambah', 'Admin\Investor\Team::tambah', ['filter' => 'auth']);
+$routes->post('/admin/team/save', 'Admin\Investor\Team::save', ['filter' => 'auth']);
+$routes->post('/admin/team/update', 'Admin\Investor\Team::update', ['filter' => 'auth']);
+$routes->get('/admin/team/edit/(:any)', 'Admin\Investor\Team::edit/$1', ['filter' => 'auth']);
+$routes->delete('/admin/team/delete/(:num)', 'Admin\Investor\Team::delete/$1', ['filter' => 'auth']);
 
 $routes->get('/admin/laporan', 'Admin\Investor\Laporan::index', ['filter' => 'auth']);
 $routes->get('/admin/laporan/tambah', 'Admin\Investor\Laporan::tambah', ['filter' => 'auth']);
@@ -143,6 +165,8 @@ $routes->post('/admin/video/save', 'Admin\Galeri\Video::save', ['filter' => 'aut
 $routes->post('/admin/video/update', 'Admin\Galeri\Video::update', ['filter' => 'auth']);
 $routes->delete('/admin/video/delete/(:num)', 'Admin\Galeri\Video::delete/$1', ['filter' => 'auth']);
 $routes->get('/admin/video/edit/(:any)', 'Admin\Galeri\Video::edit/$1', ['filter' => 'auth']);
+
+
 
 // Admin Artikel routes
 $routes->get('/admin/artikel', 'Admin\Artikel\Artikel::index', ['filter' => 'auth']);

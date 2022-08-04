@@ -21,21 +21,22 @@
         <!-- Bagian Card Galeri-->
         <div class="row p-4" data-aos="zoom-in-up" data-aos-duration="2000">
             <?php foreach ($images as $image) : ?>
-                <div class="col-sm-4 d-flex align-items-stretch">
-                    <div class="card-galeri" style="margin-top: 60px">
-                        <a id="modal-btn" data-id="<?= $image->slug_album; ?>">
-                            <div class="component-galeri">
-                                <div class="galeri-thumbnail">
-                                    <div class="products-galeri" style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
-                                    </div>
-                                </div>
-                                <div class="card-bodygaleri">
-                                    <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
+            <div class="col-sm-4 d-flex align-items-stretch">
+                <div class="card-galeri" style="margin-top: 60px">
+                    <a id="modal-btn" data-id="<?= $image->slug_album; ?>">
+                        <div class="component-galeri">
+                            <div class="galeri-thumbnail">
+                                <div class="products-galeri"
+                                    style="background-image: url(<?= base_url() ?>/uploaded/images/<?= $image->path_cover ?>);">
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                            <div class="card-bodygaleri">
+                                <h5 class="card-titlegaleri"><?= $image->nama_album ?></h5>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+            </div>
             <?php endforeach; ?>
         </div>
     </section>
@@ -59,18 +60,22 @@
         <!-- Bagian Card Video -->
         <div class="row p-4" style="margin-top: 60px">
             <?php foreach ($videos as $video) : ?>
-                <div class="col-12 col-md-4 col-lg-4">
-                    <a href="#" class="d-block">
-                        <div class="video-thumbnail">
-                            <div class="products-video">
-                                <iframe width="300px" height="200px" src="https://www.youtube.com/embed/<?= $video->path_video; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
-                            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <a href="#" class="d-block">
+                    <div class="video-thumbnail">
+                        <div class="products-video">
+                            <iframe width="300px" height="200px"
+                                src="https://www.youtube.com/embed/<?= $video->path_video; ?>"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen> </iframe>
                         </div>
-                    </a>
-                    <div class="row-titlevideo">
-                        <div class="text-titlevideo"><?= $video->nama_video; ?></div>
                     </div>
+                </a>
+                <div class="row-titlevideo">
+                    <div class="text-titlevideo"><?= $video->nama_video; ?></div>
                 </div>
+            </div>
             <?php endforeach; ?>
         </div>
     </section>
@@ -82,38 +87,39 @@
 <?= $this->section('scripts'); ?>
 
 <?php foreach ($images as $image) : ?>
-    <div id="my-modal-<?= $image->slug_album; ?>" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><?= $image->nama_album ?></h2>
-                <span class="close" id="close-<?= $image->slug_album; ?>">&times;</span>
+<div id="my-modal-<?= $image->slug_album; ?>" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><?= $image->nama_album ?></h2>
+            <span class="close" id="close-<?= $image->slug_album; ?>">&times;</span>
+        </div>
+        <div class="modal-body">
+            <?php if (isset($image->path_gambar_album)) : ?>
+            <?php foreach ($image->path_gambar_album as $i => $img) : ?>
+            <div class="col-md-4 col-lg-4">
+                <div class="list-foto">
+                    <a class="a-<?= $image->slug_album; ?>" href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>"
+                        title="<?= $image->nama_gambar_album[$i]; ?>">
+                        <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
+                    </a>
+                </div>
             </div>
-            <div class="modal-body">
-                <?php if (isset($image->path_gambar_album)) : ?>
-                    <?php foreach ($image->path_gambar_album as $i => $img) : ?>
-                        <div class="col-md-4 col-lg-4">
-                            <div class="list-foto">
-                            <a class="a-<?= $image->slug_album; ?>" href="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" title="<?= $image->nama_gambar_album[$i]; ?>">
-                                <img src="<?= base_url(); ?>/uploaded/images/<?= $img; ?>" alt="Detail gambar">
-                            </a>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                <!-- <div class="list-foto">
+            <?php endforeach; ?>
+            <?php endif; ?>
+            <!-- <div class="list-foto">
                     <a href="../images/artikel1.jpg">
                         <img src="../images/artikel1.jpg" alt="">
                     </a>
                 </div> -->
-            </div>
         </div>
     </div>
+</div>
 <?php endforeach; ?>
 
 <script>
-    AOS.init();
-    $(document).ready(function() {
-        date();
-    });
+AOS.init();
+$(document).ready(function() {
+    date();
+});
 </script>
 <?= $this->endSection(); ?>

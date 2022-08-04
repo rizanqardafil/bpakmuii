@@ -16,7 +16,8 @@
             </div>
             <!-- image section struktur organisasi BPA KM UII -->
             <div class="previewimage" style="margin-top: 60px">
-                <img src="<?= base_url(); ?>/uploaded/images/<?= $org[0]->image; ?>" alt="Struktur Organisasi BPA KM UII">
+                <img src="<?= base_url(); ?>/uploaded/images/<?= $org[0]->image; ?>"
+                    alt="Struktur Organisasi BPA KM UII">
             </div>
             <!-- Description Section -->
             <div class="col-lg-12">
@@ -24,6 +25,153 @@
                     <?= $org[0]->keterangan; ?>
                 </div>
             </div>
+            <center>
+                <section class="container pt-5">
+                    <h2 class="display-5 mb-0 title">
+                        <span>Presiden Direktur</span>
+
+                    </h2>
+                    <div class="col">
+                        <?php foreach ($org_team as $orga) : ?>
+                        <?php if ($orga->kategori_jabatan === 'Presiden'): ?>
+                        <div class="profile-card">
+                            <div class="img">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" alt="Foto Penulis"
+                                    class="rounded-circle">
+                            </div>
+                            <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                                <h2><?= $orga->nama; ?></h2>
+
+                            </div>
+
+
+                        </div>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            </center>
+            <section class="container pt-2">
+                <center>
+                    <h2 class="display-5 mb-0 title">
+                        <span>Manager</span>
+
+                    </h2>
+                </center>
+                <div class="container">
+                    <div class="row">
+
+                        <?php foreach ($org_team as $orga) : ?>
+                        <?php if ($orga->kategori_jabatan === 'Manager'): ?>
+                        <div class="profile-card">
+                            <div class="img">
+                                <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" alt="Foto Penulis"
+                                    class="rounded-circle">
+                            </div>
+                            <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                                <h2><?= $orga->nama; ?></h2>
+
+                            </div>
+
+
+                        </div>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+
+                </div>
+            </section>
+            <section class="container pt-2">
+                <center>
+                    <h2 class="display-5 mb-0 title">
+                        <span>Staf Pengembangan Usaha Strategis</span>
+
+                    </h2>
+                </center>
+                <div class="col">
+                    <?php foreach ($org_team as $orga) : ?>
+                    <?php if ($orga->kategori_jabatan === 'Staf PUS'): ?>
+                    <div class="profile-card">
+                        <div class="img">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" class="rounded-circle">
+                        </div>
+                        <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                            <h2><?= $orga->nama; ?></h2>
+
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+            <section class="container pt-2">
+                <center>
+                    <h2 class="display-5 mb-0 title">
+                        <span>Staf Pengembangan Strategi dan Pemasaran</span>
+
+                    </h2>
+                </center>
+                <div class="col">
+                    <?php foreach ($org_team as $orga) : ?>
+                    <?php if ($orga->kategori_jabatan === 'Staf PSP'): ?>
+                    <div class="profile-card">
+                        <div class="img">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" class="rounded-circle">
+                        </div>
+                        <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                            <h2><?= $orga->nama; ?></h2>
+
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+            <section class="container pt-2">
+                <center>
+                    <h2 class="display-5 mb-0 title">
+                        <span>Staf Pengembangan Sumber Daya Manusia</span>
+
+                    </h2>
+                </center>
+                <div class="col">
+                    <?php foreach ($org_team as $orga) : ?>
+                    <?php if ($orga->kategori_jabatan === 'Staf PSDM'): ?>
+                    <div class="profile-card">
+                        <div class="img">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" class="rounded-circle">
+                        </div>
+                        <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                            <h2><?= $orga->nama; ?></h2>
+
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+            <section class="container pt-2">
+                <center>
+                    <h2 class="display-5 mb-0 title">
+                        <span>Staf Administrasi Keuangan</span>
+
+                    </h2>
+                </center>
+                <div class="row">
+                    <?php foreach ($org_team as $orga) : ?>
+                    <?php if ($orga->kategori_jabatan === 'Staf Adkeu'): ?>
+                    <div class="profile-card">
+                        <div class="img">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $orga->image; ?>" class="rounded-circle">
+                        </div>
+                        <div class="caption"><strong><?= $orga->jabatan; ?></strong>
+                            <h2><?= $orga->nama; ?></h2>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </section>
         </div>
     </section>
 
@@ -39,43 +187,51 @@
             </div>
             <div class="col-lg-4 col-md-4 d-flex align-items-center justify-content-end">
                 <a href="<?= $config[0]['link_drive_laporan']; ?>" target="_blank">
-                    <p class="pt-3 description" style="color:#044BD9; font-weight: bold;">Lihat Semua Laporan &#8594;</p>
+                    <p class="pt-3 description" style="color:#044BD9; font-weight: bold;">Lihat Semua Laporan &#8594;
+                    </p>
                 </a>
             </div>
         </div>
         <div class="row">
             <?php foreach ($reports as $report) : ?>
-                <div class="col-lg-3 col-md-3 carousel-laporan">
-                    <div id="carouselExampleControls<?= $report->slug_laporan; ?>" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <span class="notify-badges-<?= ($report->path_laporan) ? 'available' : 'notavailable'; ?>"><?= ($report->path_laporan) ? 'Tersedia' : 'Tidak Tersedia'; ?></span>
-                            <?php $i = 0; ?>
-                            <?php foreach ($report->gambar_path as $image) : ?>
-                                <div class="carousel-item <?= ($i) ? '' : 'active'; ?>">
-                                    <img src="<?= base_url(); ?>/uploaded/images/<?= $image ?>" class="d-block w-100" alt="<?= $report->nama_gambar[$i++]; ?>">
-                                </div>
-                            <?php endforeach; ?>
-                            <?php if (!$report->gambar_path) : ?>
-                                <div class="carousel-item active">
-                                    <img src="<?= base_url(); ?>/uploaded/images/default.png" class="d-block w-100" alt="Gambar Default">
-                                </div>
-                            <?php endif; ?>
+            <div class="col-lg-3 col-md-3 carousel-laporan">
+                <div id="carouselExampleControls<?= $report->slug_laporan; ?>" class="carousel slide"
+                    data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <span
+                            class="notify-badges-<?= ($report->path_laporan) ? 'available' : 'notavailable'; ?>"><?= ($report->path_laporan) ? 'Tersedia' : 'Tidak Tersedia'; ?></span>
+                        <?php $i = 0; ?>
+                        <?php foreach ($report->gambar_path as $image) : ?>
+                        <div class="carousel-item <?= ($i) ? '' : 'active'; ?>">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $image ?>" class="d-block w-100"
+                                alt="<?= $report->nama_gambar[$i++]; ?>">
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+                        <?php endforeach; ?>
+                        <?php if (!$report->gambar_path) : ?>
+                        <div class="carousel-item active">
+                            <img src="<?= base_url(); ?>/uploaded/images/default.png" class="d-block w-100"
+                                alt="Gambar Default">
+                        </div>
+                        <?php endif; ?>
                     </div>
-                    <div class="products-text"><?= $report->nama_laporan; ?></div>
-                    <form action="<?= base_url('/investor/download'); ?>" method="post">
-                        <input type="hidden" name="path_laporan" value="<?= $report->path_laporan; ?>">
-                        <button class="btn btn-<?= ($report->path_laporan) ? 'primary' : 'secondary'; ?>" <?= ($report->path_laporan) ? '' : 'disabled'; ?>>Download Laporan</button>
-                    </form>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleControls<?= $report->slug_laporan; ?>" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+                <div class="products-text"><?= $report->nama_laporan; ?></div>
+                <form action="<?= base_url('/investor/download'); ?>" method="post">
+                    <input type="hidden" name="path_laporan" value="<?= $report->path_laporan; ?>">
+                    <button class="btn btn-<?= ($report->path_laporan) ? 'primary' : 'secondary'; ?>"
+                        <?= ($report->path_laporan) ? '' : 'disabled'; ?>>Download Laporan</button>
+                </form>
+            </div>
             <?php endforeach; ?>
         </div>
     </section>
@@ -85,6 +241,6 @@
 
 <?= $this->section('scripts'); ?>
 <script>
-    AOS.init();
+AOS.init();
 </script>
 <?= $this->endSection(); ?>

@@ -73,4 +73,14 @@ class InvestorModel extends Model
 
         return $results;
     }
+
+    public function getTeam(){
+        $builder = $this->db->table('team');
+        $builder->select('id_team, kategori_jabatan, jabatan, slug_jabatan, nama, image');
+        $builder->orderBy('id_team', 'ASC');
+
+        $result = $builder->get()->getResult();
+
+        return $result;
+    }
 }

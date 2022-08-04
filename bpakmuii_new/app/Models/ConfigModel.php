@@ -10,8 +10,7 @@ class ConfigModel extends Model
     protected $primaryKey = 'id_config';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'namaweb', 'email', 'telepon', 'logo', 'icon',
-        'link_drive_laporan', 'keyword', 'metatext'
+        'namaweb', 'email', 'telepon', 'logo', 'icon', 'popup', 'link_drive_laporan', 'link_popup', 'keyword', 'metatext'
     ];
 
     public function getConfig()

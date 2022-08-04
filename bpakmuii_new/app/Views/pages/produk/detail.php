@@ -34,26 +34,33 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="product-thumbnail">
-                            <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" class="xzoom" id="xzoom-default" xoriginal="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
+                            <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>"
+                                class="xzoom" id="xzoom-default"
+                                xoriginal="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
                         </div>
                     </div>
                     <div class="col-lg-2 img-wrapper">
                         <div class="row">
                             <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                <a href="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
-                                    <div class="product-preview xzoom-gallery" xpreview="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
-                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>" alt="Gambar Produk">
+                                <a
+                                    href="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
+                                    <div class="product-preview xzoom-gallery"
+                                        xpreview="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $product['product'][0]->path_gambar_cover; ?>"
+                                            alt="Gambar Produk">
                                     </div>
                                 </a>
                             </div>
                             <?php foreach ($product['images'] as $image) : ?>
-                                <div class="col-3 col-lg-12 mt-2 mt-lg-0">
-                                    <a href="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
-                                        <div class="product-preview xzoom-gallery" xpreview="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
-                                            <img src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>" alt="Gambar Produk">
-                                        </div>
-                                    </a>
-                                </div>
+                            <div class="col-3 col-lg-12 mt-2 mt-lg-0">
+                                <a href="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
+                                    <div class="product-preview xzoom-gallery"
+                                        xpreview="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>">
+                                        <img src="<?= base_url(); ?>/uploaded/images/<?= $image->path_gambar; ?>"
+                                            alt="Gambar Produk">
+                                    </div>
+                                </a>
+                            </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -63,16 +70,26 @@
             <!-- Description Section -->
             <div class="container description-product">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="products-text"><?= $product['product'][0]->nama_produk; ?></div>
                         <div class="products-price">Mulai dari <?= $product['product'][0]->harga_terendah; ?>/hari</div>
                     </div>
-                    <div class="col-lg-6 d-flex align-items-center mt-4 mt-lg-0">
-                        <a href="https://api.whatsapp.com/send?phone=<?= $product['phone']; ?>" class="btn btn-kontakwa d-flex align-items-center" target="_blank">
+                    <div class="col-lg-3 d-flex align-items-center mt-2 mt-lg-2">
+                        <a href="https://api.whatsapp.com/send?phone=<?= $product['phone']; ?>"
+                            class="btn btn-kontakwa d-flex align-items-center" target="_blank">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                             Kontak Untuk Peminjaman
                         </a>
                     </div>
+                    <div class="col-lg-3 d-flex align-items-center mt-2 mt-lg-12">
+                        <a href="<?fa fa-whatsapp $product['product'][0]->link; ?>"
+                            class=" btn btn-kontakwa d-flex align-items-center" target="_blank">
+                            <img src="/uploaded/images/olx.png" alt="" aria-hidden="true" height="21" width="28">
+                            Link Untuk Pemesanan Produk
+                        </a>
+
+                    </div>
+
                 </div>
                 <div class="row mt-5">
                     <div class="col-lg-8">
@@ -88,24 +105,24 @@
                             <tbody>
                                 <?php $index = 1; ?>
                                 <?php foreach ($packages as $pakcage) : ?>
-                                    <tr>
-                                        <!-- bagian ini isi dengan nomor paket -->
-                                        <th scope="row"><?= $index++; ?></th>
-                                        <!-- bagian ini isi dengan nama paket -->
-                                        <th><?= $pakcage->nama_paket; ?></th>
-                                        <!-- bagian ini isi dengan harga paket -->
-                                        <th><?= $pakcage->harga; ?></th>
-                                    </tr>
+                                <tr>
+                                    <!-- bagian ini isi dengan nomor paket -->
+                                    <th scope="row"><?= $index++; ?></th>
+                                    <!-- bagian ini isi dengan nama paket -->
+                                    <th><?= $pakcage->nama_paket; ?></th>
+                                    <!-- bagian ini isi dengan harga paket -->
+                                    <th><?= $pakcage->harga; ?></th>
+                                </tr>
                                 <?php endforeach; ?>
                                 <?php if (!$packages) : ?>
-                                    <tr>
-                                        <!-- bagian ini isi dengan nomor paket -->
-                                        <th scope="row"><?= $index; ?></th>
-                                        <!-- bagian ini isi dengan nama paket -->
-                                        <th>Paket belum didefinisikan</th>
-                                        <!-- bagian ini isi dengan harga paket -->
-                                        <th>Paket belum didefinisikan</th>
-                                    </tr>
+                                <tr>
+                                    <!-- bagian ini isi dengan nomor paket -->
+                                    <th scope="row"><?= $index; ?></th>
+                                    <!-- bagian ini isi dengan nama paket -->
+                                    <th>Paket belum didefinisikan</th>
+                                    <!-- bagian ini isi dengan harga paket -->
+                                    <th>Paket belum didefinisikan</th>
+                                </tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>
@@ -128,9 +145,9 @@
 
 <?= $this->section('scripts'); ?>
 <script>
-    AOS.init();
-    $(document).ready(function() {
-        xzoom();
-    });
+AOS.init();
+$(document).ready(function() {
+    xzoom();
+});
 </script>
 <?= $this->endSection(); ?>

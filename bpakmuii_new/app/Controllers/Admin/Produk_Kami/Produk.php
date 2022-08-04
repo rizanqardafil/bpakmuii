@@ -46,6 +46,7 @@ class Produk extends BaseController
         }
 
         $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
+        $this->error['regex_match'] = "Link Tidak Sesuai";
 
         $rules = [
             'nama_produk'   =>  [
@@ -63,6 +64,10 @@ class Produk extends BaseController
                 'rules' =>  'permit_empty|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
                 'errors'    => $this->error_message
             ],
+            'link' => [
+                'rules' =>  'max_length[255]',
+                'errors'    => $this->error
+            ],
             'path_gambar_cover' =>  [
                 'rules' =>  'uploaded[path_gambar_cover]|max_size[path_gambar_cover,8024]|is_image[path_gambar_cover]|mime_in[path_gambar_cover,image/jpg,image/jpeg,image/png]',
                 'errors'    => $this->error_message
@@ -75,7 +80,7 @@ class Produk extends BaseController
         $slug_produk = url_title($nama_produk, '-', true);
         $detail_produk = $this->request->getPost('detail_produk');
         $kontak = $this->request->getPost('kontak');
-
+        $link = $this->request->getPost('link');
         $files = $this->request->getFile('path_gambar_cover');
         $image_name = substr($files->getName(), 0, strrpos($files->getName(), '.'));
         $path_gambar_cover = $image_name . '_' . $files->getRandomName();
@@ -94,6 +99,7 @@ class Produk extends BaseController
             'slug_produk' => $slug_produk,
             'detail_produk'    => $detail_produk,
             'kontak'    =>  $kontak,
+            'link' => $link,
             'path_gambar_cover' => $path_gambar_cover,
             'path_nama_gambar' => $path_nama_gambar
         ];
@@ -121,6 +127,7 @@ class Produk extends BaseController
         ($nama_produk !== $product[0]->nama_produk) ? $nama_produk_rules .= '|is_unique[produk.nama_produk]' :  '';
 
         $this->error_message['regex_match'] = 'Kontak harus di awali angka 0';
+        $this->error['regex_match'] = "Link Tidak Sesuai";
         $rules = [
             'nama_produk'   =>  [
                 'rules' =>  $nama_produk_rules,
@@ -129,6 +136,10 @@ class Produk extends BaseController
             'kontak' =>  [
                 'rules' =>  'permit_empty|min_length[3]|max_length[15]|numeric|regex_match[/^0/]',
                 'errors'    => $this->error_message
+            ],
+            'link' => [
+                'rules' =>  'max_length[255]',
+                'errors'    => $this->error
             ],
             'detail_produk' =>  [
                 'rules' =>  'required|min_length[18]', // Detail produk memiliki default 9 karakter karena ketambahan tag p
@@ -149,7 +160,8 @@ class Produk extends BaseController
         $slug_produk = url_title($nama_produk, '-', true);
         $detail_produk = $this->request->getPost('detail_produk');
         $kontak = $this->request->getPost('kontak');
-
+        $link = $this->request->getPost('link');
+        
         $files = $this->request->getFile('path_gambar_cover');
         $path_gambar_cover_old = $this->request->getPost('path_gambar_cover');
         $path_gambar_cover = $product[0]->path_gambar_cover;
@@ -178,6 +190,7 @@ class Produk extends BaseController
             'slug_produk' => $slug_produk,
             'detail_produk'    => $detail_produk,
             'kontak'    => $kontak,
+            'link' => $link,
             'path_gambar_cover' => $path_gambar_cover,
             'path_nama_gambar' => $path_nama_gambar
         ];

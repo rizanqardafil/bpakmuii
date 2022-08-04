@@ -7,21 +7,24 @@
     </div>
     <div class="panel-body">
         <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+        <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
         <?php endif; ?>
         <?php if (session()->getFlashdata('message')) : ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
+        <div class="alert alert-danger"><?= session()->getFlashdata('message') ?></div>
         <?php endif; ?>
 
         <div class="table-responsive">
-            <form action="<?php echo base_url('/admin/logo-config/save-logo') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('/admin/logo-config/save-logo') ?>" method="post"
+                enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="logo" class="form-control" value="<?= $config[0]['logo']; ?>">
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Unggah Logo Baru</label>
-                        <input type="file" name="logo" class="form-control <?= ($validation->hasError('logo')) ? 'is-invalid' : '' ?>" id="file" onchange="previewImage()">
+                        <input type="file" name="logo"
+                            class="form-control <?= ($validation->hasError('logo')) ? 'is-invalid' : '' ?>" id="file"
+                            onchange="previewImage()">
                         <div class="invalid-feedback">
                             <?= $validation->getError('logo'); ?>
                         </div>
@@ -38,14 +41,14 @@
 
                 <label>Logo saat ini:</label><br>
                 <img src="<?= base_url(); ?>/uploaded/images/<?= $config[0]['logo']; ?>" width="200px">
-        </div>
 
-        <div class="col-md-12">
-            <input type="submit" name="submit" value="Save" class="btn btn-primary">
-        </div>
-        </form>
 
+                <div class="col-md-12">
+                    <input type="submit" name="submit" value="Save" class="btn btn-primary">
+                </div>
+            </form>
+
+        </div>
     </div>
-</div>
-</div>
-<?= $this->endSection(); ?>
+
+    <?= $this->endSection(); ?>

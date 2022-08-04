@@ -1,4 +1,19 @@
-<?php
+<?php foreach ($sliders as $slider) : ?>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="<?= base_url(); ?>/uploaded/images/<?= $slider['image'] ?>"
+                alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="..." alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="..." alt="Third slide">
+        </div>
+    </div>
+</div>
+<?php endforeach; ?><?php
 
 namespace App\Controllers;
 
